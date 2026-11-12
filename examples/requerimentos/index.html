@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Demonstração fictícia do UI-NPA. Não é um sistema municipal e não utiliza dados reais.">
+    <title>Gestão de Requerimentos — Demonstração UI-NPA</title>
+    <link rel="stylesheet" href="../../packages/styles/index.css">
+  </head>
+  <body class="iui-root">
+    <a class="iui-skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <div class="iui-shell">
+      <nav class="iui-sidebar" id="sidebar" aria-label="Seções da demonstração">
+        <div class="iui-sidebar__brand">
+          <span class="iui-sidebar__mark" aria-hidden="true">N</span>
+          <span class="iui-sidebar__brand-text">
+            <span class="iui-sidebar__product">UI-NPA</span>
+            <span class="iui-sidebar__context">Município de Exemplo</span>
+          </span>
+        </div>
+        <div class="iui-sidebar__nav">
+          <a class="iui-sidebar__link" href="#painel">
+            <svg class="iui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            </svg>
+            <span class="iui-sidebar__label">Painel</span>
+          </a>
+          <a class="iui-sidebar__link" href="#requerimentos">
+            <svg class="iui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7 3.5h7l4.5 4.5V20.5H7zM14 3.5v5h5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            </svg>
+            <span class="iui-sidebar__label">Requerimentos</span>
+          </a>
+          <a class="iui-sidebar__link" href="#novo">
+            <svg class="iui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 6v12M6 12h12" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <span class="iui-sidebar__label">Novo requerimento</span>
+          </a>
+          <a class="iui-sidebar__link" href="#situacoes">
+            <svg class="iui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M12 11v5M12 8h.01" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <span class="iui-sidebar__label">Situações</span>
+          </a>
+        </div>
+      </nav>
+      <div class="iui-shell__backdrop" hidden></div>
+      <div class="iui-shell__main">
+        <header class="iui-header">
+          <button
+            class="iui-button iui-button--subtle iui-button--icon"
+            type="button"
+            data-iui-sidebar-toggle
+            aria-controls="sidebar"
+            aria-expanded="true"
+          >
+            <svg class="iui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <span class="iui-visually-hidden" data-iui-toggle-label>Recolher menu</span>
+          </button>
+          <div class="iui-header__titles">
+            <p class="iui-header__eyebrow">Município de Exemplo</p>
+            <p class="iui-header__title">Gestão de Requerimentos</p>
+          </div>
+          <span class="iui-badge iui-badge--info">Demonstração</span>
+        </header>
+        <div class="iui-shell__content">
+          <main id="conteudo" class="iui-page iui-stack" tabindex="-1">
+            <section class="iui-section" id="painel" aria-labelledby="titulo-painel">
+              <div class="iui-stack iui-stack--sm">
+                <h1 class="iui-title" id="titulo-painel">Gestão municipal de requerimentos</h1>
+                <p class="iui-text iui-text--muted">
+                  Acompanhamento fictício de pedidos administrativos. Os números e nomes abaixo são sintéticos.
+                </p>
+              </div>
+              <div class="iui-grid">
+                <article class="iui-card iui-stack iui-stack--sm">
+                  <p class="iui-text iui-text--sm iui-text--muted">Em análise</p>
+                  <p class="iui-metric">18</p>
+                </article>
+                <article class="iui-card iui-stack iui-stack--sm">
+                  <p class="iui-text iui-text--sm iui-text--muted">Pendentes</p>
+                  <p class="iui-metric">7</p>
+                </article>
+                <article class="iui-card iui-stack iui-stack--sm">
+                  <p class="iui-text iui-text--sm iui-text--muted">Deferidos no mês</p>
+                  <p class="iui-metric">26</p>
+                </article>
+                <article class="iui-card iui-stack iui-stack--sm">
+                  <p class="iui-text iui-text--sm iui-text--muted">Indeferidos no mês</p>
+                  <p class="iui-metric">4</p>
+                </article>
+              </div>
+              <div class="iui-grid">
+                <article class="iui-card iui-stack">
+                  <h2 class="iui-heading">Distribuição ilustrativa</h2>
+                  <p class="iui-text">
+                    Poda de árvore, alvará, iluminação pública e ocupação de via concentram o recorte fictício deste mês.
+                  </p>
+                  <a class="iui-button iui-button--primary" href="#requerimentos">Ver requerimentos</a>
+                </article>
+                <article class="iui-card iui-stack">
+                  <h2 class="iui-heading">Atenção do setor</h2>
+                  <p class="iui-text">
+                    Quatro pedidos ilustrativos aguardam complemento de documento. Nenhum prazo real está em curso.
+                  </p>
+                  <a class="iui-button iui-button--secondary" href="#situacoes">Ver situações</a>
+                </article>
+              </div>
+            </section>
+
+            <section class="iui-section" id="requerimentos" aria-labelledby="titulo-requerimentos">
+              <div class="iui-stack iui-stack--sm">
+                <h2 class="iui-heading" id="titulo-requerimentos">Requerimentos</h2>
+                <p class="iui-text iui-text--muted">Últimos registros sintéticos do Município de Exemplo.</p>
+              </div>
+              <div class="iui-alert" role="status">
+                <p class="iui-alert__title">Dados de demonstração</p>
+                <p>Esta tabela não consulta protocolo, cadastro nem base institucional.</p>
+              </div>
+              <div class="iui-field">
+                <label class="iui-field__label" for="pesquisa">Pesquisar requerimentos</label>
+                <input class="iui-field__control" id="pesquisa" type="search" name="pesquisa" placeholder="Protocolo, nome ou assunto" autocomplete="off">
+              </div>
+              <p class="iui-text iui-text--sm iui-text--muted" data-iui-count aria-live="polite"></p>
+              <div class="iui-table-wrap" role="region" tabindex="0" aria-label="Tabela de requerimentos com rolagem horizontal quando necessário">
+                <table class="iui-table">
+                  <caption class="iui-visually-hidden">Requerimentos de exemplo</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Protocolo</th>
+                      <th scope="col">Assunto</th>
+                      <th scope="col">Requerente</th>
+                      <th scope="col">Situação</th>
+                      <th scope="col">Bairro</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-iui-row="REQ-2026-0142 Poda de árvore Ana Ribeiro Em análise Bairro das Acácias">
+                      <td>REQ-2026-0142</td>
+                      <td>Poda de árvore</td>
+                      <td>Ana Ribeiro</td>
+                      <td><span class="iui-badge iui-badge--info">Em análise</span></td>
+                      <td>Bairro das Acácias</td>
+                    </tr>
+                    <tr data-iui-row="REQ-2026-0148 Alvará de funcionamento Carlos Mendonça Pendente Vila Norte">
+                      <td>REQ-2026-0148</td>
+                      <td>Alvará de funcionamento</td>
+                      <td>Carlos Mendonça</td>
+                      <td><span class="iui-badge iui-badge--warning">Pendente</span></td>
+                      <td>Vila Norte</td>
+                    </tr>
+                    <tr data-iui-row="REQ-2026-0151 Reparo de iluminação Helena Duarte Deferido Centro">
+                      <td>REQ-2026-0151</td>
+                      <td>Reparo de iluminação</td>
+                      <td>Helena Duarte</td>
+                      <td><span class="iui-badge iui-badge--success">Deferido</span></td>
+                      <td>Centro</td>
+                    </tr>
+                    <tr data-iui-row="REQ-2026-0156 Ocupação de via João Pacheco Em análise Jardim das Palmeiras">
+                      <td>REQ-2026-0156</td>
+                      <td>Ocupação de via</td>
+                      <td>João Pacheco</td>
+                      <td><span class="iui-badge iui-badge--info">Em análise</span></td>
+                      <td>Jardim das Palmeiras</td>
+                    </tr>
+                    <tr data-iui-row="REQ-2026-0160 Poda de árvore Marina Lopes Deferido Bairro das Acácias">
+                      <td>REQ-2026-0160</td>
+                      <td>Poda de árvore</td>
+                      <td>Marina Lopes</td>
+                      <td><span class="iui-badge iui-badge--success">Deferido</span></td>
+                      <td>Bairro das Acácias</td>
+                    </tr>
+                    <tr data-iui-row="REQ-2026-0164 Alvará de funcionamento Paulo Vieira Indeferido Vila Norte">
+                      <td>REQ-2026-0164</td>
+                      <td>Alvará de funcionamento</td>
+                      <td>Paulo Vieira</td>
+                      <td><span class="iui-badge iui-badge--danger">Indeferido</span></td>
+                      <td>Vila Norte</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="iui-section" id="novo" aria-labelledby="titulo-novo">
+              <div class="iui-stack iui-stack--sm">
+                <h2 class="iui-heading" id="titulo-novo">Novo requerimento</h2>
+                <p class="iui-text iui-text--muted">Formulário local. O envio não grava nem transmite dados.</p>
+              </div>
+              <div class="iui-alert iui-alert--success" role="status" data-iui-success hidden>
+                <p class="iui-alert__title">Registro simulado</p>
+                <p>O exemplo foi conferido neste navegador. Nenhum protocolo foi gerado.</p>
+              </div>
+              <form class="iui-stack" id="formulario" novalidate>
+                <div class="iui-field">
+                  <label class="iui-field__label" for="requerente">Nome do requerente (obrigatório)</label>
+                  <input class="iui-field__control" id="requerente" name="requerente" type="text" autocomplete="name" aria-describedby="requerente-erro">
+                  <p class="iui-field__error" id="requerente-erro" hidden>Informe o nome do requerente.</p>
+                </div>
+                <div class="iui-field">
+                  <label class="iui-field__label" for="tipo">Assunto (obrigatório)</label>
+                  <select class="iui-field__control" id="tipo" name="tipo" aria-describedby="tipo-erro">
+                    <option value="">Selecione</option>
+                    <option value="poda">Poda de árvore</option>
+                    <option value="alvara">Alvará de funcionamento</option>
+                    <option value="iluminacao">Reparo de iluminação</option>
+                    <option value="via">Ocupação de via</option>
+                  </select>
+                  <p class="iui-field__error" id="tipo-erro" hidden>Selecione o assunto.</p>
+                </div>
+                <div class="iui-field">
+                  <label class="iui-field__label" for="descricao">Descrição</label>
+                  <textarea class="iui-field__control" id="descricao" name="descricao"></textarea>
+                  <p class="iui-field__hint">Texto livre para o exemplo. Não inclua documentos nem dados pessoais reais.</p>
+                </div>
+                <div class="iui-cluster">
+                  <button class="iui-button iui-button--primary" type="submit">Registrar requerimento</button>
+                  <button class="iui-button iui-button--secondary" type="reset">Limpar</button>
+                  <button class="iui-button" type="button" disabled aria-describedby="exportar-nota">Exportar</button>
+                </div>
+                <p class="iui-field__hint" id="exportar-nota">Exportar permanece indisponível nesta demonstração.</p>
+              </form>
+            </section>
+
+            <section class="iui-section" id="situacoes" aria-labelledby="titulo-situacoes">
+              <div class="iui-stack iui-stack--sm">
+                <h2 class="iui-heading" id="titulo-situacoes">Situações</h2>
+                <p class="iui-text iui-text--muted">Estados visuais autorizados para feedback e ações.</p>
+              </div>
+              <div class="iui-cluster" aria-label="Exemplos de situação">
+                <span class="iui-badge iui-badge--info">Em análise</span>
+                <span class="iui-badge iui-badge--warning">Pendente</span>
+                <span class="iui-badge iui-badge--success">Deferido</span>
+                <span class="iui-badge iui-badge--danger">Indeferido</span>
+                <span class="iui-badge">Arquivado</span>
+              </div>
+              <div class="iui-alert iui-alert--warning" role="status">
+                <p class="iui-alert__title">Pendência ilustrativa</p>
+                <p>O pedido REQ-2026-0148 aguarda um anexo fictício. Não há documento real associado.</p>
+              </div>
+              <div class="iui-alert iui-alert--danger" role="alert" data-iui-simulated hidden>
+                <p class="iui-alert__title">Ação simulada</p>
+                <p>Nenhum registro foi alterado.</p>
+              </div>
+              <div class="iui-cluster">
+                <button class="iui-button iui-button--subtle" type="button">Ação discreta</button>
+                <button class="iui-button iui-button--danger" type="button" data-iui-simulate>Arquivar exemplo</button>
+              </div>
+            </section>
+
+            <footer class="iui-section">
+              <p class="iui-text iui-text--sm iui-text--muted">
+                Demonstração sintética do UI-NPA 0.1.0. Não constitui sistema oficial. A paleta é provisória e não está homologada.
+              </p>
+            </footer>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
