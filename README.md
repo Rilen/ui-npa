@@ -4,7 +4,7 @@ Design System institucional do Núcleo de Pesquisas Avançadas.
 
 Uma identidade. Um padrão. Múltiplos sistemas.
 
-Esta é a fundação `0.1.0`. A paleta é **provisória** e não está homologada. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
+Esta é a versão `0.2.0`. A paleta é **provisória** e não está homologada. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
 
 ## Começar
 
@@ -29,7 +29,8 @@ A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
 | Tokens DTCG, tema claro e CSS universal | Implementado |
 | Button, Card, Text, Badge, Field, Alert, Table, Sidebar, Shell | Implementado |
 | Demonstração fictícia de requerimentos | Implementado |
-| Governança IUI-001 a IUI-012 | Implementado |
+| Identidade institucional e rodapé técnico | Implementado |
+| Governança IUI-001 a IUI-014 | Implementado |
 | Protocolo `ui-npa-migration` | Especificado, não executado |
 | Tema escuro | Experimental |
 | React, Angular, PHP e Web Components | Planejado |
@@ -41,6 +42,7 @@ A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
 - Decisão: [docs/decisions/001-foundation.md](docs/decisions/001-foundation.md)
 - Tokens: [docs/tokens.md](docs/tokens.md)
 - Temas: [docs/themes.md](docs/themes.md)
+- Identidade: [docs/identity.md](docs/identity.md)
 - Componentes: [docs/components.md](docs/components.md)
 - Governança: [governance/UI-NPA-GOVERNANCE.md](governance/UI-NPA-GOVERNANCE.md)
 - Acessibilidade: [docs/accessibility.md](docs/accessibility.md)

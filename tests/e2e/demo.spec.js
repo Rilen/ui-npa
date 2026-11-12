@@ -67,6 +67,7 @@ test("no mobile a navegação é temporária e fecha com Escape", async ({ page 
 });
 
 test("a tabela rola na largura estreita e a pesquisa filtra", async ({ page }) => {
+  await page.getByRole("link", { name: "Requerimentos", exact: true }).click();
   await page.getByLabel("Pesquisar requerimentos").fill("poda");
   await expect(page.getByText("2 requerimentos encontrados.")).toBeVisible();
   await expect(page.getByRole("cell", { name: "Ana Ribeiro" })).toBeVisible();
@@ -78,6 +79,7 @@ test("a tabela rola na largura estreita e a pesquisa filtra", async ({ page }) =
 });
 
 test("o formulário valida e a ação destrutiva é apenas simulada", async ({ page }) => {
+  await page.getByRole("link", { name: "Novo requerimento" }).click();
   await page.getByRole("button", { name: "Registrar requerimento" }).click();
   await expect(page.getByText("Informe o nome do requerente.")).toBeVisible();
   await expect(page.locator("#requerente")).toHaveAttribute("aria-invalid", "true");
@@ -87,6 +89,7 @@ test("o formulário valida e a ação destrutiva é apenas simulada", async ({ p
   await page.getByRole("button", { name: "Registrar requerimento" }).click();
   await expect(page.getByText("Registro simulado")).toBeVisible();
 
+  await page.getByRole("link", { name: "Situações", exact: true }).click();
   await page.getByRole("button", { name: "Arquivar exemplo" }).click();
   await expect(page.getByText("Nenhum registro foi alterado.")).toBeVisible();
 });

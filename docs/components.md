@@ -169,23 +169,38 @@ Responsivo: o wrapper rola quando a tabela atinge `size.table.min`.
 
 Implementado. Contrato obrigatório para navegação lateral aderente (IUI-009).
 
+A identidade institucional e o rodapé seguem [docs/identity.md](identity.md). O shell empilha a faixa, depois o corpo com sidebar e coluna principal.
+
 ```html
 <div class="iui-shell">
-  <nav class="iui-sidebar" id="sidebar" aria-label="Seções">
-    <a class="iui-sidebar__link" href="#painel" aria-current="page">
-      <svg class="iui-icon" aria-hidden="true"></svg>
-      <span class="iui-sidebar__label">Painel</span>
-    </a>
-  </nav>
-  <div class="iui-shell__backdrop" hidden></div>
-  <div class="iui-shell__main">
-    <header class="iui-header">
-      <button class="iui-button iui-button--subtle iui-button--icon" type="button" data-iui-sidebar-toggle aria-controls="sidebar" aria-expanded="true">
-        <span class="iui-visually-hidden" data-iui-toggle-label>Recolher menu</span>
-      </button>
-    </header>
-    <div class="iui-shell__content">
-      <main id="conteudo"></main>
+  <div class="iui-institution">
+    <div data-iui-slot="municipality"><img data-iui-logo alt=""><span data-iui-label></span></div>
+    <div data-iui-slot="department"><span data-iui-label></span><img data-iui-logo alt=""></div>
+  </div>
+  <div class="iui-shell__body">
+    <nav class="iui-sidebar" id="sidebar" aria-label="Seções">
+      <div data-iui-slot="sector"><img class="iui-sidebar__mark" data-iui-logo alt=""><span data-iui-label></span></div>
+      <a class="iui-sidebar__link" href="#painel" aria-current="page">
+        <svg class="iui-icon" aria-hidden="true"></svg>
+        <span class="iui-sidebar__label">Painel</span>
+      </a>
+    </nav>
+    <div class="iui-shell__backdrop" hidden></div>
+    <div class="iui-shell__main">
+      <header class="iui-header">
+        <button class="iui-button iui-button--subtle iui-button--icon" type="button" data-iui-sidebar-toggle aria-controls="sidebar" aria-expanded="true">
+          <span class="iui-visually-hidden" data-iui-toggle-label>Recolher menu</span>
+        </button>
+        <p class="iui-header__title" data-iui-app-name></p>
+      </header>
+      <div class="iui-shell__content"><main id="conteudo"></main></div>
+      <footer class="iui-footer">
+        <span data-iui-app-name></span>
+        <span data-iui-app-version></span>
+        <a href="#changelog" data-iui-changelog-link>Novidades</a>
+        <a href="#sobre">Sobre o sistema</a>
+        <span data-iui-developer></span>
+      </footer>
     </div>
   </div>
 </div>
@@ -210,7 +225,7 @@ A persistência é opcional e a chave pertence à aplicação. Sem `storage`, a 
 Comportamento:
 
 - Desktop, a partir de `48rem`: expandida ou recolhida. No estado recolhido o rótulo sai da vista, permanece no nome acessível e reaparece no hover e no foco.
-- Mobile, até `47.99rem`: a navegação fica fora da tela, `inert` e `aria-hidden` enquanto fechada, e abre como painel temporário abaixo do cabeçalho. O botão do cabeçalho passa a se chamar “Fechar menu”. Escape e o clique na cortina também fecham. Um botão interno opcional `[data-iui-sidebar-close]` pode existir, com nome que não repita o do cabeçalho. A preferência recolhida não substitui esse painel.
+- Mobile, até `47.99rem`: a navegação fica fora da tela, `inert` e `aria-hidden` enquanto fechada, e abre como painel temporário abaixo da faixa institucional e do cabeçalho. O botão do cabeçalho passa a se chamar “Fechar menu”. Escape e o clique na cortina também fecham. Um botão interno opcional `[data-iui-sidebar-close]` pode existir, com nome que não repita o do cabeçalho. A preferência recolhida não substitui esse painel.
 - Setas, Home e End movem o foco entre os links.
 - Com o painel móvel aberto, Tab permanece dentro da sidebar.
 - O conteúdo principal fica `inert` enquanto o painel móvel está aberto. O botão do cabeçalho continua disponível ao ponteiro.

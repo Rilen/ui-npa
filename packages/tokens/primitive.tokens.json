@@ -71,6 +71,7 @@
       "md": { "$type": "dimension", "$value": "1rem" },
       "lg": { "$type": "dimension", "$value": "1.25rem" },
       "xl": { "$type": "dimension", "$value": "1.5rem" },
+      "display": { "$type": "dimension", "$value": "1.75rem" },
       "2xl": { "$type": "dimension", "$value": "2rem" }
     },
     "weight": {
@@ -144,12 +145,13 @@
       "gutter": { "$type": "dimension", "$value": "3rem" }
     },
     "header": { "$type": "dimension", "$value": "3.5rem" },
+    "institution": { "$type": "dimension", "$value": "4rem" },
     "control": {
       "sm": { "$type": "dimension", "$value": "2rem" },
       "md": { "$type": "dimension", "$value": "2.25rem" }
     },
     "content": {
-      "max": { "$type": "dimension", "$value": "70rem" }
+      "max": { "$type": "dimension", "$value": "96rem" }
     },
     "field": {
       "max": { "$type": "dimension", "$value": "32rem" }
@@ -158,6 +160,11 @@
       "min": { "$type": "dimension", "$value": "14rem" }
     },
     "icon": { "$type": "dimension", "$value": "1.25rem" },
+    "logo": {
+      "sm": { "$type": "dimension", "$value": "2rem" },
+      "md": { "$type": "dimension", "$value": "2.5rem" },
+      "max": { "$type": "dimension", "$value": "7.5rem" }
+    },
     "table": {
       "min": { "$type": "dimension", "$value": "40rem" }
     }

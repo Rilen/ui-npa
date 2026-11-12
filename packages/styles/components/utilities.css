@@ -28,11 +28,19 @@
   width: 100%;
 }
 
+.iui-shell__content > .iui-page {
+  flex: 1;
+}
+
 .iui-section {
   display: flex;
   flex-direction: column;
   gap: var(--iui-space-4);
   scroll-margin-top: calc(var(--iui-size-header) + var(--iui-space-4));
+}
+
+.iui-section[hidden] {
+  display: none;
 }
 
 .iui-skip-link {

@@ -13,6 +13,7 @@ Regras de execução desta fundação:
 - Não edite `packages/styles/tokens.css`. Altere `packages/tokens` e rode `npm run build`.
 - Não publique pacote, não faça push e não migre sistema real sem autorização explícita.
 - A paleta atual é provisória.
+- Identidade de Prefeitura, Secretaria e Setor segue [docs/identity.md](docs/identity.md). Não embuta marca municipal no núcleo.
 - Não declare conformidade WCAG integral com base apenas nos testes automáticos.
 
 As mesmas instruções valem para Cursor, Kilo CLI, Copilot e outros agentes. Não há regra duplicada por fornecedor: os documentos acima são a referência.

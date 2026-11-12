@@ -2,6 +2,26 @@
 
 O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](docs/versioning.md).
 
+## [0.2.0] - 2026-11-12
+
+Refinamento visual e contrato de identidade institucional. Nenhuma publicação remota.
+
+### Adicionado
+
+- IUI-013 e IUI-014: faixa Prefeitura e Secretaria, Setor na sidebar, rodapé com versão da aplicação, changelog, crédito NPA e Sobre o sistema.
+- Contrato `applyInstitutionalIdentity`, independente de framework.
+- Tokens de largura de conteúdo, faixa institucional, logomarca e título.
+
+### Alterado
+
+- A demonstração deixa de concentrar o conteúdo em coluna estreita e separa as seções na navegação existente.
+- A versão exibida na demonstração é a da aplicação fictícia (`1.4.0`). A versão do UI-NPA aparece em Sobre o sistema.
+
+### Limitações
+
+- A paleta continua provisória e não está homologada.
+- As marcas e o changelog da demonstração são sintéticos.
+
 ## [0.1.0] - 2026-11-12
 
 Fundação do UI-NPA para revisão. Nenhuma publicação remota.

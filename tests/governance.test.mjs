@@ -46,7 +46,7 @@ test("o breakpoint da sidebar é o mesmo no CSS e no comportamento", () => {
 
 test("a governança e o protocolo exigidos estão presentes", () => {
   const governance = fs.readFileSync(path.join(root, "governance/UI-NPA-GOVERNANCE.md"), "utf8");
-  for (let index = 1; index <= 12; index += 1) {
+  for (let index = 1; index <= 14; index += 1) {
     assert.match(governance, new RegExp(`IUI-${String(index).padStart(3, "0")}`));
   }
   assert.match(governance, /não verifica automaticamente toda a política/i);

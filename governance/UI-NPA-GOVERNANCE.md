@@ -52,11 +52,19 @@ Exceções visuais devem ser justificadas, registradas e aprovadas conforme a go
 
 Não introduzir abstrações ou dependências sem benefício demonstrável. Pacotes e componentes não são criados apenas para antecipar uso futuro.
 
+## IUI-013 — Identidade Institucional Hierárquica
+
+Toda aplicação aderente configura Prefeitura, Secretaria e Setor sem gravar marcas específicas no núcleo. A faixa superior identifica Prefeitura, à esquerda, e Secretaria, à direita. A sidebar identifica o Setor. O contrato e as posições estão em [docs/identity.md](../docs/identity.md).
+
+## IUI-014 — Identificação e Transparência Técnica
+
+Toda aplicação aderente apresenta, no rodapé, o nome e a versão da aplicação, o acesso ao changelog, o crédito “Desenvolvido por NPA” e o acesso às informações do sistema. A versão exibida é a da aplicação. A versão do UI-NPA fica nos detalhes técnicos.
+
 ## Verificação automática
 
-Há teste para parte objetiva de IUI-001, IUI-004, IUI-006 e IUI-009: integridade da geração, ausência de cor literal nos componentes, prefixo `iui-`, contraste dos pares declarados, estrutura do protocolo e comportamento da sidebar na demonstração.
+Há teste para parte objetiva de IUI-001, IUI-004, IUI-006, IUI-009, IUI-013 e IUI-014: integridade da geração, ausência de cor literal nos componentes, prefixo `iui-`, contraste dos pares declarados, estrutura do protocolo, comportamento da sidebar, contrato de identidade e rodapé da demonstração.
 
-Este repositório não verifica automaticamente toda a política. IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012 dependem de revisão humana ou de uma missão futura. IUI-004 também não fica integralmente coberto por automação.
+Este repositório não verifica automaticamente toda a política. IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012 dependem de revisão humana. IUI-004, IUI-013 e IUI-014 também não ficam integralmente cobertos por automação.
 
 ## Aplicações aderentes
 
@@ -64,5 +72,5 @@ Uma aplicação aderente:
 
 - consome a folha `packages/styles/index.css` ou um artefato gerado a partir dela;
 - envolve a região modernizada com `iui-root`;
-- usa os contratos de [docs/components.md](../docs/components.md);
+- usa os contratos de [docs/components.md](../docs/components.md) e [docs/identity.md](../docs/identity.md);
 - registra exceção quando precisar sair do contrato.

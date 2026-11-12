@@ -1,5 +1,5 @@
 /* Não editar. Gerado por scripts/build-tokens.mjs a partir de packages/tokens. */
-/* UI-NPA 0.1.0. Paleta provisória, não homologada. */
+/* UI-NPA 0.2.0. Paleta provisória, não homologada. */
 
 :root {
   --iui-border-width-focus: 2px;
@@ -53,6 +53,7 @@
   --iui-font-line-normal: 1.5;
   --iui-font-line-tight: 1.25;
   --iui-font-size-2xl: 2rem;
+  --iui-font-size-display: 1.75rem;
   --iui-font-size-lg: 1.25rem;
   --iui-font-size-md: 1rem;
   --iui-font-size-sm: 0.875rem;
@@ -67,13 +68,17 @@
   --iui-radius-sm: 0.125rem;
   --iui-shadow-md: 0 4px 12px 0 #171b261f;
   --iui-shadow-sm: 0 1px 2px 0 #171b2614;
-  --iui-size-content-max: 70rem;
+  --iui-size-content-max: 96rem;
   --iui-size-control-md: 2.25rem;
   --iui-size-control-sm: 2rem;
   --iui-size-field-max: 32rem;
   --iui-size-grid-min: 14rem;
   --iui-size-header: 3.5rem;
   --iui-size-icon: 1.25rem;
+  --iui-size-institution: 4rem;
+  --iui-size-logo-max: 7.5rem;
+  --iui-size-logo-md: 2.5rem;
+  --iui-size-logo-sm: 2rem;
   --iui-size-sidebar-collapsed: 4rem;
   --iui-size-sidebar-expanded: 15rem;
   --iui-size-sidebar-gutter: 3rem;

@@ -11,5 +11,7 @@
 @import "./components/table.css" layer(iui.components);
 @import "./components/sidebar.css" layer(iui.components);
 @import "./components/shell.css" layer(iui.components);
+@import "./components/institution.css" layer(iui.components);
+@import "./components/footer.css" layer(iui.components);
 @import "./components/utilities.css" layer(iui.utilities);
 @import "./components/motion.css" layer(iui.utilities);

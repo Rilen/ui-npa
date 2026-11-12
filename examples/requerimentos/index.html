@@ -10,12 +10,22 @@
   <body class="iui-root">
     <a class="iui-skip-link" href="#conteudo">Ir para o conteúdo</a>
     <div class="iui-shell">
+      <div class="iui-institution">
+        <div class="iui-institution__municipality" data-iui-slot="municipality">
+          <img class="iui-institution__logo" data-iui-logo alt="">
+          <span class="iui-institution__label" data-iui-label></span>
+        </div>
+        <div class="iui-institution__department" data-iui-slot="department">
+          <span class="iui-institution__label" data-iui-label></span>
+          <img class="iui-institution__logo" data-iui-logo alt="">
+        </div>
+      </div>
+      <div class="iui-shell__body">
       <nav class="iui-sidebar" id="sidebar" aria-label="Seções da demonstração">
-        <div class="iui-sidebar__brand">
-          <span class="iui-sidebar__mark" aria-hidden="true">N</span>
+        <div class="iui-sidebar__brand" data-iui-slot="sector">
+          <img class="iui-sidebar__mark" data-iui-logo alt="">
           <span class="iui-sidebar__brand-text">
-            <span class="iui-sidebar__product">UI-NPA</span>
-            <span class="iui-sidebar__context">Município de Exemplo</span>
+            <span class="iui-sidebar__product" data-iui-label></span>
           </span>
         </div>
         <div class="iui-sidebar__nav">
@@ -62,14 +72,13 @@
             <span class="iui-visually-hidden" data-iui-toggle-label>Recolher menu</span>
           </button>
           <div class="iui-header__titles">
-            <p class="iui-header__eyebrow">Município de Exemplo</p>
-            <p class="iui-header__title">Gestão de Requerimentos</p>
+            <p class="iui-header__title" data-iui-app-name></p>
           </div>
           <span class="iui-badge iui-badge--info">Demonstração</span>
         </header>
         <div class="iui-shell__content">
           <main id="conteudo" class="iui-page iui-stack" tabindex="-1">
-            <section class="iui-section" id="painel" aria-labelledby="titulo-painel">
+            <section class="iui-section" id="painel" data-iui-section aria-labelledby="titulo-painel">
               <div class="iui-stack iui-stack--sm">
                 <h1 class="iui-title" id="titulo-painel">Gestão municipal de requerimentos</h1>
                 <p class="iui-text iui-text--muted">
@@ -112,9 +121,9 @@
               </div>
             </section>
 
-            <section class="iui-section" id="requerimentos" aria-labelledby="titulo-requerimentos">
+            <section class="iui-section" id="requerimentos" data-iui-section aria-labelledby="titulo-requerimentos">
               <div class="iui-stack iui-stack--sm">
-                <h2 class="iui-heading" id="titulo-requerimentos">Requerimentos</h2>
+                <h1 class="iui-title" id="titulo-requerimentos">Requerimentos</h1>
                 <p class="iui-text iui-text--muted">Últimos registros sintéticos do Município de Exemplo.</p>
               </div>
               <div class="iui-alert" role="status">
@@ -186,9 +195,9 @@
               </div>
             </section>
 
-            <section class="iui-section" id="novo" aria-labelledby="titulo-novo">
+            <section class="iui-section" id="novo" data-iui-section aria-labelledby="titulo-novo">
               <div class="iui-stack iui-stack--sm">
-                <h2 class="iui-heading" id="titulo-novo">Novo requerimento</h2>
+                <h1 class="iui-title" id="titulo-novo">Novo requerimento</h1>
                 <p class="iui-text iui-text--muted">Formulário local. O envio não grava nem transmite dados.</p>
               </div>
               <div class="iui-alert iui-alert--success" role="status" data-iui-success hidden>
@@ -226,9 +235,9 @@
               </form>
             </section>
 
-            <section class="iui-section" id="situacoes" aria-labelledby="titulo-situacoes">
+            <section class="iui-section" id="situacoes" data-iui-section aria-labelledby="titulo-situacoes">
               <div class="iui-stack iui-stack--sm">
-                <h2 class="iui-heading" id="titulo-situacoes">Situações</h2>
+                <h1 class="iui-title" id="titulo-situacoes">Situações</h1>
                 <p class="iui-text iui-text--muted">Estados visuais autorizados para feedback e ações.</p>
               </div>
               <div class="iui-cluster" aria-label="Exemplos de situação">
@@ -252,13 +261,35 @@
               </div>
             </section>
 
-            <footer class="iui-section">
-              <p class="iui-text iui-text--sm iui-text--muted">
-                Demonstração sintética do UI-NPA 0.1.0. Não constitui sistema oficial. A paleta é provisória e não está homologada.
-              </p>
-            </footer>
+            <section class="iui-section" id="changelog" data-iui-section hidden aria-labelledby="titulo-changelog">
+              <div class="iui-stack iui-stack--sm">
+                <h1 class="iui-title" id="titulo-changelog">Novidades</h1>
+                <p class="iui-text iui-text--muted">Histórico sintético desta demonstração. Não descreve publicações reais.</p>
+              </div>
+              <div class="iui-stack" data-iui-changelog></div>
+            </section>
+
+            <section class="iui-section" id="sobre" data-iui-section hidden aria-labelledby="titulo-sobre">
+              <div class="iui-stack iui-stack--sm">
+                <h1 class="iui-title" id="titulo-sobre">Sobre o sistema</h1>
+                <p class="iui-text iui-text--muted">Informações da configuração desta demonstração. A paleta permanece provisória e não está homologada.</p>
+              </div>
+              <dl class="iui-meta" data-iui-about></dl>
+            </section>
           </main>
         </div>
+        <footer class="iui-footer">
+          <p class="iui-footer__identity">
+            <span data-iui-app-name></span>
+            <span data-iui-app-version></span>
+          </p>
+          <nav class="iui-footer__links" aria-label="Informações do sistema">
+            <a href="#changelog" data-iui-changelog-link>Novidades</a>
+            <a href="#sobre">Sobre o sistema</a>
+          </nav>
+          <p class="iui-footer__credit" data-iui-developer></p>
+        </footer>
+      </div>
       </div>
     </div>
     <script type="module" src="./app.js"></script>

@@ -1,3 +1,4 @@
+import { applyInstitutionalIdentity } from "../../packages/styles/identity.js";
 import { mountSidebar } from "../../packages/styles/sidebar.js";
 
 const sidebar = document.querySelector("#sidebar");
@@ -6,6 +7,45 @@ const storageKey = "ui-npa-demo-sidebar";
 if (!sidebar) {
   throw new Error("Sidebar da demonstração não encontrada.");
 }
+
+applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
+  municipality: {
+    name: "Prefeitura Municipal de Exemplo",
+    logo: "./assets/prefeitura.svg",
+    logoAlt: "Marca de demonstração da Prefeitura Municipal de Exemplo",
+  },
+  department: {
+    name: "Secretaria Municipal de Exemplo",
+    logo: "./assets/secretaria.svg",
+    logoAlt: "Marca de demonstração da Secretaria Municipal de Exemplo",
+  },
+  sector: {
+    name: "Setor de Atendimento",
+    logo: "./assets/setor.svg",
+    logoAlt: "Marca de demonstração do Setor de Atendimento",
+  },
+  application: {
+    name: "Gestão de Requerimentos",
+    version: "1.4.0",
+    developer: "NPA",
+    changelog: [
+      {
+        version: "1.4.0",
+        date: "2026-11-12",
+        notes: ["Registro sintético do contrato de novidades. Não descreve uma publicação real."],
+      },
+      {
+        version: "1.3.0",
+        date: "2026-08-01",
+        notes: ["Exemplo sintético de versão anterior, apenas para demonstrar a lista."],
+      },
+    ],
+  },
+  designSystem: {
+    name: "UI-NPA",
+    version: "0.2.0",
+  },
+});
 
 mountSidebar(sidebar, {
   toggle: document.querySelector("[data-iui-sidebar-toggle]"),
@@ -22,19 +62,24 @@ mountSidebar(sidebar, {
 });
 
 const links = [...document.querySelectorAll(".iui-sidebar__link")];
+const sections = [...document.querySelectorAll("[data-iui-section]")];
 
-function syncCurrent() {
+function showSection() {
   const hash = window.location.hash;
-  const known = links.some((link) => link.getAttribute("href") === hash);
+  const known = sections.some((section) => `#${section.id}` === hash);
   const current = known ? hash : "#painel";
+  for (const section of sections) {
+    section.hidden = `#${section.id}` !== current;
+  }
   for (const link of links) {
     if (link.getAttribute("href") === current) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   }
+  document.querySelector(".iui-shell__content")?.scrollTo(0, 0);
 }
 
-window.addEventListener("hashchange", syncCurrent);
-syncCurrent();
+window.addEventListener("hashchange", showSection);
+showSection();
 
 const search = document.querySelector("#pesquisa");
 const rows = [...document.querySelectorAll("[data-iui-row]")];

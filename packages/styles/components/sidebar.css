@@ -23,17 +23,11 @@
 }
 
 .iui-sidebar__mark {
-  align-items: center;
-  background: var(--iui-color-action-primary-bg);
-  border-radius: var(--iui-radius-md);
-  color: var(--iui-color-action-primary-fg);
-  display: inline-flex;
+  display: block;
   flex: 0 0 auto;
-  font-size: var(--iui-font-size-sm);
-  font-weight: var(--iui-font-weight-semibold);
-  height: var(--iui-size-control-sm);
-  justify-content: center;
-  width: var(--iui-size-control-sm);
+  height: var(--iui-size-logo-sm);
+  object-fit: contain;
+  width: var(--iui-size-logo-sm);
 }
 
 .iui-sidebar__product,
@@ -96,10 +90,8 @@
 
 @media (min-width: 48rem) {
   .iui-sidebar {
-    height: 100vh;
+    height: 100%;
     overflow: auto;
-    position: sticky;
-    top: 0;
     transition: width var(--iui-duration-normal) var(--iui-easing-standard);
   }
 
@@ -153,7 +145,7 @@
   .iui-sidebar {
     bottom: 0;
     position: fixed;
-    top: var(--iui-size-header);
+    top: calc(var(--iui-size-institution) + var(--iui-size-header));
     transform: translateX(-105%);
     transition: transform var(--iui-duration-normal) var(--iui-easing-standard);
     width: min(var(--iui-size-sidebar-expanded), calc(100vw - var(--iui-size-sidebar-gutter)));

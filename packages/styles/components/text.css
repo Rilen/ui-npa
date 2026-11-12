@@ -7,7 +7,7 @@
 
 .iui-title {
   color: var(--iui-color-text-primary);
-  font-size: var(--iui-font-size-xl);
+  font-size: var(--iui-font-size-display);
   font-weight: var(--iui-font-weight-semibold);
   line-height: var(--iui-font-line-tight);
 }

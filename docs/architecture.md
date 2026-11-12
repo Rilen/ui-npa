@@ -1,6 +1,6 @@
 # Arquitetura
 
-O UI-NPA `0.1.0` é um único projeto Node, privado, com três artefatos reais:
+O UI-NPA `0.2.0` é um único projeto Node, privado, com três artefatos reais:
 
 - `packages/tokens` — fonte DTCG;
 - `packages/styles` — CSS universal e o comportamento da sidebar;
@@ -37,7 +37,7 @@ O prefixo `iui-` vale para classes, atributos de comportamento e custom properti
 
 ## Comportamento
 
-Só a sidebar tem JavaScript: `packages/styles/sidebar.js`. O módulo não acessa rede, sessão nem roteador. A demonstração liga persistência, filtro e formulário em `examples/requerimentos/app.js`, código do exemplo, não do núcleo.
+O núcleo tem dois módulos: `packages/styles/sidebar.js` e `packages/styles/identity.js`. Nenhum acessa rede, sessão ou roteador. A demonstração fornece a identidade, a persistência, o filtro e o formulário em `examples/requerimentos/app.js`.
 
 ## Temas
 
