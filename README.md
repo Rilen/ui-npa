@@ -15,10 +15,13 @@ npm install
 npm run build
 npm test
 npm run test:e2e
+npm run capture:screenshots
 npm run dev
 ```
 
 A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
+
+`npm run capture:screenshots` grava as evidências visuais em `docs/evidence/ui-npa-003`. Requer o Chromium do Playwright, instalado com `npx playwright install chromium`.
 
 `npm run build` regrava `packages/styles/tokens.css` a partir de `packages/tokens`. O teste falha se o CSS commitado divergir da fonte. Não edite o CSS gerado.
 
@@ -49,6 +52,7 @@ A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
 - Integração: [docs/integration.md](docs/integration.md)
 - Migração: [docs/agents/ui-npa-migration.md](docs/agents/ui-npa-migration.md)
 - Testes: [docs/testing.md](docs/testing.md)
+- Evidências visuais: [docs/evidence/ui-npa-003](docs/evidence/ui-npa-003)
 - Versionamento: [docs/versioning.md](docs/versioning.md)
 - Limitações: [docs/limitations.md](docs/limitations.md)
 - Agentes: [AGENTS.md](AGENTS.md)

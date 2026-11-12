@@ -11,6 +11,7 @@ Refinamento visual e contrato de identidade institucional. Nenhuma publicação 
 - IUI-013 e IUI-014: faixa Prefeitura e Secretaria, Setor na sidebar, rodapé com versão da aplicação, changelog, crédito NPA e Sobre o sistema.
 - Contrato `applyInstitutionalIdentity`, independente de framework.
 - Tokens de largura de conteúdo, faixa institucional, logomarca e título.
+- Captura local de evidências visuais em `docs/evidence/ui-npa-003` e cobertura de identidade configurável no navegador.
 
 ### Alterado
 

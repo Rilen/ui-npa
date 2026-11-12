@@ -5,9 +5,10 @@
 | Comando | Ferramenta | Cobre |
 | --- | --- | --- |
 | `npm test` | `node:test` | Geração determinística, CSS commitado, alias cíclico, contraste, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
-| `npm run test:e2e` | Playwright e axe-core | Demonstração, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, violações graves, captura do painel |
+| `npm run test:e2e` | Playwright e axe-core | Demonstração, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, violações graves, captura do painel |
+| `npm run capture:screenshots` | Playwright | Evidências visuais em `docs/evidence/ui-npa-003`, sem comparação automática |
 
-`npm run check` executa os dois. O build não roda automaticamente antes do teste: se o JSON mudar e o CSS não for regenerado, `npm test` falha.
+`npm run check` executa os testes unitários e os de navegador. O build não roda automaticamente antes do teste: se o JSON mudar e o CSS não for regenerado, `npm test` falha.
 
 ## Não instalados
 
@@ -23,6 +24,21 @@ Atualização intencional da captura:
 ```bash
 npx playwright test --update-snapshots
 ```
+
+## Capturas de evidência
+
+`npm run capture:screenshots` inicia o servidor local quando necessário e grava, em `docs/evidence/ui-npa-003`:
+
+- desktop com sidebar expandida;
+- desktop com sidebar recolhida;
+- tablet;
+- mobile fechado e com o menu aberto;
+- faixa institucional;
+- rodapé;
+- changelog;
+- informações do sistema.
+
+As imagens são evidência para revisão visual. Não são comparadas automaticamente, não declaram homologação e variam com a fonte e a plataforma. O Chromium do Playwright precisa estar instalado com `npx playwright install chromium`.
 
 ## Fora do automático
 

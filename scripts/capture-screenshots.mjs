@@ -1,0 +1,101 @@
+import { spawn } from "node:child_process";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { chromium } from "playwright";
+
+const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
+const output = path.join(root, "docs/evidence/ui-npa-003");
+const port = Number(process.env.PORT || 4173);
+const serverUrl = process.env.BASE_URL || `http://127.0.0.1:${port}`;
+const demoUrl = `${serverUrl.replace(/\/$/, "")}/examples/requerimentos/`;
+
+const captures = [
+  { file: "01-desktop-expanded.png", viewport: { width: 1440, height: 900 } },
+  {
+    file: "02-desktop-collapsed.png",
+    viewport: { width: 1440, height: 900 },
+    prepare: async (page) => {
+      await page.getByRole("button", { name: "Recolher menu" }).click();
+      await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.collapsed === "true");
+    },
+  },
+  { file: "03-tablet.png", viewport: { width: 1024, height: 768 } },
+  { file: "04-mobile.png", viewport: { width: 390, height: 844 } },
+  {
+    file: "05-mobile-menu.png",
+    viewport: { width: 390, height: 844 },
+    prepare: async (page) => {
+      await page.getByRole("button", { name: "Abrir menu" }).click();
+      await page.waitForFunction(() => document.querySelector(".iui-shell")?.dataset.open === "true");
+    },
+  },
+  { file: "06-institution.png", viewport: { width: 1440, height: 900 }, element: ".iui-institution" },
+  { file: "07-footer.png", viewport: { width: 1440, height: 900 }, element: ".iui-footer" },
+  { file: "08-changelog.png", viewport: { width: 1440, height: 900 }, hash: "#changelog" },
+  { file: "09-about.png", viewport: { width: 1440, height: 900 }, hash: "#sobre" },
+];
+
+let server = null;
+
+async function isServing(url) {
+  try {
+    const response = await fetch(url);
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function waitForServer(url) {
+  const deadline = Date.now() + 10000;
+  while (Date.now() < deadline) {
+    if (await isServing(url)) return;
+    await new Promise((resolve) => setTimeout(resolve, 150));
+  }
+  throw new Error(`O servidor não respondeu em ${url}.`);
+}
+
+async function startServer() {
+  if (await isServing(demoUrl)) return;
+  server = spawn(process.execPath, [path.join(root, "scripts/serve.mjs")], {
+    cwd: root,
+    env: { ...process.env, PORT: String(port) },
+    stdio: ["ignore", "ignore", "inherit"],
+  });
+  await waitForServer(demoUrl);
+}
+
+async function capture(browser, item) {
+  const context = await browser.newContext({
+    viewport: item.viewport,
+    colorScheme: "light",
+    reducedMotion: "reduce",
+    deviceScaleFactor: 1,
+  });
+  const page = await context.newPage();
+  await page.goto(`${demoUrl}${item.hash || ""}`, { waitUntil: "networkidle" });
+  await page.evaluate(() => document.fonts.ready);
+  if (item.hash) {
+    await page.locator(item.hash).waitFor({ state: "visible" });
+  }
+  if (item.prepare) await item.prepare(page);
+
+  const target = item.element ? page.locator(item.element) : page;
+  await target.screenshot({ path: path.join(output, item.file), animations: "disabled" });
+  await context.close();
+  console.log(`Capturado: ${item.file}`);
+}
+
+await startServer();
+await fs.mkdir(output, { recursive: true });
+
+const browser = await chromium.launch();
+try {
+  for (const item of captures) await capture(browser, item);
+} finally {
+  await browser.close();
+  server?.kill();
+}
+
+console.log(`Evidências em ${path.relative(root, output)}.`);

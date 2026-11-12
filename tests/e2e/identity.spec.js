@@ -52,3 +52,73 @@ test("a sidebar recolhida mantém a faixa institucional", async ({ page }) => {
   await expect(page.locator(".iui-sidebar [data-iui-label]")).toHaveText("Setor de Atendimento");
   await expect(page.locator(".iui-header [data-iui-app-name]")).toHaveText("Gestão de Requerimentos");
 });
+
+test("a identidade institucional é configurável pela aplicação", async ({ page }) => {
+  await page.evaluate(async () => {
+    const { applyInstitutionalIdentity } = await import("/packages/styles/identity.js");
+    applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
+      municipality: {
+        name: "Prefeitura de Outro Município",
+        logo: "./assets/prefeitura.svg",
+        logoAlt: "Marca da Prefeitura de Outro Município",
+      },
+      department: {
+        name: "Secretaria de Outro Órgão",
+        logo: "./assets/secretaria.svg",
+        logoAlt: "Marca da Secretaria de Outro Órgão",
+      },
+      sector: {
+        name: "Setor Configurado",
+        logo: "./assets/setor.svg",
+        logoAlt: "Marca do Setor Configurado",
+      },
+      application: {
+        name: "Sistema Configurado",
+        version: "9.9.9",
+        developer: "NPA",
+        changelog: [{ version: "9.9.9", date: "2026-11-12", notes: ["Configuração alternativa."] }],
+        changelogUrl: "https://example.invalid/novidades",
+      },
+      designSystem: { name: "UI-NPA", version: "0.2.0" },
+    });
+  });
+
+  await expect(page.locator("[data-iui-slot='municipality'] [data-iui-label]")).toHaveText("Prefeitura de Outro Município");
+  await expect(page.locator("[data-iui-slot='department'] [data-iui-label]")).toHaveText("Secretaria de Outro Órgão");
+  await expect(page.locator("[data-iui-slot='sector'] [data-iui-label]")).toHaveText("Setor Configurado");
+  await expect(page.locator(".iui-footer [data-iui-app-name]")).toHaveText("Sistema Configurado");
+  await expect(page.locator(".iui-footer [data-iui-app-version]")).toHaveText("9.9.9");
+  await expect(page.locator("[data-iui-developer]")).toHaveText("Desenvolvido por NPA");
+  await expect(page.locator("[data-iui-changelog-link]")).toHaveAttribute("href", "https://example.invalid/novidades");
+  await expect(page.locator("[data-iui-about]")).toContainText("Sistema Configurado");
+  await expect(page.locator("[data-iui-about]")).toContainText("UI-NPA 0.2.0");
+});
+
+test("o rodapé permanece completo no desktop, no tablet e no mobile", async ({ page }) => {
+  for (const viewport of [
+    { width: 1280, height: 800 },
+    { width: 1024, height: 768 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/examples/requerimentos/");
+    const footer = page.locator(".iui-footer");
+    await expect(footer).toBeVisible();
+    await expect(footer.locator("[data-iui-app-name]")).toHaveText("Gestão de Requerimentos");
+    await expect(footer.locator("[data-iui-app-version]")).toHaveText("1.4.0");
+    await expect(footer.getByRole("link", { name: "Novidades" })).toBeVisible();
+    await expect(footer.getByRole("link", { name: "Sobre o sistema" })).toBeVisible();
+    await expect(footer.getByText("Desenvolvido por NPA")).toBeVisible();
+  }
+});
+
+test("a aplicação não cria rolagem horizontal em 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.goto("/examples/requerimentos/");
+  const overflows = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+  );
+  expect(overflows).toBe(false);
+  await expect(page.getByRole("button", { name: "Abrir menu" })).toBeVisible();
+  await expect(page.locator(".iui-footer")).toBeVisible();
+});

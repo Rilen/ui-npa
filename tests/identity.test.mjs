@@ -26,6 +26,20 @@ test("aceita o contrato mínimo da demonstração", () => {
   assert.equal(assertInstitutionalIdentity(demo).application.version, "1.4.0");
 });
 
+test("aceita changelogUrl e designSystem opcional", () => {
+  const { changelog, ...application } = demo.application;
+  const value = assertInstitutionalIdentity({
+    ...demo,
+    application: { ...application, changelogUrl: "https://example.invalid/novidades" },
+  });
+  assert.equal(value.application.changelogUrl, "https://example.invalid/novidades");
+  assert.equal(value.designSystem, undefined);
+  assert.throws(
+    () => assertInstitutionalIdentity({ ...demo, application: { ...application, changelog: [{ version: "1.4.0" }] } }),
+    /changelog/i,
+  );
+});
+
 test("o núcleo não embute marcas e a demonstração usa ativos locais", () => {
   const styles = fs.readFileSync(path.join(root, "packages/styles/identity.js"), "utf8");
   assert.equal(styles.includes("http"), false);

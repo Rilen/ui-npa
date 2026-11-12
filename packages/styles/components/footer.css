@@ -18,8 +18,17 @@
 }
 
 .iui-footer__identity {
+  align-items: baseline;
   color: var(--iui-color-text-primary);
+  display: flex;
+  flex-wrap: wrap;
   font-weight: var(--iui-font-weight-semibold);
+  gap: var(--iui-space-2);
+}
+
+.iui-footer__identity [data-iui-app-version] {
+  color: var(--iui-color-text-secondary);
+  font-weight: var(--iui-font-weight-regular);
 }
 
 .iui-footer__links {
