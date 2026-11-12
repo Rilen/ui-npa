@@ -1,0 +1,90 @@
+{
+  "color": {
+    "$description": "Tema escuro experimental. Não é identidade oficial. Feedback de situação permanece estável entre temas.",
+    "surface": {
+      "canvas": { "$type": "color", "$value": "{color.ink.900}" },
+      "raised": { "$type": "color", "$value": "{color.ink.800}" },
+      "sunken": { "$type": "color", "$value": "{color.ink.700}" },
+      "overlay": { "$type": "color", "$value": "{color.scrim.dark}" },
+      "inverse": { "$type": "color", "$value": "{color.neutral.0}" }
+    },
+    "text": {
+      "primary": { "$type": "color", "$value": "{color.ink.100}" },
+      "secondary": { "$type": "color", "$value": "{color.ink.300}" },
+      "disabled": { "$type": "color", "$value": "{color.neutral.500}" },
+      "inverse": { "$type": "color", "$value": "{color.neutral.900}" },
+      "brand": { "$type": "color", "$value": "{color.blue.300}" },
+      "danger": { "$type": "color", "$value": "{color.red.100}" },
+      "success": { "$type": "color", "$value": "{color.green.100}" },
+      "warning": { "$type": "color", "$value": "{color.amber.100}" }
+    },
+    "border": {
+      "subtle": { "$type": "color", "$value": "{color.neutral.400}" },
+      "default": { "$type": "color", "$value": "{color.neutral.300}" },
+      "strong": { "$type": "color", "$value": "{color.ink.100}" },
+      "brand": { "$type": "color", "$value": "{color.blue.300}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$type": "color", "$value": "{color.blue.600}" },
+        "bg-hover": { "$type": "color", "$value": "{color.blue.700}" },
+        "bg-pressed": { "$type": "color", "$value": "{color.blue.800}" },
+        "fg": { "$type": "color", "$value": "{color.neutral.0}" }
+      },
+      "secondary": {
+        "bg": { "$type": "color", "$value": "{color.ink.800}" },
+        "bg-hover": { "$type": "color", "$value": "{color.ink.700}" },
+        "fg": { "$type": "color", "$value": "{color.ink.100}" },
+        "border": { "$type": "color", "$value": "{color.neutral.400}" }
+      },
+      "subtle": {
+        "bg-hover": { "$type": "color", "$value": "{color.blue.900}" },
+        "fg": { "$type": "color", "$value": "{color.blue.300}" }
+      },
+      "danger": {
+        "bg": { "$type": "color", "$value": "{color.red.700}" },
+        "bg-hover": { "$type": "color", "$value": "{color.red.800}" },
+        "fg": { "$type": "color", "$value": "{color.neutral.0}" }
+      }
+    },
+    "focus": {
+      "ring": { "$type": "color", "$value": "{color.blue.300}" }
+    },
+    "feedback": {
+      "neutral": {
+        "bg": { "$type": "color", "$value": "{color.neutral.50}" },
+        "fg": { "$type": "color", "$value": "{color.neutral.700}" },
+        "border": { "$type": "color", "$value": "{color.neutral.400}" }
+      },
+      "info": {
+        "bg": { "$type": "color", "$value": "{color.blue.50}" },
+        "fg": { "$type": "color", "$value": "{color.blue.700}" },
+        "border": { "$type": "color", "$value": "{color.blue.200}" }
+      },
+      "success": {
+        "bg": { "$type": "color", "$value": "{color.green.50}" },
+        "fg": { "$type": "color", "$value": "{color.green.700}" },
+        "border": { "$type": "color", "$value": "{color.green.200}" }
+      },
+      "warning": {
+        "bg": { "$type": "color", "$value": "{color.amber.50}" },
+        "fg": { "$type": "color", "$value": "{color.amber.700}" },
+        "border": { "$type": "color", "$value": "{color.amber.200}" }
+      },
+      "danger": {
+        "bg": { "$type": "color", "$value": "{color.red.50}" },
+        "fg": { "$type": "color", "$value": "{color.red.700}" },
+        "border": { "$type": "color", "$value": "{color.red.200}" }
+      }
+    },
+    "nav": {
+      "bg": { "$type": "color", "$value": "{color.ink.800}" },
+      "fg": { "$type": "color", "$value": "{color.ink.100}" },
+      "fg-muted": { "$type": "color", "$value": "{color.ink.300}" },
+      "item-hover": { "$type": "color", "$value": "{color.ink.700}" },
+      "item-active": { "$type": "color", "$value": "{color.blue.700}" },
+      "item-active-fg": { "$type": "color", "$value": "{color.neutral.0}" },
+      "border": { "$type": "color", "$value": "{color.neutral.400}" }
+    }
+  }
+}
