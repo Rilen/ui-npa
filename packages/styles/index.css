@@ -1,0 +1,15 @@
+@layer iui.tokens, iui.base, iui.components, iui.utilities;
+
+@import "./tokens.css" layer(iui.tokens);
+@import "./base.css" layer(iui.base);
+@import "./components/text.css" layer(iui.components);
+@import "./components/button.css" layer(iui.components);
+@import "./components/field.css" layer(iui.components);
+@import "./components/card.css" layer(iui.components);
+@import "./components/badge.css" layer(iui.components);
+@import "./components/alert.css" layer(iui.components);
+@import "./components/table.css" layer(iui.components);
+@import "./components/sidebar.css" layer(iui.components);
+@import "./components/shell.css" layer(iui.components);
+@import "./components/utilities.css" layer(iui.utilities);
+@import "./components/motion.css" layer(iui.utilities);

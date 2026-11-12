@@ -1,0 +1,39 @@
+.iui-alert {
+  background: var(--iui-color-feedback-info-bg);
+  border: var(--iui-border-width-hairline) solid var(--iui-color-feedback-info-border);
+  border-radius: var(--iui-radius-md);
+  color: var(--iui-color-feedback-info-fg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--iui-space-1);
+  padding: var(--iui-space-3) var(--iui-space-4);
+}
+
+.iui-alert__title {
+  font-size: var(--iui-font-size-sm);
+  font-weight: var(--iui-font-weight-semibold);
+  margin: 0;
+}
+
+.iui-alert p {
+  font-size: var(--iui-font-size-sm);
+  margin: 0;
+}
+
+.iui-alert--success {
+  background: var(--iui-color-feedback-success-bg);
+  border-color: var(--iui-color-feedback-success-border);
+  color: var(--iui-color-feedback-success-fg);
+}
+
+.iui-alert--warning {
+  background: var(--iui-color-feedback-warning-bg);
+  border-color: var(--iui-color-feedback-warning-border);
+  color: var(--iui-color-feedback-warning-fg);
+}
+
+.iui-alert--danger {
+  background: var(--iui-color-feedback-danger-bg);
+  border-color: var(--iui-color-feedback-danger-border);
+  color: var(--iui-color-feedback-danger-fg);
+}

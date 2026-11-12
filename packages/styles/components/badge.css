@@ -1,0 +1,37 @@
+.iui-badge {
+  align-items: center;
+  background: var(--iui-color-feedback-neutral-bg);
+  border: var(--iui-border-width-hairline) solid var(--iui-color-feedback-neutral-border);
+  border-radius: var(--iui-radius-full);
+  color: var(--iui-color-feedback-neutral-fg);
+  display: inline-flex;
+  font-size: var(--iui-font-size-xs);
+  font-weight: var(--iui-font-weight-semibold);
+  line-height: var(--iui-font-line-tight);
+  min-height: var(--iui-space-6);
+  padding: 0 var(--iui-space-2);
+}
+
+.iui-badge--info {
+  background: var(--iui-color-feedback-info-bg);
+  border-color: var(--iui-color-feedback-info-border);
+  color: var(--iui-color-feedback-info-fg);
+}
+
+.iui-badge--success {
+  background: var(--iui-color-feedback-success-bg);
+  border-color: var(--iui-color-feedback-success-border);
+  color: var(--iui-color-feedback-success-fg);
+}
+
+.iui-badge--warning {
+  background: var(--iui-color-feedback-warning-bg);
+  border-color: var(--iui-color-feedback-warning-border);
+  color: var(--iui-color-feedback-warning-fg);
+}
+
+.iui-badge--danger {
+  background: var(--iui-color-feedback-danger-bg);
+  border-color: var(--iui-color-feedback-danger-border);
+  color: var(--iui-color-feedback-danger-fg);
+}

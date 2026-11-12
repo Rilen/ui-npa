@@ -1,0 +1,9 @@
+@media (prefers-reduced-motion: reduce) {
+  .iui-sidebar,
+  .iui-shell__backdrop,
+  .iui-button,
+  .iui-field__control,
+  .iui-skip-link {
+    transition: none;
+  }
+}

@@ -1,0 +1,166 @@
+.iui-sidebar {
+  background: var(--iui-color-nav-bg);
+  border-right: var(--iui-border-width-hairline) solid var(--iui-color-nav-border);
+  color: var(--iui-color-nav-fg);
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: var(--iui-space-4);
+  padding: var(--iui-space-4) var(--iui-space-3);
+  width: var(--iui-size-sidebar-expanded);
+}
+
+.iui-sidebar__close {
+  align-self: flex-end;
+}
+
+.iui-sidebar__brand {
+  align-items: center;
+  display: flex;
+  gap: var(--iui-space-3);
+  min-height: var(--iui-size-control-md);
+  padding-inline: var(--iui-space-2);
+}
+
+.iui-sidebar__mark {
+  align-items: center;
+  background: var(--iui-color-action-primary-bg);
+  border-radius: var(--iui-radius-md);
+  color: var(--iui-color-action-primary-fg);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: var(--iui-font-size-sm);
+  font-weight: var(--iui-font-weight-semibold);
+  height: var(--iui-size-control-sm);
+  justify-content: center;
+  width: var(--iui-size-control-sm);
+}
+
+.iui-sidebar__product,
+.iui-sidebar__context {
+  display: block;
+}
+
+.iui-sidebar__product {
+  font-size: var(--iui-font-size-sm);
+  font-weight: var(--iui-font-weight-semibold);
+}
+
+.iui-sidebar__context {
+  color: var(--iui-color-nav-fg-muted);
+  font-size: var(--iui-font-size-xs);
+  font-weight: var(--iui-font-weight-regular);
+}
+
+.iui-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iui-space-1);
+}
+
+.iui-sidebar__link {
+  align-items: center;
+  border-radius: var(--iui-radius-md);
+  color: var(--iui-color-nav-fg);
+  display: flex;
+  font-size: var(--iui-font-size-sm);
+  font-weight: var(--iui-font-weight-semibold);
+  gap: var(--iui-space-3);
+  min-height: var(--iui-size-control-md);
+  padding-inline: var(--iui-space-2);
+  position: relative;
+  text-decoration: none;
+}
+
+.iui-sidebar__link:hover {
+  background: var(--iui-color-nav-item-hover);
+}
+
+.iui-sidebar__link[aria-current="page"] {
+  background: var(--iui-color-nav-item-active);
+  color: var(--iui-color-nav-item-active-fg);
+}
+
+.iui-sidebar__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iui-icon {
+  display: block;
+  flex: 0 0 auto;
+  height: var(--iui-size-icon);
+  width: var(--iui-size-icon);
+}
+
+@media (min-width: 48rem) {
+  .iui-sidebar {
+    height: 100vh;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+    transition: width var(--iui-duration-normal) var(--iui-easing-standard);
+  }
+
+  .iui-sidebar__close {
+    display: none;
+  }
+
+  .iui-sidebar[data-collapsed="true"] {
+    overflow: visible;
+    width: var(--iui-size-sidebar-collapsed);
+  }
+
+  .iui-sidebar[data-collapsed="true"] .iui-sidebar__brand,
+  .iui-sidebar[data-collapsed="true"] .iui-sidebar__link {
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .iui-sidebar[data-collapsed="true"] .iui-sidebar__brand-text,
+  .iui-sidebar[data-collapsed="true"] .iui-sidebar__label {
+    border: 0;
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .iui-sidebar[data-collapsed="true"] .iui-sidebar__link:hover .iui-sidebar__label,
+  .iui-sidebar[data-collapsed="true"] .iui-sidebar__link:focus-visible .iui-sidebar__label {
+    background: var(--iui-color-surface-inverse);
+    border-radius: var(--iui-radius-sm);
+    clip-path: none;
+    color: var(--iui-color-text-inverse);
+    height: auto;
+    left: calc(100% + var(--iui-space-2));
+    margin: 0;
+    overflow: visible;
+    padding: var(--iui-space-1) var(--iui-space-2);
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    z-index: var(--iui-z-header);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .iui-sidebar {
+    bottom: 0;
+    position: fixed;
+    top: var(--iui-size-header);
+    transform: translateX(-105%);
+    transition: transform var(--iui-duration-normal) var(--iui-easing-standard);
+    width: min(var(--iui-size-sidebar-expanded), calc(100vw - var(--iui-size-sidebar-gutter)));
+    z-index: var(--iui-z-sidebar);
+  }
+
+  .iui-shell[data-open="true"] .iui-sidebar {
+    transform: translateX(0);
+  }
+}

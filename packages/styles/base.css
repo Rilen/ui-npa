@@ -1,0 +1,34 @@
+.iui-root {
+  background: var(--iui-color-surface-canvas);
+  color: var(--iui-color-text-primary);
+  color-scheme: light;
+  font-family: var(--iui-font-family-sans);
+  font-size: var(--iui-font-size-md);
+  font-weight: var(--iui-font-weight-regular);
+  line-height: var(--iui-font-line-normal);
+}
+
+.iui-root[data-iui-theme="dark"] {
+  color-scheme: dark;
+}
+
+body.iui-root {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.iui-root,
+.iui-root *,
+.iui-root *::before,
+.iui-root *::after {
+  box-sizing: border-box;
+}
+
+.iui-root :focus-visible {
+  outline: var(--iui-border-width-focus) solid var(--iui-color-focus-ring);
+  outline-offset: var(--iui-border-width-focus);
+}
+
+.iui-root :focus:not(:focus-visible) {
+  outline: none;
+}

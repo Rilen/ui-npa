@@ -1,0 +1,12 @@
+.iui-card {
+  background: var(--iui-color-surface-raised);
+  border: var(--iui-border-width-hairline) solid var(--iui-color-border-subtle);
+  border-radius: var(--iui-radius-lg);
+  box-shadow: var(--iui-shadow-sm);
+  color: var(--iui-color-text-primary);
+  padding: var(--iui-space-4);
+}
+
+.iui-card > .iui-button {
+  align-self: flex-start;
+}

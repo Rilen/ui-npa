@@ -1,0 +1,81 @@
+.iui-button {
+  align-items: center;
+  background: transparent;
+  border: var(--iui-border-width-hairline) solid transparent;
+  border-radius: var(--iui-radius-md);
+  color: var(--iui-color-text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: var(--iui-font-size-sm);
+  font-weight: var(--iui-font-weight-semibold);
+  gap: var(--iui-space-2);
+  justify-content: center;
+  line-height: var(--iui-font-line-tight);
+  min-height: var(--iui-size-control-md);
+  padding: 0 var(--iui-space-4);
+  text-decoration: none;
+  transition:
+    background-color var(--iui-duration-fast) var(--iui-easing-standard),
+    border-color var(--iui-duration-fast) var(--iui-easing-standard);
+}
+
+.iui-button--sm {
+  min-height: var(--iui-size-control-sm);
+  padding-inline: var(--iui-space-3);
+}
+
+.iui-button--icon {
+  padding: 0;
+  position: relative;
+  width: var(--iui-size-control-md);
+}
+
+.iui-button--primary {
+  background: var(--iui-color-action-primary-bg);
+  color: var(--iui-color-action-primary-fg);
+}
+
+.iui-button--primary:hover:not(:disabled, [aria-disabled="true"]) {
+  background: var(--iui-color-action-primary-bg-hover);
+}
+
+.iui-button--primary:active:not(:disabled, [aria-disabled="true"]) {
+  background: var(--iui-color-action-primary-bg-pressed);
+}
+
+.iui-button--secondary {
+  background: var(--iui-color-action-secondary-bg);
+  border-color: var(--iui-color-action-secondary-border);
+  color: var(--iui-color-action-secondary-fg);
+}
+
+.iui-button--secondary:hover:not(:disabled, [aria-disabled="true"]) {
+  background: var(--iui-color-action-secondary-bg-hover);
+}
+
+.iui-button--subtle {
+  background: transparent;
+  color: var(--iui-color-action-subtle-fg);
+}
+
+.iui-button--subtle:hover:not(:disabled, [aria-disabled="true"]) {
+  background: var(--iui-color-action-subtle-bg-hover);
+}
+
+.iui-button--danger {
+  background: var(--iui-color-action-danger-bg);
+  color: var(--iui-color-action-danger-fg);
+}
+
+.iui-button--danger:hover:not(:disabled, [aria-disabled="true"]) {
+  background: var(--iui-color-action-danger-bg-hover);
+}
+
+.iui-button:disabled,
+.iui-button[aria-disabled="true"] {
+  background: var(--iui-color-surface-sunken);
+  border-color: var(--iui-color-border-subtle);
+  color: var(--iui-color-text-disabled);
+  cursor: not-allowed;
+}
