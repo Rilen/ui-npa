@@ -240,9 +240,11 @@ A sidebar não autentica, não autoriza e não conhece as rotas do consumidor. E
 
 ## Utilitários de layout
 
-Implementado: `iui-stack`, `iui-stack--sm`, `iui-cluster`, `iui-grid`, `iui-page`, `iui-section`, `iui-skip-link`, `iui-visually-hidden`, `iui-icon`.
+Implementado: `iui-stack`, `iui-stack--sm`, `iui-cluster`, `iui-grid`, `iui-grid--metrics`, `iui-page`, `iui-section`, `iui-skip-link`, `iui-visually-hidden`, `iui-icon`.
 
 São composição, não componentes de negócio.
+
+`iui-grid--metrics` organiza indicadores em uma, duas ou quatro colunas conforme a largura efetiva de `.iui-shell__content`, inclusive quando a sidebar está recolhida. A consulta de contêiner chama-se `iui-content` e não altera as demais grades.
 
 ## Planejado
 

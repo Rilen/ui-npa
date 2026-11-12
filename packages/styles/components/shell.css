@@ -21,6 +21,8 @@
 }
 
 .iui-shell__content {
+  container-name: iui-content;
+  container-type: inline-size;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -73,7 +75,7 @@
     left: 0;
     position: fixed;
     right: 0;
-    top: calc(var(--iui-size-institution) + var(--iui-size-header));
+    top: calc(var(--iui-size-institution-mobile) + var(--iui-size-header));
     z-index: var(--iui-z-overlay);
   }
 

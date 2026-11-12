@@ -11,6 +11,8 @@
 - Navegadores sem CSS Layers não aplicam a folha como previsto. Internet Explorer não é alvo.
 - A demonstração precisa do servidor local. Não há backend, autenticação, API nem dado real.
 - A captura visual varia com a fonte do sistema operacional.
+- A grade de indicadores usa uma consulta de contêiner nomeada. Navegadores sem suporte caem na composição de uma coluna.
+- No mobile, a faixa institucional ocupa duas linhas e é mais alta que no desktop; o cabeçalho da aplicação continua compacto.
 - Os testes automáticos não comprovam WCAG 2.2 AA integral.
 - Parte da governança não é verificável por teste, conforme a própria política.
 - Nenhum pacote foi publicado e nenhum remoto foi atualizado por esta fundação.

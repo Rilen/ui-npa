@@ -112,18 +112,39 @@ function renderChangelog(container, entries) {
 
 function renderAbout(container, identity) {
   if (!container) return;
-  const facts = [
-    ["Aplicação", identity.application.name],
-    ["Versão da aplicação", identity.application.version],
-    ["Prefeitura", identity.municipality.name],
-    ["Secretaria", identity.department.name],
-    ["Setor", identity.sector.name],
-    ["Desenvolvedor", identity.application.developer],
-  ];
+  const technical = [["Desenvolvido por", identity.application.developer]];
   if (identity.designSystem) {
-    facts.push(["Design system", `${identity.designSystem.name} ${identity.designSystem.version}`]);
+    technical.push(["Design system", `${identity.designSystem.name} ${identity.designSystem.version}`]);
   }
-  container.replaceChildren();
+  container.replaceChildren(
+    aboutGroup("Identidade institucional", [
+      ["Prefeitura", identity.municipality.name],
+      ["Secretaria", identity.department.name],
+      ["Setor", identity.sector.name],
+    ]),
+    aboutGroup(
+      "Aplicação",
+      [
+        ["Nome", identity.application.name],
+        ["Versão da aplicação", identity.application.version],
+      ],
+      {
+        href: identity.application.changelogUrl || "#changelog",
+        label: "Ver novidades",
+      },
+    ),
+    aboutGroup("Informações técnicas", technical),
+  );
+}
+
+function aboutGroup(title, facts, changelog) {
+  const section = document.createElement("section");
+  section.className = "iui-card iui-stack";
+  const heading = document.createElement("h2");
+  heading.className = "iui-heading";
+  heading.textContent = title;
+  const list = document.createElement("dl");
+  list.className = "iui-meta";
   for (const [label, text] of facts) {
     const group = document.createElement("div");
     const term = document.createElement("dt");
@@ -131,6 +152,16 @@ function renderAbout(container, identity) {
     const detail = document.createElement("dd");
     detail.textContent = text;
     group.append(term, detail);
-    container.append(group);
+    list.append(group);
   }
+  section.append(heading, list);
+  if (changelog) {
+    const link = document.createElement("a");
+    link.className = "iui-button iui-button--secondary iui-button--sm";
+    link.href = changelog.href;
+    link.textContent = changelog.label;
+    link.dataset.iuiAboutChangelog = "true";
+    section.append(link);
+  }
+  return section;
 }

@@ -55,23 +55,28 @@
 
 @media (max-width: 47.99rem) {
   .iui-institution {
-    gap: var(--iui-space-3);
+    align-content: center;
+    flex-wrap: wrap;
+    gap: var(--iui-space-2) var(--iui-space-3);
+    min-height: var(--iui-size-institution-mobile);
+    padding-block: var(--iui-space-2);
     padding-inline: var(--iui-space-3);
+  }
+
+  .iui-institution__municipality,
+  .iui-institution__department {
+    flex: 1 1 100%;
+  }
+
+  .iui-institution__municipality {
+    justify-content: flex-start;
+  }
+
+  .iui-institution__department {
+    justify-content: flex-end;
   }
 
   .iui-institution__logo {
     height: var(--iui-size-logo-sm);
-  }
-
-  .iui-institution__department .iui-institution__label {
-    border: 0;
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
   }
 }

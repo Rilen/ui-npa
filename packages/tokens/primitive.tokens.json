@@ -146,6 +146,7 @@
     },
     "header": { "$type": "dimension", "$value": "3.5rem" },
     "institution": { "$type": "dimension", "$value": "4rem" },
+    "institution-mobile": { "$type": "dimension", "$value": "6rem" },
     "control": {
       "sm": { "$type": "dimension", "$value": "2rem" },
       "md": { "$type": "dimension", "$value": "2.25rem" }

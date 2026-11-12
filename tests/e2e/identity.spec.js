@@ -35,11 +35,14 @@ test("no tablet as marcas não se sobrepõem", async ({ page }) => {
   await expect(page.locator("[data-iui-slot='municipality'] [data-iui-label]")).toBeVisible();
 });
 
-test("no mobile a secretaria permanece consultável em Sobre o sistema", async ({ page }) => {
+test("no mobile a secretaria permanece identificável e consultável em Sobre o sistema", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
+  const municipality = await page.locator("[data-iui-slot='municipality']").boundingBox();
   const department = await page.locator("[data-iui-slot='department']").boundingBox();
-  expect(department.width).toBeLessThan(80);
+  await expect(page.locator("[data-iui-slot='department'] [data-iui-label]")).toBeVisible();
+  await expect(page.locator("[data-iui-slot='department'] [data-iui-label]")).toHaveText("Secretaria Municipal de Exemplo");
   await expect(page.locator("[data-iui-slot='department'] img")).toBeVisible();
+  expect(municipality.y + municipality.height).toBeLessThanOrEqual(department.y + 1);
   await page.getByRole("link", { name: "Sobre o sistema" }).click();
   await expect(page.locator("#sobre")).toContainText("Secretaria Municipal de Exemplo");
 });

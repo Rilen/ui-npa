@@ -35,6 +35,10 @@ Cada slot tem `img[data-iui-logo]` e, quando o nome aparece ao lado, `[data-iui-
 
 A faixa usa `iui-institution`. O rodapé usa `iui-footer`, com `[data-iui-app-name]`, `[data-iui-app-version]`, `[data-iui-developer]`, `[data-iui-changelog-link]`, `[data-iui-changelog]` e `[data-iui-about]`.
 
-No mobile, o nome da Secretaria sai da vista e permanece no texto acessível. A consulta completa fica em Sobre o sistema. As logomarcas não são reduzidas abaixo de `size.logo.sm`.
+No mobile, a faixa continua sendo uma só: Prefeitura e Secretaria ocupam duas linhas, com os dois nomes visíveis e acessíveis. A altura usa `size.institution-mobile`; o painel móvel começa abaixo da faixa e do cabeçalho. A consulta completa continua em Sobre o sistema. As logomarcas não são reduzidas abaixo de `size.logo.sm`.
+
+## Sobre o sistema
+
+`[data-iui-about]` apresenta três grupos sem repetir logomarcas: Identidade institucional (Prefeitura, Secretaria e Setor), Aplicação (nome, versão e acesso ao changelog) e Informações técnicas (desenvolvedor e design system, quando fornecido). Os grupos usam Card, Text e Meta existentes.
 
 A demonstração usa SVGs fictícios em `examples/requerimentos/assets`. Eles não são brasões nem marcas oficiais. O histórico de Novidades dessa demonstração é sintético.

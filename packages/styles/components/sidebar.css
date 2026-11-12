@@ -145,7 +145,7 @@
   .iui-sidebar {
     bottom: 0;
     position: fixed;
-    top: calc(var(--iui-size-institution) + var(--iui-size-header));
+    top: calc(var(--iui-size-institution-mobile) + var(--iui-size-header));
     transform: translateX(-105%);
     transition: transform var(--iui-duration-normal) var(--iui-easing-standard);
     width: min(var(--iui-size-sidebar-expanded), calc(100vw - var(--iui-size-sidebar-gutter)));

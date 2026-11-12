@@ -5,36 +5,67 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
-const output = path.join(root, "docs/evidence/ui-npa-003");
 const port = Number(process.env.PORT || 4173);
 const serverUrl = process.env.BASE_URL || `http://127.0.0.1:${port}`;
 const demoUrl = `${serverUrl.replace(/\/$/, "")}/examples/requerimentos/`;
 
-const captures = [
-  { file: "01-desktop-expanded.png", viewport: { width: 1440, height: 900 } },
-  {
-    file: "02-desktop-collapsed.png",
-    viewport: { width: 1440, height: 900 },
-    prepare: async (page) => {
-      await page.getByRole("button", { name: "Recolher menu" }).click();
-      await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.collapsed === "true");
-    },
+const sets = {
+  "003": {
+    output: "docs/evidence/ui-npa-003",
+    captures: [
+      { file: "01-desktop-expanded.png", viewport: { width: 1440, height: 900 } },
+      {
+        file: "02-desktop-collapsed.png",
+        viewport: { width: 1440, height: 900 },
+        prepare: async (page) => {
+          await page.getByRole("button", { name: "Recolher menu" }).click();
+          await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.collapsed === "true");
+        },
+      },
+      { file: "03-tablet.png", viewport: { width: 1024, height: 768 } },
+      { file: "04-mobile.png", viewport: { width: 390, height: 844 } },
+      {
+        file: "05-mobile-menu.png",
+        viewport: { width: 390, height: 844 },
+        prepare: async (page) => {
+          await page.getByRole("button", { name: "Abrir menu" }).click();
+          await page.waitForFunction(() => document.querySelector(".iui-shell")?.dataset.open === "true");
+        },
+      },
+      { file: "06-institution.png", viewport: { width: 1440, height: 900 }, element: ".iui-institution" },
+      { file: "07-footer.png", viewport: { width: 1440, height: 900 }, element: ".iui-footer" },
+      { file: "08-changelog.png", viewport: { width: 1440, height: 900 }, hash: "#changelog" },
+      { file: "09-about.png", viewport: { width: 1440, height: 900 }, hash: "#sobre" },
+    ],
   },
-  { file: "03-tablet.png", viewport: { width: 1024, height: 768 } },
-  { file: "04-mobile.png", viewport: { width: 390, height: 844 } },
-  {
-    file: "05-mobile-menu.png",
-    viewport: { width: 390, height: 844 },
-    prepare: async (page) => {
-      await page.getByRole("button", { name: "Abrir menu" }).click();
-      await page.waitForFunction(() => document.querySelector(".iui-shell")?.dataset.open === "true");
-    },
+  "005": {
+    output: "docs/evidence/ui-npa-005",
+    captures: [
+      { file: "01-desktop-expanded.png", viewport: { width: 1440, height: 900 } },
+      {
+        file: "02-desktop-collapsed.png",
+        viewport: { width: 1440, height: 900 },
+        prepare: async (page) => {
+          await page.getByRole("button", { name: "Recolher menu" }).click();
+          await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.collapsed === "true");
+        },
+      },
+      { file: "03-tablet-indicators.png", viewport: { width: 1024, height: 768 } },
+      { file: "04-mobile-390.png", viewport: { width: 390, height: 844 } },
+      { file: "05-mobile-320.png", viewport: { width: 320, height: 700 } },
+      { file: "06-mobile-institution.png", viewport: { width: 390, height: 844 }, element: ".iui-institution" },
+      { file: "07-about-desktop.png", viewport: { width: 1440, height: 900 }, hash: "#sobre" },
+      { file: "08-about-mobile.png", viewport: { width: 390, height: 1250 }, hash: "#sobre" },
+    ],
   },
-  { file: "06-institution.png", viewport: { width: 1440, height: 900 }, element: ".iui-institution" },
-  { file: "07-footer.png", viewport: { width: 1440, height: 900 }, element: ".iui-footer" },
-  { file: "08-changelog.png", viewport: { width: 1440, height: 900 }, hash: "#changelog" },
-  { file: "09-about.png", viewport: { width: 1440, height: 900 }, hash: "#sobre" },
-];
+};
+
+const setId = process.argv[2] || process.env.EVIDENCE_SET || "003";
+const set = sets[setId];
+if (!set) {
+  throw new Error(`Conjunto de evidências desconhecido: ${setId}. Use 003 ou 005.`);
+}
+const output = path.join(root, set.output);
 
 let server = null;
 
@@ -92,7 +123,7 @@ await fs.mkdir(output, { recursive: true });
 
 const browser = await chromium.launch();
 try {
-  for (const item of captures) await capture(browser, item);
+  for (const item of set.captures) await capture(browser, item);
 } finally {
   await browser.close();
   server?.kill();
