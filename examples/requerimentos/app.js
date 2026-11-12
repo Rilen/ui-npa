@@ -8,6 +8,26 @@ if (!sidebar) {
   throw new Error("Sidebar da demonstração não encontrada.");
 }
 
+const palette = document.querySelector("#paleta");
+const candidateIds = new Set(["a", "b", "c"]);
+
+function applyPalette(value, updateUrl = true) {
+  const root = document.querySelector(".iui-root");
+  const selected = candidateIds.has(value) ? value : "";
+  if (selected) root.dataset.iuiCandidate = selected;
+  else delete root.dataset.iuiCandidate;
+  if (palette) palette.value = selected;
+  if (updateUrl) {
+    const url = new URL(window.location.href);
+    if (selected) url.searchParams.set("paleta", selected);
+    else url.searchParams.delete("paleta");
+    window.history.replaceState(null, "", url);
+  }
+}
+
+if (palette) palette.addEventListener("change", () => applyPalette(palette.value));
+applyPalette(new URLSearchParams(window.location.search).get("paleta") || "", false);
+
 applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
   municipality: {
     name: "Prefeitura Municipal de Exemplo",

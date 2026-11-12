@@ -5,11 +5,17 @@ import { contrastRatio } from "./contrast.mjs";
 import { buildTokens } from "../scripts/build-tokens.mjs";
 
 const model = buildTokens();
+const themes = {
+  light: model.light,
+  dark: model.dark,
+  "candidate-a": model.candidates.a,
+  "candidate-b": model.candidates.b,
+  "candidate-c": model.candidates.c,
+};
 
-for (const themeName of ["light", "dark"]) {
+for (const [themeName, theme] of Object.entries(themes)) {
   for (const pair of pairs) {
     test(`${themeName}: ${pair.fg} sobre ${pair.bg} >= ${pair.min}`, () => {
-      const theme = model[themeName];
       const foreground = theme[pair.fg]?.value;
       const background = theme[pair.bg]?.value;
       assert.ok(foreground, `token ausente: ${pair.fg}`);

@@ -12,6 +12,7 @@
   gap: var(--iui-space-2);
   justify-content: center;
   line-height: var(--iui-font-line-tight);
+  max-width: 100%;
   min-height: var(--iui-size-control-md);
   padding: 0 var(--iui-space-4);
   text-decoration: none;

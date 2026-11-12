@@ -58,12 +58,45 @@ const sets = {
       { file: "08-about-mobile.png", viewport: { width: 390, height: 1250 }, hash: "#sobre" },
     ],
   },
+  "006": {
+    output: "docs/evidence/ui-npa-006",
+    captures: [
+      { file: "01-candidate-a-desktop.png", viewport: { width: 1440, height: 900 }, query: { paleta: "a" } },
+      { file: "02-candidate-b-desktop.png", viewport: { width: 1440, height: 900 }, query: { paleta: "b" } },
+      { file: "03-candidate-c-desktop.png", viewport: { width: 1440, height: 900 }, query: { paleta: "c" } },
+      {
+        file: "04-sidebar-comparison.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/examples/paletas/",
+        element: "#comparacao-sidebar",
+      },
+      {
+        file: "05-components-comparison.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/examples/paletas/",
+        element: "#comparacao-componentes",
+      },
+      { file: "06-candidate-a-mobile.png", viewport: { width: 390, height: 844 }, query: { paleta: "a" } },
+      {
+        file: "07-candidate-a-institution.png",
+        viewport: { width: 1440, height: 900 },
+        query: { paleta: "a" },
+        element: ".iui-institution",
+      },
+      {
+        file: "08-candidate-a-footer.png",
+        viewport: { width: 1440, height: 900 },
+        query: { paleta: "a" },
+        element: ".iui-footer",
+      },
+    ],
+  },
 };
 
 const setId = process.argv[2] || process.env.EVIDENCE_SET || "003";
 const set = sets[setId];
 if (!set) {
-  throw new Error(`Conjunto de evidências desconhecido: ${setId}. Use 003 ou 005.`);
+  throw new Error(`Conjunto de evidências desconhecido: ${setId}. Use 003, 005 ou 006.`);
 }
 const output = path.join(root, set.output);
 
@@ -105,8 +138,19 @@ async function capture(browser, item) {
     deviceScaleFactor: 1,
   });
   const page = await context.newPage();
-  await page.goto(`${demoUrl}${item.hash || ""}`, { waitUntil: "networkidle" });
+  const targetUrl = new URL(item.url || demoUrl, serverUrl);
+  if (item.query) {
+    for (const [name, value] of Object.entries(item.query)) targetUrl.searchParams.set(name, value);
+  }
+  if (item.hash) targetUrl.hash = item.hash;
+  await page.goto(targetUrl.href, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
+  if (item.query?.paleta) {
+    await page.waitForFunction(
+      (value) => document.querySelector(".iui-root")?.dataset.iuiCandidate === value,
+      item.query.paleta,
+    );
+  }
   if (item.hash) {
     await page.locator(item.hash).waitFor({ state: "visible" });
   }

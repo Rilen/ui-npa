@@ -17,14 +17,15 @@ npm test
 npm run test:e2e
 npm run capture:screenshots
 npm run capture:screenshots:005
+npm run capture:screenshots:006
 npm run dev
 ```
 
-A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
+A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`. A comparação das paletas candidatas fica em `http://127.0.0.1:4173/examples/paletas/`.
 
-`npm run capture:screenshots` grava as evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`. `npm run capture:screenshots:005` grava as evidências da UI-NPA-005 em `docs/evidence/ui-npa-005`. Ambos requerem o Chromium do Playwright, instalado com `npx playwright install chromium`.
+`npm run capture:screenshots` grava as evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`. `npm run capture:screenshots:005` grava as evidências da UI-NPA-005 em `docs/evidence/ui-npa-005`. `npm run capture:screenshots:006` grava as paletas candidatas em `docs/evidence/ui-npa-006`. Todos requerem o Chromium do Playwright, instalado com `npx playwright install chromium`.
 
-`npm run build` regrava `packages/styles/tokens.css` a partir de `packages/tokens`. O teste falha se o CSS commitado divergir da fonte. Não edite o CSS gerado.
+`npm run build` regrava `packages/styles/tokens.css` e `packages/styles/candidates.css` a partir de `packages/tokens`. O teste falha se o CSS commitado divergir da fonte. Não edite o CSS gerado.
 
 ## Estado desta versão
 
@@ -34,6 +35,7 @@ A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
 | Button, Card, Text, Badge, Field, Alert, Table, Sidebar, Shell | Implementado |
 | Demonstração fictícia de requerimentos | Implementado |
 | Identidade institucional e rodapé técnico | Implementado |
+| Paletas candidatas A/B/C | Candidatas, não homologadas |
 | Governança IUI-001 a IUI-014 | Implementado |
 | Protocolo `ui-npa-migration` | Especificado, não executado |
 | Tema escuro | Experimental |
@@ -44,7 +46,9 @@ A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
 
 - Arquitetura: [docs/architecture.md](docs/architecture.md)
 - Decisão: [docs/decisions/001-foundation.md](docs/decisions/001-foundation.md)
+- Decisão de paletas candidatas: [docs/decisions/003-palette-candidates.md](docs/decisions/003-palette-candidates.md)
 - Tokens: [docs/tokens.md](docs/tokens.md)
+- Paleta proposta: [docs/palette.md](docs/palette.md)
 - Temas: [docs/themes.md](docs/themes.md)
 - Identidade: [docs/identity.md](docs/identity.md)
 - Componentes: [docs/components.md](docs/components.md)
@@ -53,7 +57,7 @@ A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
 - Integração: [docs/integration.md](docs/integration.md)
 - Migração: [docs/agents/ui-npa-migration.md](docs/agents/ui-npa-migration.md)
 - Testes: [docs/testing.md](docs/testing.md)
-- Evidências visuais: [docs/evidence/ui-npa-003](docs/evidence/ui-npa-003) e [docs/evidence/ui-npa-005](docs/evidence/ui-npa-005)
+- Evidências visuais: [docs/evidence/ui-npa-003](docs/evidence/ui-npa-003), [docs/evidence/ui-npa-005](docs/evidence/ui-npa-005) e [docs/evidence/ui-npa-006](docs/evidence/ui-npa-006)
 - Versionamento: [docs/versioning.md](docs/versioning.md)
 - Limitações: [docs/limitations.md](docs/limitations.md)
 - Agentes: [AGENTS.md](AGENTS.md)

@@ -2,11 +2,12 @@
 
 O UI-NPA `0.2.0` é um único projeto Node, privado, com três artefatos reais:
 
-- `packages/tokens` — fonte DTCG;
-- `packages/styles` — CSS universal e o comportamento da sidebar;
-- `examples/requerimentos` — demonstração estática, sem backend.
+- `packages/tokens` — fonte DTCG, com tema canônico e três candidatas;
+- `packages/styles` — CSS universal, CSS de candidatas e o comportamento da sidebar;
+- `examples/requerimentos` — demonstração estática, sem backend;
+- `examples/paletas` — comparação restrita das três candidatas.
 
-`scripts/build-tokens.mjs` lê a fonte e grava `packages/styles/tokens.css`. Componentes não repetem o valor do token: usam `var(--iui-...)`.
+`scripts/build-tokens.mjs` lê a fonte e grava `packages/styles/tokens.css` e `packages/styles/candidates.css`. Componentes não repetem o valor do token: usam `var(--iui-...)`.
 
 ```text
 ui-npa/
@@ -14,6 +15,7 @@ ui-npa/
 │   ├── tokens/
 │   └── styles/
 ├── examples/requerimentos/
+├── examples/paletas/
 ├── docs/
 ├── governance/
 ├── scripts/
@@ -41,7 +43,7 @@ O núcleo tem dois módulos: `packages/styles/sidebar.js` e `packages/styles/ide
 
 ## Temas
 
-Primitivos estruturais ficam em `:root`. Cores semânticas do tema claro ficam em `:root` e `[data-iui-theme="light"]`. O tema escuro, experimental, fica em `[data-iui-theme="dark"]`.
+Primitivos estruturais ficam em `:root`. Cores semânticas do tema claro ficam em `:root` e `[data-iui-theme="light"]`. O tema escuro, experimental, fica em `[data-iui-theme="dark"]`. As candidatas ficam em `candidates.css`, escopadas por `[data-iui-candidate]` e excluídas do escuro; não entram no artefato canônico.
 
 ## O que esta arquitetura não faz
 

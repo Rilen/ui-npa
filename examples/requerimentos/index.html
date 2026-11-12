@@ -6,6 +6,8 @@
     <meta name="description" content="Demonstração fictícia do UI-NPA. Não é um sistema municipal e não utiliza dados reais.">
     <title>Gestão de Requerimentos — Demonstração UI-NPA</title>
     <link rel="stylesheet" href="../../packages/styles/index.css">
+    <link rel="stylesheet" href="../../packages/styles/candidates.css">
+    <link rel="stylesheet" href="../shared/demo.css">
   </head>
   <body class="iui-root">
     <a class="iui-skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -77,6 +79,17 @@
           <span class="iui-badge iui-badge--info">Demonstração</span>
         </header>
         <div class="iui-shell__content">
+          <div class="demo-toolbar" role="region" aria-label="Comparação de paletas candidatas">
+            <label class="demo-toolbar__label" for="paleta">Paleta candidata</label>
+            <select class="demo-toolbar__select" id="paleta">
+              <option value="">Atual (provisória)</option>
+              <option value="a">A — Azul Institucional Equilibrado</option>
+              <option value="b">B — Azul Contemporâneo</option>
+              <option value="c">C — Neutro Institucional</option>
+            </select>
+            <p class="demo-toolbar__note">Candidatas para revisão. Nenhuma está homologada.</p>
+            <a class="demo-toolbar__link" href="../paletas/">Comparar lado a lado</a>
+          </div>
           <main id="conteudo" class="iui-page iui-stack" tabindex="-1">
             <section class="iui-section" id="painel" data-iui-section aria-labelledby="titulo-painel">
               <div class="iui-stack iui-stack--sm">

@@ -14,6 +14,7 @@
     "test:e2e": "playwright test",
     "capture:screenshots": "node scripts/capture-screenshots.mjs",
     "capture:screenshots:005": "node scripts/capture-screenshots.mjs 005",
+    "capture:screenshots:006": "node scripts/capture-screenshots.mjs 006",
     "check": "npm test && npm run test:e2e"
   },
   "devDependencies": {

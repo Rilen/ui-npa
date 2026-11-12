@@ -212,6 +212,15 @@ export function buildTokens(rootDir = defaultRoot) {
   const primitiveTokens = flatten(readJson(path.join(tokenDir, "primitive.tokens.json")), [], "primitive.tokens.json");
   const lightTokens = flatten(readJson(path.join(tokenDir, "semantic.light.tokens.json")), [], "semantic.light.tokens.json");
   const darkTokens = flatten(readJson(path.join(tokenDir, "semantic.dark.tokens.json")), [], "semantic.dark.tokens.json");
+  const candidateDefinitions = [
+    { id: "a", file: "semantic.candidate-a.tokens.json" },
+    { id: "b", file: "semantic.candidate-b.tokens.json" },
+    { id: "c", file: "semantic.candidate-c.tokens.json" },
+  ];
+  const availableCandidates = candidateDefinitions.filter(({ file }) => fs.existsSync(path.join(tokenDir, file)));
+  if (availableCandidates.length > 0 && availableCandidates.length !== candidateDefinitions.length) {
+    throw new Error("Os arquivos de candidatos devem existir em conjunto.");
+  }
 
   const primitives = resolveAll(primitiveTokens, new Map());
   for (const token of [...lightTokens, ...darkTokens]) {
@@ -228,6 +237,22 @@ export function buildTokens(rootDir = defaultRoot) {
   if (lightKeys.join("\n") !== darkKeys.join("\n")) {
     throw new Error("Tema claro e escuro possuem caminhos diferentes.");
   }
+
+  const candidateSets = availableCandidates.map(({ id, file }) => {
+    const tokens = flatten(readJson(path.join(tokenDir, file)), [], file);
+    for (const token of tokens) {
+      const key = token.path.join(".");
+      if (primitives.dict.has(key)) {
+        throw new Error(`Colisão com primitivo no candidato ${id}: ${key}`);
+      }
+    }
+    const resolved = resolveAll(tokens, primitives.dict);
+    const keys = resolved.resolved.map((token) => token.path.join(".")).sort();
+    if (keys.join("\n") !== lightKeys.join("\n")) {
+      throw new Error(`O candidato ${id} possui caminhos diferentes do tema claro.`);
+    }
+    return { id, resolved: resolved.resolved };
+  });
 
   let version = "0.0.0";
   const packagePath = path.join(rootDir, "package.json");
@@ -247,11 +272,30 @@ export function buildTokens(rootDir = defaultRoot) {
     "",
   ].join("\n");
 
+  const candidateBlocks = candidateSets
+    .map(({ id, resolved }) =>
+      renderBlock(`.iui-root[data-iui-candidate="${id}"]:not([data-iui-theme="dark"])`, resolved),
+    )
+    .join("\n\n");
+  const candidatesCss = [
+    "/* Não editar. Gerado por scripts/build-tokens.mjs a partir de packages/tokens. */",
+    `/* UI-NPA ${version}. Candidatos de paleta UI-NPA-006, não homologados. */`,
+    "",
+    "@layer iui.tokens {",
+    candidateBlocks,
+    "}",
+    "",
+  ].join("\n");
+
   return {
     css,
+    candidatesCss,
     primitives: dictionaryOf(primitives.resolved),
     light: dictionaryOf(light.resolved),
     dark: dictionaryOf(dark.resolved),
+    candidates: Object.fromEntries(
+      candidateSets.map(({ id, resolved }) => [id, dictionaryOf(resolved)]),
+    ),
   };
 }
 
@@ -265,5 +309,8 @@ if (isDirectRun()) {
   const target = path.join(defaultRoot, "packages", "styles", "tokens.css");
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, result.css);
+  const candidateTarget = path.join(defaultRoot, "packages", "styles", "candidates.css");
+  fs.writeFileSync(candidateTarget, result.candidatesCss);
   console.log(`Gerado ${path.relative(defaultRoot, target)}`);
+  console.log(`Gerado ${path.relative(defaultRoot, candidateTarget)}`);
 }

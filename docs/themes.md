@@ -12,6 +12,12 @@ Características: fundo levemente cinza, superfície branca, borda de 1px, raio 
 
 O escuro reaproveita os mesmos caminhos semânticos. Os blocos de feedback mantêm o par claro de fundo e texto para a situação continuar reconhecível. Sombras não foram reajustadas para fundo escuro. A demonstração não oferece interruptor de tema: o escuro é coberto por teste de propriedade computada, não por uma identidade aprovada.
 
+## Candidatos — UI-NPA-006
+
+`data-iui-candidate="a"`, `"b"` ou `"c"` no `.iui-root` aplica uma das três paletas candidatas. O seletor exige `:not([data-iui-theme="dark"])`; o tema escuro continua experimental e fora da decisão. Sem o atributo, a demonstração usa a paleta canônica provisória. `candidates.css` não entra no `index.css`; só a demonstração e a comparação carregam o arquivo.
+
+As candidatas e a recomendação técnica estão em [palette.md](palette.md).
+
 ## Fora de tema
 
 Espaço, tipo, raio, duração e tamanho não variam. A família é a pilha de sistema:

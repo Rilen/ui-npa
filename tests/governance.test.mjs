@@ -21,7 +21,8 @@ function stripComments(css) {
 
 test("componentes não redefinem cor, não usam !important e só referenciam tokens existentes", () => {
   const defined = new Set([...buildTokens().css.matchAll(/(--iui-[a-z0-9-]+):/g)].map((match) => match[1]));
-  const files = walk(stylesDir).filter((file) => path.basename(file) !== "tokens.css");
+  const generated = new Set(["tokens.css", "candidates.css"]);
+  const files = walk(stylesDir).filter((file) => !generated.has(path.basename(file)));
   assert.ok(files.length >= 8);
 
   for (const file of files) {

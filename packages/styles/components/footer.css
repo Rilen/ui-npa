@@ -5,6 +5,7 @@
   color: var(--iui-color-text-secondary);
   display: flex;
   flex-wrap: wrap;
+  flex: 0 0 auto;
   gap: var(--iui-space-3) var(--iui-space-4);
   justify-content: space-between;
   min-height: var(--iui-size-header);
@@ -74,6 +75,7 @@
   .iui-footer {
     align-items: flex-start;
     flex-direction: column;
+    flex-wrap: nowrap;
     padding: var(--iui-space-4);
   }
 }

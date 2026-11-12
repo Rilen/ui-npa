@@ -11,6 +11,7 @@ test("a geração de CSS é determinística", () => {
   const first = buildTokens();
   const second = buildTokens();
   assert.equal(first.css, second.css);
+  assert.equal(first.candidatesCss, second.candidatesCss);
 });
 
 test("o CSS commitado corresponde à fonte canônica", () => {
@@ -19,8 +20,33 @@ test("o CSS commitado corresponde à fonte canônica", () => {
   assert.equal(committed, generated);
 });
 
+test("o CSS de candidatos commitado corresponde à fonte canônica", () => {
+  const generated = buildTokens().candidatesCss.replaceAll("\r\n", "\n");
+  const committed = fs.readFileSync(path.join(root, "packages/styles/candidates.css"), "utf8").replaceAll("\r\n", "\n");
+  assert.equal(committed, generated);
+});
+
+test("os três candidatos existem e têm a mesma estrutura do tema claro", () => {
+  const model = buildTokens();
+  assert.deepEqual(Object.keys(model.candidates).sort(), ["a", "b", "c"]);
+  const lightKeys = Object.keys(model.light).sort();
+  for (const candidate of Object.values(model.candidates)) {
+    assert.deepEqual(Object.keys(candidate).sort(), lightKeys);
+  }
+  assert.match(model.candidatesCss, /data-iui-candidate="a"/);
+  assert.match(model.candidatesCss, /data-iui-candidate="b"/);
+  assert.match(model.candidatesCss, /data-iui-candidate="c"/);
+  assert.match(model.candidatesCss, /não homologados/i);
+});
+
 test("tokens semânticos não carregam cor literal", () => {
-  for (const file of ["semantic.light.tokens.json", "semantic.dark.tokens.json"]) {
+  for (const file of [
+    "semantic.light.tokens.json",
+    "semantic.dark.tokens.json",
+    "semantic.candidate-a.tokens.json",
+    "semantic.candidate-b.tokens.json",
+    "semantic.candidate-c.tokens.json",
+  ]) {
     const source = fs.readFileSync(path.join(root, "packages/tokens", file), "utf8");
     assert.equal(source.includes("#"), false, file);
   }
@@ -29,10 +55,19 @@ test("tokens semânticos não carregam cor literal", () => {
 test("a paleta é identificada como provisória", () => {
   const primitive = fs.readFileSync(path.join(root, "packages/tokens/primitive.tokens.json"), "utf8");
   const css = fs.readFileSync(path.join(root, "packages/styles/tokens.css"), "utf8");
+  const candidates = fs.readFileSync(path.join(root, "packages/styles/candidates.css"), "utf8");
   assert.match(primitive, /provisória/i);
   assert.match(css, /provisória/i);
+  assert.match(candidates, /não homologados/i);
   assert.match(css, /--iui-color-action-primary-bg:/);
   assert.match(css, /--iui-size-sidebar-collapsed:/);
+});
+
+test("os candidatos ficam restritos à demonstração", () => {
+  const index = fs.readFileSync(path.join(root, "packages/styles/index.css"), "utf8");
+  const demo = fs.readFileSync(path.join(root, "examples/requerimentos/index.html"), "utf8");
+  assert.equal(index.includes("candidates.css"), false);
+  assert.match(demo, /candidates\.css/);
 });
 
 test("todas as propriedades geradas usam o prefixo iui-", () => {

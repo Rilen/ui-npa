@@ -4,10 +4,11 @@
 
 | Comando | Ferramenta | Cobre |
 | --- | --- | --- |
-| `npm test` | `node:test` | Geração determinística, CSS commitado, alias cíclico, contraste, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
-| `npm run test:e2e` | Playwright e axe-core | Demonstração, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, violações graves, captura do painel |
+| `npm test` | `node:test` | Geração determinística, CSS canônico e de candidatas, integridade das variantes, alias cíclico, contraste nos cinco temas, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
+| `npm run test:e2e` | Playwright e axe-core | Demonstração, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, seletor de paletas, comparação, reflow a 200%, violações graves, captura do painel |
 | `npm run capture:screenshots` | Playwright | Evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`, sem comparação automática |
 | `npm run capture:screenshots:005` | Playwright | Evidências visuais da UI-NPA-005 em `docs/evidence/ui-npa-005`, sem comparação automática |
+| `npm run capture:screenshots:006` | Playwright | Evidências visuais das paletas candidatas em `docs/evidence/ui-npa-006`, sem comparação automática |
 
 `npm run check` executa os testes unitários e os de navegador. O build não roda automaticamente antes do teste: se o JSON mudar e o CSS não for regenerado, `npm test` falha.
 
@@ -47,8 +48,14 @@ npx playwright test --update-snapshots
 - faixa institucional móvel;
 - Sobre o sistema em desktop e mobile.
 
-As imagens são evidência para revisão visual. Não são comparadas automaticamente, não declaram homologação e variam com a fonte e a plataforma. O Chromium do Playwright precisa estar instalado com `npx playwright install chromium`. Os testes de navegador cobrem 1440, 1024, 768, 390 e 320px, incluindo sidebar expandida e recolhida, faixa móvel e axe em Sobre o sistema.
+`npm run capture:screenshots:006` grava a UI-NPA-006 em `docs/evidence/ui-npa-006`:
+
+- candidatos A, B e C em desktop 1440×900;
+- comparação da sidebar e dos componentes;
+- candidato A recomendado em mobile, faixa institucional e rodapé.
+
+As imagens são evidência para revisão visual. Não são comparadas automaticamente, não declaram homologação e variam com a fonte e a plataforma. O Chromium do Playwright precisa estar instalado com `npx playwright install chromium`. Os testes de navegador cobrem 1440, 1024, 768, 390 e 320px, incluindo sidebar expandida e recolhida, faixa móvel, seletor de paletas, comparação e axe em Sobre o sistema e na comparação.
 
 ## Fora do automático
 
-Revisão humana de IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012. Percurso com leitor de tela. Homologação da paleta. Conformidade WCAG integral.
+Revisão humana de IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012. Percurso com leitor de tela. Homologação da paleta. Reflow a 400%. Conformidade WCAG integral.

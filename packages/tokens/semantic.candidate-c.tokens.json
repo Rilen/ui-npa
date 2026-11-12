@@ -1,0 +1,90 @@
+{
+  "color": {
+    "$description": "Candidato C, UI-NPA-006. Neutro Institucional. Não homologado. Aliases exclusivos para primitivos.",
+    "surface": {
+      "canvas": { "$type": "color", "$value": "{color.stone.25}" },
+      "raised": { "$type": "color", "$value": "{color.neutral.0}" },
+      "sunken": { "$type": "color", "$value": "{color.stone.50}" },
+      "overlay": { "$type": "color", "$value": "{color.scrim.light}" },
+      "inverse": { "$type": "color", "$value": "{color.stone.900}" }
+    },
+    "text": {
+      "primary": { "$type": "color", "$value": "{color.stone.900}" },
+      "secondary": { "$type": "color", "$value": "{color.stone.600}" },
+      "disabled": { "$type": "color", "$value": "{color.stone.400}" },
+      "inverse": { "$type": "color", "$value": "{color.neutral.0}" },
+      "brand": { "$type": "color", "$value": "{color.steel.700}" },
+      "danger": { "$type": "color", "$value": "{color.red.700}" },
+      "success": { "$type": "color", "$value": "{color.green.700}" },
+      "warning": { "$type": "color", "$value": "{color.amber.700}" }
+    },
+    "border": {
+      "subtle": { "$type": "color", "$value": "{color.stone.400}" },
+      "default": { "$type": "color", "$value": "{color.stone.500}" },
+      "strong": { "$type": "color", "$value": "{color.stone.700}" },
+      "brand": { "$type": "color", "$value": "{color.steel.700}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$type": "color", "$value": "{color.steel.700}" },
+        "bg-hover": { "$type": "color", "$value": "{color.steel.800}" },
+        "bg-pressed": { "$type": "color", "$value": "{color.steel.900}" },
+        "fg": { "$type": "color", "$value": "{color.neutral.0}" }
+      },
+      "secondary": {
+        "bg": { "$type": "color", "$value": "{color.neutral.0}" },
+        "bg-hover": { "$type": "color", "$value": "{color.stone.50}" },
+        "fg": { "$type": "color", "$value": "{color.stone.900}" },
+        "border": { "$type": "color", "$value": "{color.stone.500}" }
+      },
+      "subtle": {
+        "bg-hover": { "$type": "color", "$value": "{color.steel.50}" },
+        "fg": { "$type": "color", "$value": "{color.steel.700}" }
+      },
+      "danger": {
+        "bg": { "$type": "color", "$value": "{color.red.700}" },
+        "bg-hover": { "$type": "color", "$value": "{color.red.800}" },
+        "fg": { "$type": "color", "$value": "{color.neutral.0}" }
+      }
+    },
+    "focus": {
+      "ring": { "$type": "color", "$value": "{color.steel.700}" }
+    },
+    "feedback": {
+      "neutral": {
+        "bg": { "$type": "color", "$value": "{color.stone.50}" },
+        "fg": { "$type": "color", "$value": "{color.stone.700}" },
+        "border": { "$type": "color", "$value": "{color.stone.400}" }
+      },
+      "info": {
+        "bg": { "$type": "color", "$value": "{color.steel.50}" },
+        "fg": { "$type": "color", "$value": "{color.steel.700}" },
+        "border": { "$type": "color", "$value": "{color.steel.200}" }
+      },
+      "success": {
+        "bg": { "$type": "color", "$value": "{color.green.50}" },
+        "fg": { "$type": "color", "$value": "{color.green.700}" },
+        "border": { "$type": "color", "$value": "{color.green.200}" }
+      },
+      "warning": {
+        "bg": { "$type": "color", "$value": "{color.amber.50}" },
+        "fg": { "$type": "color", "$value": "{color.amber.700}" },
+        "border": { "$type": "color", "$value": "{color.amber.200}" }
+      },
+      "danger": {
+        "bg": { "$type": "color", "$value": "{color.red.50}" },
+        "fg": { "$type": "color", "$value": "{color.red.700}" },
+        "border": { "$type": "color", "$value": "{color.red.200}" }
+      }
+    },
+    "nav": {
+      "bg": { "$type": "color", "$value": "{color.stone.25}" },
+      "fg": { "$type": "color", "$value": "{color.stone.900}" },
+      "fg-muted": { "$type": "color", "$value": "{color.stone.600}" },
+      "item-hover": { "$type": "color", "$value": "{color.stone.100}" },
+      "item-active": { "$type": "color", "$value": "{color.stone.200}" },
+      "item-active-fg": { "$type": "color", "$value": "{color.stone.900}" },
+      "border": { "$type": "color", "$value": "{color.stone.400}" }
+    }
+  }
+}
