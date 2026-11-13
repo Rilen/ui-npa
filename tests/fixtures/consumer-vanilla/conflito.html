@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cenário controlado de conflito com CSS legado sem camada.">
+    <title>Conflito de CSS legado — UI-NPA</title>
+    <link rel="stylesheet" href="./fixture.css">
+    <link rel="stylesheet" href="./.vendor/index.css">
+    <link rel="stylesheet" href="./legacy-unlayered.css">
+  </head>
+  <body class="iui-root">
+    <main class="iui-page iui-stack">
+      <div class="iui-alert iui-alert--warning" role="status">
+        <p class="iui-alert__title">Cenário controlado</p>
+        <p>CSS legado sem camada tem precedência sobre as camadas do UI-NPA. Este é um limite documentado, não o padrão recomendado.</p>
+      </div>
+      <h1 class="iui-title">Conflito de CSS legado</h1>
+      <article class="iui-card iui-stack iui-stack--sm">
+        <p class="iui-text">Os controles abaixo perdem parte do contrato visual quando o consumidor mantém CSS global sem camada.</p>
+        <button class="iui-button iui-button--primary" type="button">Ação primária</button>
+        <div class="iui-field">
+          <label class="iui-field__label" for="conflito-campo">Campo</label>
+          <input class="iui-field__control" id="conflito-campo" type="text" value="Valor de exemplo">
+        </div>
+        <p><a href="#conflito">Link de exemplo</a></p>
+      </article>
+      <div class="iui-table-wrap" role="region" tabindex="0" aria-label="Tabela de conflito">
+        <table class="iui-table">
+          <caption class="iui-visually-hidden">Tabela do cenário de conflito</caption>
+          <thead>
+            <tr><th scope="col">Coluna</th><th scope="col">Valor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Exemplo</td><td>Dado fictício</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

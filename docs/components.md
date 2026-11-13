@@ -4,6 +4,8 @@ Estado geral: os contratos abaixo estão implementados em CSS, com comportamento
 
 As classes usam o prefixo `iui-`. Os valores visuais vêm de tokens semânticos de cor e de primitivos estruturais.
 
+Consumo externo: a folha pública é `dist/index.css` e os módulos são `ui-npa/sidebar.js` e `ui-npa/identity.js`. A instalação local, a ordem de camadas e a fixture independente estão em [integration.md](integration.md).
+
 ## Button
 
 Implementado.
@@ -207,7 +209,7 @@ A identidade institucional e o rodapé seguem [docs/identity.md](identity.md). O
 ```
 
 ```js
-import { mountSidebar } from "./packages/styles/sidebar.js";
+import { mountSidebar } from "ui-npa/sidebar.js";
 
 mountSidebar(document.querySelector("#sidebar"), {
   toggle: document.querySelector("[data-iui-sidebar-toggle]"),

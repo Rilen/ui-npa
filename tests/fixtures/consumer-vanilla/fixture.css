@@ -1,0 +1,7 @@
+@layer legacy, consumer, iui.tokens, iui.base, iui.components, iui.utilities;
+
+@layer consumer {
+  .fixture-components {
+    padding-block-start: var(--iui-space-1);
+  }
+}

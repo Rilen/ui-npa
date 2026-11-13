@@ -1,0 +1,41 @@
+UI-NPA — instalação local do pacote
+Gerado em: 2026-11-13T00:33:26.471Z
+Node: v24.13.0
+Pacote: ui-npa@0.3.1
+Tarball: ui-npa-0.3.1.tgz
+Tarball SHA-256: 6267ad5a6e6c72672a8c06f02db21f0aed465460889bca129637e109805a051d
+Comando de instalação: npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund <tarball>
+Status: PASS
+
+Entradas do tarball:
+- CHANGELOG.md
+- README.md
+- dist/base.css
+- dist/components/alert.css
+- dist/components/badge.css
+- dist/components/button.css
+- dist/components/card.css
+- dist/components/field.css
+- dist/components/footer.css
+- dist/components/institution.css
+- dist/components/motion.css
+- dist/components/shell.css
+- dist/components/sidebar.css
+- dist/components/table.css
+- dist/components/text.css
+- dist/components/utilities.css
+- dist/identity.js
+- dist/index.css
+- dist/sidebar.js
+- dist/tokens.css
+- package.json
+
+Exports públicos:
+- ./styles.css -> ./dist/index.css
+- ./tokens.css -> ./dist/tokens.css
+- ./sidebar.js -> ./dist/sidebar.js
+- ./identity.js -> ./dist/identity.js
+- ./package.json -> ./package.json
+
+A fixture copiou somente o diretório dist do pacote instalado para tests/fixtures/consumer-vanilla/.vendor.
+Nenhum push, publicação npm ou deploy foi executado.

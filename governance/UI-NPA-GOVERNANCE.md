@@ -26,7 +26,7 @@ Mudanças incompatíveis devem ser identificadas e versionadas no changelog. Dur
 
 ## IUI-006 — CSS
 
-Evitar duplicação, estilos arbitrários e sobrescritas não justificadas. Componentes consomem variáveis `--iui-*`. Não introduzir Bootstrap, Tailwind ou outra biblioteca de apresentação como dependência do núcleo.
+Evitar duplicação, estilos arbitrários e sobrescritas não justificadas. Componentes consomem variáveis `--iui-*`. Não introduzir Bootstrap, Tailwind ou outra biblioteca de apresentação como dependência do núcleo. O consumo externo usa o artefato público `dist/index.css` e os módulos `dist/sidebar.js` e `dist/identity.js`; não copie arquivos internos de `packages/styles`. CSS legado do consumidor deve ser colocado em uma camada anterior às camadas `iui.*`. CSS sem camada tem precedência sobre o pacote e pode quebrar o contrato visual; a integração recomendada está em [docs/integration.md](../docs/integration.md).
 
 ## IUI-007 — Agentes de IA
 
@@ -70,7 +70,9 @@ Este repositório não verifica automaticamente toda a política. IUI-002, IUI-0
 
 Uma aplicação aderente:
 
-- consome a folha `packages/styles/index.css` ou um artefato gerado a partir dela;
+- consome o artefato público `dist/index.css` (ou a entrada instalada `ui-npa/styles.css`) e os módulos `ui-npa/sidebar.js` e `ui-npa/identity.js`;
 - envolve a região modernizada com `iui-root`;
 - usa os contratos de [docs/components.md](../docs/components.md) e [docs/identity.md](../docs/identity.md);
+- não sobrescreve tokens semânticos globais para criar identidade paralela; configura somente as marcas do contrato de identidade;
+- declara a ordem de camadas e mantém CSS legado em camada anterior;
 - registra exceção quando precisar sair do contrato.

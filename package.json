@@ -1,20 +1,52 @@
 {
   "name": "ui-npa",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "Design System institucional UI-NPA. Paleta clara oficial: Azul Institucional Equilibrado.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rilen/ui-npa.git"
+  },
+  "homepage": "https://github.com/Rilen/ui-npa#readme",
+  "bugs": {
+    "url": "https://github.com/Rilen/ui-npa/issues"
+  },
+  "keywords": [
+    "design-system",
+    "css",
+    "institucional",
+    "tokens"
+  ],
+  "style": "./dist/index.css",
+  "exports": {
+    "./styles.css": "./dist/index.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./sidebar.js": "./dist/sidebar.js",
+    "./identity.js": "./dist/identity.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "type": "module",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "build": "node scripts/build-tokens.mjs",
+    "build": "node scripts/build-tokens.mjs && node scripts/build-package.mjs",
+    "build:package": "node scripts/build-package.mjs",
+    "prepack": "npm run build",
     "dev": "node scripts/serve.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "capture:screenshots": "node scripts/capture-screenshots.mjs",
     "capture:screenshots:005": "node scripts/capture-screenshots.mjs 005",
     "capture:screenshots:007": "node scripts/capture-screenshots.mjs 007",
+    "capture:screenshots:008": "node scripts/prepare-consumer-fixture.mjs --report && node scripts/capture-screenshots.mjs 008",
+    "prepare:consumer": "node scripts/prepare-consumer-fixture.mjs",
     "check": "npm test && npm run test:e2e"
   },
   "devDependencies": {

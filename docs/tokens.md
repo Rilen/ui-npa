@@ -32,12 +32,15 @@ O nome é estável dentro da linha `0.3`. Renomear é mudança incompatível e e
 - Cor, dimensão, duração, número, peso, família, curva e sombra são validados antes da emissão.
 - A saída é ordenada. Duas execuções produzem o mesmo texto.
 - O gerador emite apenas `packages/styles/tokens.css`; não há folha de candidatos.
+- `packages/styles/tokens.css` é copiado para `dist/tokens.css` pelo build de pacote e exposto como `ui-npa/tokens.css`.
 
 ## Paleta oficial
 
 O tema claro oficial usa o azul institucional `atlantic`, com ação primária e foco em `#2a4b6d`, navegação ativa em `#e5edf5` e canvas `#f7f8fa`. O azul `blue` permanece apenas no tema escuro experimental. Neutros frios, verde, âmbar e vermelho existem para texto e feedback, não como decoração.
 
 A decisão está em [decisions/004-palette-homologation.md](decisions/004-palette-homologation.md). O histórico da avaliação, com as alternativas rejeitadas e as medições, está em [palette.md](palette.md).
+
+Quatro tokens semânticos não têm uso direto nos componentes atuais: `color.text.success`, `color.text.warning`, `color.border.strong` e `color.border.brand`. Eles permanecem como API pública para composição do consumidor; removê-los seria uma mudança incompatível sem evidência de uso nulo.
 
 Os pares mínimos de contraste vivem em `tests/contrast-pairs.json` e são recalculados a cada `npm test`. O teste cobre o tema claro oficial e o tema escuro experimental. Texto informativo usa 4.5:1. Borda e anel de foco usam 3:1. Texto desabilitado fica de fora dessa meta porque o critério de contraste da WCAG não se aplica a componente inativo.
 

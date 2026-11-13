@@ -4,13 +4,15 @@
 
 | Comando | Ferramenta | Cobre |
 | --- | --- | --- |
-| `npm test` | `node:test` | Geração determinística, CSS canônico, valores da paleta oficial, ausência de mecanismos de candidatos, alias cíclico, contraste no tema claro e no escuro, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
-| `npm run test:e2e` | Playwright e axe-core | Demonstração, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
+| `npm test` | `node:test` | Geração determinística, CSS canônico, valores da paleta oficial, ausência de mecanismos de candidatos, metadados de distribuição, fixture pública, alias cíclico, contraste no tema claro e no escuro, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
+| `npm run test:e2e` | Playwright e axe-core | Demonstração, pacote instalado, fixtures isoladas, CSS legado em camada e sem camada, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
+| `npm run prepare:consumer` | Node e npm | Gera o tarball, instala localmente e copia `dist` para a fixture isolada |
 | `npm run capture:screenshots` | Playwright | Evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`, sem comparação automática |
 | `npm run capture:screenshots:005` | Playwright | Evidências visuais da UI-NPA-005 em `docs/evidence/ui-npa-005`, sem comparação automática |
 | `npm run capture:screenshots:007` | Playwright | Evidências visuais do tema oficial em `docs/evidence/ui-npa-007`, sem comparação automática |
+| `npm run capture:screenshots:008` | Playwright | Evidências da fixture instalada e do cenário de CSS legado em `docs/evidence/ui-npa-008`, sem comparação automática |
 
-`npm run check` executa os testes unitários e os de navegador. O build não roda automaticamente antes do teste: se o JSON mudar e o CSS não for regenerado, `npm test` falha.
+`npm run check` executa os testes unitários e os de navegador. `npm run build` gera `packages/styles/tokens.css` e `dist`; o teste falha se o CSS canônico divergir da fonte. A fixture de consumidor é preparada com `npm pack` e instalação local antes dos testes de navegador.
 
 ## Não instalados
 
@@ -55,8 +57,16 @@ npx playwright test --update-snapshots
 - mobile em 390×844 e 320×700;
 - faixa institucional, componentes, rodapé e Sobre o sistema.
 
-As imagens são evidência para revisão visual. Não são comparadas automaticamente, não declaram homologação e variam com a fonte e a plataforma. O Chromium do Playwright precisa estar instalado com `npx playwright install chromium`. Os testes de navegador cobrem 1440, 1024, 768, 390 e 320px, incluindo sidebar expandida e recolhida, faixa móvel, paleta oficial e axe em Sobre o sistema.
+`npm run capture:screenshots:008` prepara o tarball local e grava a UI-NPA-008 em `docs/evidence/ui-npa-008`:
+
+- consumidor isolado em desktop e mobile;
+- sidebar expandida e recolhida;
+- faixa institucional, componentes e rodapé do consumidor;
+- cenário de CSS legado sem camada;
+- relatório da instalação local do pacote.
+
+As imagens são evidência para revisão visual. Não são comparadas automaticamente, não declaram homologação e variam com a fonte e a plataforma. O Chromium do Playwright precisa estar instalado com `npx playwright install chromium`. Os testes de navegador cobrem 1440, 1024, 768, 390 e 320px, incluindo sidebar expandida e recolhida, faixa móvel, paleta oficial, fixture instalada e axe em Sobre o sistema e no consumidor.
 
 ## Fora do automático
 
-Revisão humana de IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012. Percurso com leitor de tela. Validação da paleta em dispositivo físico. Reflow a 400%. Conformidade WCAG integral.
+Revisão humana de IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012. Percurso com leitor de tela. Validação em dispositivo físico. Reflow a 400% medido como viewport CSS de 320px; zoom apenas de texto a 400% não é suportado. Conformidade WCAG integral.

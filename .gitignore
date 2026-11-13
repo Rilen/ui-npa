@@ -1,8 +1,12 @@
 node_modules/
+dist/
 test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+tests/fixtures/consumer-vanilla/.vendor/
+tests/fixtures/consumer-vanilla/.runtime/
+*.tgz
 *.log
 .DS_Store
 Thumbs.db

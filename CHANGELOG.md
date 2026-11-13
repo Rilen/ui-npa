@@ -2,6 +2,41 @@
 
 O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](docs/versioning.md).
 
+## [0.3.1] - 2026-11-13
+
+Maturação da distribuição pública e validação independente de integração. Nenhuma publicação remota.
+
+### Adicionado
+
+- `dist` gerado por `scripts/build-package.mjs`, com `npm run build` e `prepack`.
+- Exportações públicas `ui-npa/styles.css`, `ui-npa/tokens.css`, `ui-npa/sidebar.js` e `ui-npa/identity.js`.
+- Metadados de pacote: `files`, `style`, licença `UNLICENSED`, repositório, homepage e bugs.
+- Fixture independente `tests/fixtures/consumer-vanilla`, instalada a partir de tarball local e sem dependência de `examples/`.
+- Cenários de CSS legado em camada e sem camada, com teste de integração.
+- Testes de pacote, instalação, consumidor, sidebar, identidade, rodapé, tema escuro, responsividade e axe.
+- Evidências da UI-NPA-008 em `docs/evidence/ui-npa-008`.
+- ADR 005 e simulação de onboarding de agentes.
+
+### Alterado
+
+- Versão para `0.3.1`; `package-lock.json` alinhado ao manifesto.
+- `npm run build` agora gera tokens e `dist`.
+- Componentes receberam proteção explícita de família tipográfica contra CSS legado.
+- Documentação de integração, arquitetura, testes, limitações e governança atualizada.
+
+### Corrigido
+
+- `npm pack` deixa de incluir `examples`, `tests`, `docs`, `scripts` e o ZIP de evidências.
+- O consumidor não precisa de caminhos internos de `packages/` nem da demonstração.
+
+### Limitações
+
+- A distribuição validada é local; não há publicação npm.
+- CSS legado sem camada ainda tem precedência sobre o pacote.
+- Tema escuro continua experimental.
+- Zoom apenas de texto a 400% não é suportado; reflow a 400% é coberto como viewport de 320px.
+- Não há declaração de conformidade WCAG 2.2 AA integral.
+
 ## [0.3.0] - 2026-11-12
 
 Homologação da paleta clara oficial e encerramento da comparação A/B/C. Nenhuma publicação remota.

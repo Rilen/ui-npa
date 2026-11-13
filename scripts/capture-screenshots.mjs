@@ -87,12 +87,58 @@ const sets = {
       { file: "09-about.png", viewport: { width: 1440, height: 900 }, hash: "#sobre" },
     ],
   },
+  "008": {
+    output: "docs/evidence/ui-npa-008",
+    captures: [
+      { file: "01-consumer-desktop.png", viewport: { width: 1440, height: 900 }, url: "/tests/fixtures/consumer-vanilla/" },
+      { file: "02-consumer-mobile.png", viewport: { width: 390, height: 844 }, url: "/tests/fixtures/consumer-vanilla/" },
+      {
+        file: "03-sidebar-expanded.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-vanilla/",
+        element: ".iui-sidebar",
+      },
+      {
+        file: "04-sidebar-collapsed.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-vanilla/",
+        prepare: async (page) => {
+          await page.getByRole("button", { name: "Recolher menu" }).click();
+          await page.waitForFunction(() => document.querySelector("#consumer-sidebar")?.dataset.collapsed === "true");
+        },
+        element: ".iui-sidebar",
+      },
+      {
+        file: "05-institution.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-vanilla/",
+        element: ".iui-institution",
+      },
+      {
+        file: "06-components.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-vanilla/",
+        element: ".fixture-components",
+      },
+      {
+        file: "07-footer.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-vanilla/",
+        element: ".iui-footer",
+      },
+      {
+        file: "08-legacy-css.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-vanilla/conflito.html",
+      },
+    ],
+  },
 };
 
 const setId = process.argv[2] || process.env.EVIDENCE_SET || "003";
 const set = sets[setId];
 if (!set) {
-  throw new Error(`Conjunto de evidências desconhecido: ${setId}. Use 003, 005 ou 007.`);
+  throw new Error(`Conjunto de evidências desconhecido: ${setId}. Use 003, 005, 007 ou 008.`);
 }
 const output = path.join(root, set.output);
 
@@ -134,7 +180,7 @@ async function capture(browser, item) {
     deviceScaleFactor: 1,
   });
   const page = await context.newPage();
-  const targetUrl = new URL(demoUrl);
+  const targetUrl = new URL(item.url || demoUrl, serverUrl);
   if (item.hash) targetUrl.hash = item.hash;
   await page.goto(targetUrl.href, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);

@@ -24,6 +24,24 @@ body.iui-root {
   box-sizing: border-box;
 }
 
+.iui-root :where(
+  .iui-button,
+  .iui-card,
+  .iui-text,
+  .iui-title,
+  .iui-heading,
+  .iui-metric,
+  .iui-badge,
+  .iui-alert,
+  .iui-field,
+  .iui-table,
+  .iui-sidebar,
+  .iui-institution,
+  .iui-footer
+) {
+  font-family: var(--iui-font-family-sans);
+}
+
 .iui-root :focus-visible {
   outline: var(--iui-border-width-focus) solid var(--iui-color-focus-ring);
   outline-offset: var(--iui-border-width-focus);
