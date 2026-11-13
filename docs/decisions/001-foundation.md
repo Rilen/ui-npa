@@ -23,3 +23,5 @@ O UI-NPA precisa nascer como referência visual sem copiar a Microsoft, sem pren
 ## Consequências
 
 A primeira integração é HTML com a folha `index.css`. Um wrapper React posterior deve ser fino e não pode redefinir token. O tema escuro não deve ser oferecido como identidade oficial até ser homologado.
+
+Nota da UI-NPA-007: a paleta clara foi homologada em 12/11/2026; ver [ADR 004](004-palette-homologation.md). O tema escuro continua experimental.

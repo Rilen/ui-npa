@@ -1,6 +1,8 @@
-# Paletas candidatas — UI-NPA-006
+# Histórico da avaliação de paletas — UI-NPA-006
 
-Estado: **candidatas para revisão**. Nenhuma alternativa está homologada. A paleta canônica atual continua sendo a provisória de `packages/tokens/semantic.light.tokens.json`.
+Estado: **decisão encerrada**. A alternativa **A — Azul Institucional Equilibrado** foi homologada em 12/11/2026 como paleta do tema claro oficial. B e C foram rejeitadas para adoção canônica. Os valores oficiais estão em `packages/tokens/semantic.light.tokens.json`; a decisão está em [decisions/004-palette-homologation.md](decisions/004-palette-homologation.md).
+
+Este documento preserva o diagnóstico, as alternativas comparadas, as medições e a recomendação que fundamentaram a escolha. Ele não é uma fonte de tokens e não descreve mecanismos ativos.
 
 ## Diagnóstico atual
 
@@ -108,15 +110,16 @@ A escala foi auditada e não foi alterada. A família é a pilha de sistema, sem
 
 Pesos 400 e 600; linha 1.25 para títulos e 1.5 para texto. O indicador ser maior que o título é intencional para leitura de dados. Nenhuma inconsistência comprovada justificou mudança de escala. O reflow com texto a 200% foi coberto por teste automatizado em 390px e 320px.
 
-## Mecanismo de comparação
+## Mecanismo temporário (removido)
 
-- `packages/tokens/semantic.candidate-a|b|c.tokens.json` têm os mesmos caminhos do tema claro.
-- Novas primitivas de cor: `atlantic`, `azure`, `steel`, `cool` e `stone`.
-- `npm run build` gera `packages/styles/tokens.css` e `packages/styles/candidates.css`.
-- `candidates.css` não é importado por `index.css`; só a demonstração e a página de comparação o carregam.
-- O seletor “Paleta candidata” e o parâmetro `?paleta=a|b|c` alternam a mesma tela; sem parâmetro, a paleta canônica permanece.
-- `examples/paletas/` compara sidebar e componentes nas três alternativas.
-- O seletor de candidata não vale no tema escuro: o seletor CSS exige `:not([data-iui-theme="dark"])`.
+- `packages/tokens/semantic.candidate-a|b|c.tokens.json` tinham os mesmos caminhos do tema claro.
+- As primitivas de cor da avaliação eram `atlantic`, `azure`, `steel`, `cool` e `stone`.
+- `npm run build` gerava `packages/styles/tokens.css` e `packages/styles/candidates.css`.
+- `candidates.css` não era importado por `index.css`; apenas a demonstração e a página de comparação o carregavam.
+- O seletor “Paleta candidata” e o parâmetro `?paleta=a|b|c` alternavam a mesma tela.
+- `examples/paletas/` comparava sidebar e componentes nas três alternativas.
+
+Após a homologação, os arquivos semânticos e as primitivas rejeitadas foram movidos para `docs/archive/ui-npa-006`, `candidates.css` foi removido, a página de comparação foi retirada e o seletor/parâmetro deixou de existir. O build canônico emite somente `tokens.css`.
 
 ## Rastreabilidade
 
@@ -134,22 +137,20 @@ Pesos 400 e 600; linha 1.25 para títulos e 1.5 para texto. O indicador ser maio
 | `color.steel.700` | `color.action.primary.bg` | candidato C |
 | `color.stone.25` | `color.surface.canvas` | candidato C |
 
-## Recomendação técnica
+## Decisão
 
-Recomenda-se **A — Azul Institucional Equilibrado** como candidata principal para a revisão visual. Ela preserva as superfícies neutras e a leitura institucional da fundação, mantém o maior contraste de ação entre as três (9.03:1), reduz o risco de migração e diferencia o azul provisório sem mudar a estrutura. B é a opção se a decisão buscar mais expressão e diferenciação de navegação. C é a opção se a prioridade for neutralidade máxima e uso restrito do azul.
+A alternativa **A — Azul Institucional Equilibrado** foi escolhida. Ela preserva as superfícies neutras e a leitura institucional da fundação, mantém contraste de ação de 9.03:1, reduz o risco de migração e diferencia o azul provisório sem mudar a estrutura. B foi rejeitada por expressividade acima do necessário para o tom institucional; C foi rejeitada por reduzir demais a presença do azul na navegação.
 
-A recomendação é técnica e não homologa a paleta. A escolha definitiva permanece pendente.
+A decisão foi homologada pelo responsável do projeto em 12/11/2026. A escolha não declara conformidade WCAG integral nem pronta adoção universal.
 
-## Evidências e testes
+## Evidências e testes históricos
 
 - Evidências: [docs/evidence/ui-npa-006](evidence/ui-npa-006).
-- Capturas: `npm run capture:screenshots:006`.
-- Contraste, determinismo e integridade das variantes: `npm test`.
-- Comportamento do seletor, comparação, axe e reflow a 200%: `npm run test:e2e`.
+- As capturas foram geradas durante a avaliação; o comando de captura de candidatos foi removido na UI-NPA-007.
+- Contraste, determinismo e integridade das variantes foram medidos na avaliação. O estado atual cobre o tema claro oficial e o escuro.
 
 ## Pendências
 
-- Escolher a alternativa e homologar a paleta.
 - Definir se a seleção de conteúdo terá token próprio; hoje a seleção disponível é a navegação ativa.
-- Validar com leitor de tela real e zoom de 200% em dispositivos físicos.
+- Validar a paleta com leitor de tela real e em dispositivo físico.
 - Revisar o tema escuro em uma missão própria, se ele for promovido.

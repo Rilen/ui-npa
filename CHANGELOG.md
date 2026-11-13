@@ -2,6 +2,41 @@
 
 O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](docs/versioning.md).
 
+## [0.3.0] - 2026-11-12
+
+Homologação da paleta clara oficial e encerramento da comparação A/B/C. Nenhuma publicação remota.
+
+### Adicionado
+
+- Paleta clara oficial **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026.
+- Valores oficiais promovidos para `semantic.light.tokens.json`, incluindo superfícies, texto, bordas, ação, foco, feedback e navegação.
+- Primitiva `atlantic` como azul institucional oficial do tema claro.
+- Evidências visuais do tema oficial em `docs/evidence/ui-npa-007`.
+- Arquivo histórico das definições A/B/C em `docs/archive/ui-npa-006`.
+- Testes de paleta oficial, ausência de mecanismos de candidatos e contraste do tema claro e escuro.
+
+### Alterado
+
+- Versão do UI-NPA para `0.3.0`, com manifesto, changelog e documentação alinhados.
+- `npm run build` emite somente `packages/styles/tokens.css`.
+- A demonstração usa exclusivamente a identidade canônica, sem seletor de paleta.
+- `docs/tokens.md`, `docs/themes.md`, `docs/architecture.md`, `docs/accessibility.md`, `docs/testing.md`, `docs/limitations.md`, `README.md` e governança registram a homologação.
+
+### Removido
+
+- `packages/styles/candidates.css`.
+- `semantic.candidate-a|b|c.tokens.json` do fluxo de produção.
+- Atributo `data-iui-candidate`, seletor “Paleta candidata”, parâmetro `?paleta`, barra de comparação e `examples/paletas/`.
+- Primitivas `azure`, `steel`, `cool` e `stone` do bundle canônico.
+
+### Limitações
+
+- A paleta clara é oficial; o tema escuro continua experimental.
+- As alternativas B e C foram rejeitadas e permanecem apenas como registro histórico.
+- Não há token separado de seleção de conteúdo.
+- A homologação não declara conformidade WCAG 2.2 AA integral.
+- Não houve publicação, push ou deploy.
+
 ## [0.2.0] - 2026-11-12
 
 Refinamento visual e contrato de identidade institucional. Nenhuma publicação remota.

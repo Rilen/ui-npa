@@ -21,7 +21,7 @@ function stripComments(css) {
 
 test("componentes não redefinem cor, não usam !important e só referenciam tokens existentes", () => {
   const defined = new Set([...buildTokens().css.matchAll(/(--iui-[a-z0-9-]+):/g)].map((match) => match[1]));
-  const generated = new Set(["tokens.css", "candidates.css"]);
+  const generated = new Set(["tokens.css"]);
   const files = walk(stylesDir).filter((file) => !generated.has(path.basename(file)));
   assert.ok(files.length >= 8);
 
@@ -99,5 +99,7 @@ test("a demonstração não embute cor nem estilo inline", () => {
   assert.equal(/style\s*=/.test(html), false);
   assert.equal(/#[0-9a-fA-F]{6}\b/.test(html), false);
   assert.match(script, /ui-npa-demo-sidebar/);
-  assert.match(html, /provisória/i);
+  assert.match(html, /paleta clara oficial/i);
+  assert.match(html, /Azul Institucional Equilibrado/i);
+  assert.match(html, /tema escuro permanece experimental/i);
 });

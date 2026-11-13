@@ -14,7 +14,7 @@ Não criar componentes concorrentes aos existentes. Um controle novo só entra n
 
 ## IUI-003 — Identidade visual
 
-Aplicações aderentes devem respeitar a identidade e os temas aprovados. A paleta de `0.1.0` é provisória: pode ser usada para fundação e demonstração, e não deve ser apresentada como identidade oficial homologada.
+Aplicações aderentes devem respeitar a identidade e os temas aprovados. A paleta clara oficial é **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026, e vive nos tokens semânticos canônicos. O tema escuro permanece experimental. Aplicações não devem sobrescrever os tokens semânticos globais para criar identidades paralelas; a configuração de marcas institucionais é independente da paleta. As alternativas B e C foram rejeitadas para adoção canônica e ficam apenas no arquivo histórico.
 
 ## IUI-004 — Acessibilidade
 

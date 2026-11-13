@@ -1,22 +1,20 @@
 # Temas
 
-## Claro — implementado
+## Claro — oficial
 
-É o tema canônico da direção Institucional Equilibrado. Entra em `:root` e pode ser reafirmado com `data-iui-theme="light"` para voltar ao claro dentro de uma região escura.
+É o tema canônico e a paleta clara oficial do UI-NPA: **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026. Entra em `:root` e pode ser reafirmado com `data-iui-theme="light"` para voltar ao claro dentro de uma região escura. Não depende de atributo de candidato, folha adicional ou parâmetro de URL.
 
-Características: fundo levemente cinza, superfície branca, borda de 1px, raio de 4px nos controles e 8px nos cartões, sombra curta, azul apenas em ação primária, foco e item ativo.
+Características: canvas `#f7f8fa`, superfície branca, ação primária e foco `#2a4b6d`, navegação ativa `#e5edf5` com texto `#203a55`, borda sutil de 1px em `#7d848f`, raio de 4px nos controles e 8px nos cartões, sombra curta, azul restrito a ação, foco, navegação ativa e informação.
 
 ## Escuro — experimental
 
 `data-iui-theme="dark"` no elemento que deve herdar o tema, em geral `.iui-root`.
 
-O escuro reaproveita os mesmos caminhos semânticos. Os blocos de feedback mantêm o par claro de fundo e texto para a situação continuar reconhecível. Sombras não foram reajustadas para fundo escuro. A demonstração não oferece interruptor de tema: o escuro é coberto por teste de propriedade computada, não por uma identidade aprovada.
+O escuro reaproveita os mesmos caminhos semânticos e mantém os valores anteriores à homologação. Os blocos de feedback mantêm o par claro de fundo e texto para a situação continuar reconhecível. Sombras não foram reajustadas para fundo escuro. A demonstração não oferece interruptor de tema: o escuro é coberto por teste de propriedade computada, não por uma identidade aprovada.
 
-## Candidatos — UI-NPA-006
+## Histórico de candidatos
 
-`data-iui-candidate="a"`, `"b"` ou `"c"` no `.iui-root` aplica uma das três paletas candidatas. O seletor exige `:not([data-iui-theme="dark"])`; o tema escuro continua experimental e fora da decisão. Sem o atributo, a demonstração usa a paleta canônica provisória. `candidates.css` não entra no `index.css`; só a demonstração e a comparação carregam o arquivo.
-
-As candidatas e a recomendação técnica estão em [palette.md](palette.md).
+As alternativas A, B e C da UI-NPA-006 foram comparadas. A foi homologada e B/C foram rejeitadas. As definições históricas estão em `docs/archive/ui-npa-006`, as medições em [palette.md](palette.md) e a decisão em [decisions/004-palette-homologation.md](decisions/004-palette-homologation.md). Nenhuma variante de candidato permanece no CSS canônico.
 
 ## Fora de tema
 

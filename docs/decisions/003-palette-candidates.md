@@ -1,6 +1,6 @@
 # ADR 003 — Candidatos de paleta comparáveis
 
-Data: 2026-11-12. Estado: proposta, não homologada.
+Data: 2026-11-12. Estado: substituída pela [ADR 004](004-palette-homologation.md).
 
 ## Contexto
 
@@ -19,3 +19,7 @@ O UI-NPA precisa comparar três identidades de cor sem alterar o tema canônico 
 ## Consequências
 
 O artefato canônico ganha apenas primitivas de cor e o gerador ganha uma saída adicional. Consumidores que carregam `index.css` não recebem as candidatas. Depois da escolha, a alternativa aprovada deve ser incorporada aos tokens semânticos canônicos e `candidates.css` deve ser retirado ou arquivado em uma missão própria. O tema escuro continua fora da decisão.
+
+## Atualização
+
+A alternativa A foi homologada na UI-NPA-007, conforme a ADR 004. B e C foram rejeitadas. As definições foram arquivadas em `docs/archive/ui-npa-006`; o gerador não produz mais `candidates.css`.

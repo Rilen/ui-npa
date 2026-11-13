@@ -1,6 +1,6 @@
-# Evidências visuais — UI-NPA-006
+# Evidências visuais — UI-NPA-006 (histórico)
 
-Capturas reais das três paletas candidatas, geradas por `npm run capture:screenshots:006`.
+Capturas reais da avaliação das três paletas candidatas. O mecanismo temporário de comparação foi removido na UI-NPA-007; estas imagens permanecem como registro histórico.
 
 | Arquivo | Estado | Viewport |
 | --- | --- | --- |
@@ -13,8 +13,8 @@ Capturas reais das três paletas candidatas, geradas por `npm run capture:screen
 | `07-candidate-a-institution.png` | Faixa institucional do candidato A | 1440×900 |
 | `08-candidate-a-footer.png` | Rodapé do candidato A | 1440×900 |
 
-A recomendação técnica é o candidato A, sem homologação. A, B e C continuam candidatos sujeitos à revisão visual e à decisão do responsável pelo projeto. O tema escuro permanece experimental e não participa desta comparação. A proposta completa, a tabela de contraste e a rastreabilidade estão em [palette.md](../../palette.md).
+A alternativa A — Azul Institucional Equilibrado foi homologada em 12/11/2026. B e C foram rejeitadas para adoção canônica. O tema escuro permaneceu experimental e fora da comparação. A proposta completa, a tabela de contraste e a rastreabilidade estão em [palette.md](../../palette.md); a decisão está em [ADR 004](../../decisions/004-palette-homologation.md).
 
-Ambiente: Windows, tema claro, `prefers-reduced-motion: reduce`, escala 1, Chromium 158.0.8127.18 via Playwright 1.65.0. A página de comparação está em `examples/paletas/`.
+Ambiente: Windows, tema claro, `prefers-reduced-motion: reduce`, escala 1, Chromium 158.0.8127.18 via Playwright 1.65.0. A página de comparação e o seletor de candidata não existem mais no fluxo operacional.
 
 As imagens existem para revisão visual. Não são homologação definitiva nem declaração de conformidade WCAG. A renderização varia com a fonte e a plataforma.

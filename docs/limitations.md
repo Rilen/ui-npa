@@ -1,9 +1,11 @@
 # Limitações conhecidas
 
-- A paleta é provisória e não é a identidade oficial do NPA. As alternativas A, B e C são candidatas, não homologadas.
+- A paleta clara oficial é Azul Institucional Equilibrado (alternativa A), homologada em 12/11/2026. Ela identifica o UI-NPA e não substitui a marca institucional do NPA.
+- As alternativas B e C foram rejeitadas para adoção canônica e permanecem apenas no arquivo histórico.
+- A homologação cobre o tema claro do UI-NPA, não uma certificação integral de acessibilidade.
 - A seleção disponível é o item ativo da navegação; não existe token separado para seleção de linhas ou itens de conteúdo.
-- O tema escuro é experimental. Sombras não foram reajustadas e a demonstração não oferece seletor de tema. As candidatas são excluídas do escuro.
-- A comparação de paletas e o seletor de candidata são recursos da demonstração; `candidates.css` não é importado pelo núcleo.
+- O tema escuro é experimental e preserva os valores anteriores à homologação. Sombras não foram reajustadas e a demonstração não oferece seletor de tema.
+- O mecanismo temporário de comparação de paletas foi removido; não há `candidates.css`, seletor de candidata nem página de comparação no fluxo de produção.
 - Reflow foi automatizado com texto a 200% em 390px e 320px. Reflow a 400% não foi validado.
 - Não há família tipográfica própria nem ícones como pacote. Os ícones da demonstração são desenhos locais de traço.
 - As marcas da demonstração são desenhos fictícios e não representam órgão real.

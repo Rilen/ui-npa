@@ -1,0 +1,247 @@
+{
+  "color": {
+    "$description": "Paleta provisória, não homologada. Referência de linguagem visual: Fluent 2, Institucional Equilibrado. Não é a identidade oficial do NPA.",
+    "neutral": {
+      "0": { "$type": "color", "$value": "#ffffff" },
+      "25": { "$type": "color", "$value": "#f7f8fa" },
+      "50": { "$type": "color", "$value": "#f1f3f6" },
+      "100": { "$type": "color", "$value": "#e4e7ee" },
+      "200": { "$type": "color", "$value": "#cdd2dc" },
+      "300": { "$type": "color", "$value": "#aeb6c4" },
+      "400": { "$type": "color", "$value": "#7d848f" },
+      "500": { "$type": "color", "$value": "#6a7388" },
+      "600": { "$type": "color", "$value": "#525a6e" },
+      "700": { "$type": "color", "$value": "#3d4456" },
+      "800": { "$type": "color", "$value": "#2a3040" },
+      "900": { "$type": "color", "$value": "#171b26" }
+    },
+    "ink": {
+      "100": { "$type": "color", "$value": "#f1f3f6" },
+      "300": { "$type": "color", "$value": "#c5cad6" },
+      "700": { "$type": "color", "$value": "#232b3d" },
+      "800": { "$type": "color", "$value": "#1a2030" },
+      "900": { "$type": "color", "$value": "#141820" }
+    },
+    "blue": {
+      "50": { "$type": "color", "$value": "#f1f6fb" },
+      "100": { "$type": "color", "$value": "#e1ebf6" },
+      "200": { "$type": "color", "$value": "#c3d6ec" },
+      "300": { "$type": "color", "$value": "#93b4d8" },
+      "400": { "$type": "color", "$value": "#5d8cba" },
+      "500": { "$type": "color", "$value": "#3c6fa3" },
+      "600": { "$type": "color", "$value": "#2f5884" },
+      "700": { "$type": "color", "$value": "#244668" },
+      "800": { "$type": "color", "$value": "#1c3752" },
+      "900": { "$type": "color", "$value": "#14283c" }
+    },
+    "atlantic": {
+      "$description": "Candidato A, UI-NPA-006. Azul institucional sóbrio. Não homologado.",
+      "50": { "$type": "color", "$value": "#f3f6fa" },
+      "100": { "$type": "color", "$value": "#e5edf5" },
+      "200": { "$type": "color", "$value": "#c9d9e9" },
+      "300": { "$type": "color", "$value": "#9fbcd8" },
+      "400": { "$type": "color", "$value": "#6d97bd" },
+      "500": { "$type": "color", "$value": "#4a76a2" },
+      "600": { "$type": "color", "$value": "#375e86" },
+      "700": { "$type": "color", "$value": "#2a4b6d" },
+      "800": { "$type": "color", "$value": "#203a55" },
+      "900": { "$type": "color", "$value": "#172a3f" }
+    },
+    "azure": {
+      "$description": "Candidato B, UI-NPA-006. Azul contemporâneo expressivo. Não homologado.",
+      "50": { "$type": "color", "$value": "#edf6ff" },
+      "100": { "$type": "color", "$value": "#d8eafe" },
+      "200": { "$type": "color", "$value": "#b6d7fb" },
+      "300": { "$type": "color", "$value": "#88bef5" },
+      "400": { "$type": "color", "$value": "#569fe6" },
+      "500": { "$type": "color", "$value": "#2e7fcf" },
+      "600": { "$type": "color", "$value": "#1c65ad" },
+      "700": { "$type": "color", "$value": "#154f8b" },
+      "800": { "$type": "color", "$value": "#103e6e" },
+      "900": { "$type": "color", "$value": "#0c2f54" }
+    },
+    "steel": {
+      "$description": "Candidato C, UI-NPA-006. Azul restrito para ações e estados. Não homologado.",
+      "50": { "$type": "color", "$value": "#f0f4f7" },
+      "100": { "$type": "color", "$value": "#dfe8ee" },
+      "200": { "$type": "color", "$value": "#c3d2dc" },
+      "300": { "$type": "color", "$value": "#9db3c3" },
+      "400": { "$type": "color", "$value": "#6f8da3" },
+      "500": { "$type": "color", "$value": "#4f728b" },
+      "600": { "$type": "color", "$value": "#3d5c72" },
+      "700": { "$type": "color", "$value": "#304a5e" },
+      "800": { "$type": "color", "$value": "#243a4a" },
+      "900": { "$type": "color", "$value": "#192a36" }
+    },
+    "cool": {
+      "$description": "Neutros frios do candidato B, UI-NPA-006. Não homologados.",
+      "25": { "$type": "color", "$value": "#f4f8fc" },
+      "50": { "$type": "color", "$value": "#edf2f8" },
+      "100": { "$type": "color", "$value": "#e1e9f2" },
+      "200": { "$type": "color", "$value": "#ccd8e5" },
+      "300": { "$type": "color", "$value": "#acbccd" },
+      "400": { "$type": "color", "$value": "#77889b" },
+      "500": { "$type": "color", "$value": "#637689" },
+      "600": { "$type": "color", "$value": "#4c5f72" },
+      "700": { "$type": "color", "$value": "#394a5b" },
+      "800": { "$type": "color", "$value": "#283643" },
+      "900": { "$type": "color", "$value": "#19242e" }
+    },
+    "stone": {
+      "$description": "Neutros quentes do candidato C, UI-NPA-006. Não homologados.",
+      "25": { "$type": "color", "$value": "#f8f7f4" },
+      "50": { "$type": "color", "$value": "#f1f0ec" },
+      "100": { "$type": "color", "$value": "#e5e3dd" },
+      "200": { "$type": "color", "$value": "#d2cfc7" },
+      "300": { "$type": "color", "$value": "#b5b1a7" },
+      "400": { "$type": "color", "$value": "#89857b" },
+      "500": { "$type": "color", "$value": "#6f6b62" },
+      "600": { "$type": "color", "$value": "#57544d" },
+      "700": { "$type": "color", "$value": "#403e39" },
+      "800": { "$type": "color", "$value": "#2b2926" },
+      "900": { "$type": "color", "$value": "#1b1a18" }
+    },
+    "green": {
+      "50": { "$type": "color", "$value": "#e8f6ef" },
+      "100": { "$type": "color", "$value": "#b7e4cf" },
+      "200": { "$type": "color", "$value": "#b7e0cb" },
+      "700": { "$type": "color", "$value": "#0e6b45" }
+    },
+    "amber": {
+      "50": { "$type": "color", "$value": "#fff8eb" },
+      "100": { "$type": "color", "$value": "#f6d7a2" },
+      "200": { "$type": "color", "$value": "#f0d7a2" },
+      "700": { "$type": "color", "$value": "#6d4500" }
+    },
+    "red": {
+      "50": { "$type": "color", "$value": "#fdeceb" },
+      "100": { "$type": "color", "$value": "#f3d2cf" },
+      "200": { "$type": "color", "$value": "#f5c2bc" },
+      "700": { "$type": "color", "$value": "#8e1b14" },
+      "800": { "$type": "color", "$value": "#6f150f" }
+    },
+    "scrim": {
+      "light": { "$type": "color", "$value": "#171b2680" },
+      "dark": { "$type": "color", "$value": "#00000099" }
+    }
+  },
+  "font": {
+    "family": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": ["system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+      }
+    },
+    "size": {
+      "xs": { "$type": "dimension", "$value": "0.75rem" },
+      "sm": { "$type": "dimension", "$value": "0.875rem" },
+      "md": { "$type": "dimension", "$value": "1rem" },
+      "lg": { "$type": "dimension", "$value": "1.25rem" },
+      "xl": { "$type": "dimension", "$value": "1.5rem" },
+      "display": { "$type": "dimension", "$value": "1.75rem" },
+      "2xl": { "$type": "dimension", "$value": "2rem" }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "semibold": { "$type": "fontWeight", "$value": 600 }
+    },
+    "line": {
+      "tight": { "$type": "number", "$value": 1.25 },
+      "normal": { "$type": "number", "$value": 1.5 }
+    }
+  },
+  "space": {
+    "0": { "$type": "dimension", "$value": "0" },
+    "1": { "$type": "dimension", "$value": "0.25rem" },
+    "2": { "$type": "dimension", "$value": "0.5rem" },
+    "3": { "$type": "dimension", "$value": "0.75rem" },
+    "4": { "$type": "dimension", "$value": "1rem" },
+    "5": { "$type": "dimension", "$value": "1.25rem" },
+    "6": { "$type": "dimension", "$value": "1.5rem" },
+    "8": { "$type": "dimension", "$value": "2rem" },
+    "10": { "$type": "dimension", "$value": "2.5rem" },
+    "12": { "$type": "dimension", "$value": "3rem" },
+    "16": { "$type": "dimension", "$value": "4rem" }
+  },
+  "radius": {
+    "none": { "$type": "dimension", "$value": "0" },
+    "sm": { "$type": "dimension", "$value": "0.125rem" },
+    "md": { "$type": "dimension", "$value": "0.25rem" },
+    "lg": { "$type": "dimension", "$value": "0.5rem" },
+    "full": { "$type": "dimension", "$value": "999px" }
+  },
+  "border": {
+    "width": {
+      "hairline": { "$type": "dimension", "$value": "1px" },
+      "focus": { "$type": "dimension", "$value": "2px" }
+    }
+  },
+  "shadow": {
+    "sm": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#171b2614",
+        "offsetX": "0",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0"
+      }
+    },
+    "md": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#171b261f",
+        "offsetX": "0",
+        "offsetY": "4px",
+        "blur": "12px",
+        "spread": "0"
+      }
+    }
+  },
+  "duration": {
+    "fast": { "$type": "duration", "$value": "120ms" },
+    "normal": { "$type": "duration", "$value": "180ms" }
+  },
+  "easing": {
+    "standard": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] }
+  },
+  "size": {
+    "sidebar": {
+      "expanded": { "$type": "dimension", "$value": "15rem" },
+      "collapsed": { "$type": "dimension", "$value": "4rem" },
+      "gutter": { "$type": "dimension", "$value": "3rem" }
+    },
+    "header": { "$type": "dimension", "$value": "3.5rem" },
+    "institution": { "$type": "dimension", "$value": "4rem" },
+    "institution-mobile": { "$type": "dimension", "$value": "6rem" },
+    "control": {
+      "sm": { "$type": "dimension", "$value": "2rem" },
+      "md": { "$type": "dimension", "$value": "2.25rem" }
+    },
+    "content": {
+      "max": { "$type": "dimension", "$value": "96rem" }
+    },
+    "field": {
+      "max": { "$type": "dimension", "$value": "32rem" }
+    },
+    "grid": {
+      "min": { "$type": "dimension", "$value": "14rem" }
+    },
+    "icon": { "$type": "dimension", "$value": "1.25rem" },
+    "logo": {
+      "sm": { "$type": "dimension", "$value": "2rem" },
+      "md": { "$type": "dimension", "$value": "2.5rem" },
+      "max": { "$type": "dimension", "$value": "7.5rem" }
+    },
+    "table": {
+      "min": { "$type": "dimension", "$value": "40rem" }
+    }
+  },
+  "z": {
+    "sticky": { "$type": "number", "$value": 10 },
+    "overlay": { "$type": "number", "$value": 20 },
+    "sidebar": { "$type": "number", "$value": 30 },
+    "header": { "$type": "number", "$value": 40 },
+    "skip": { "$type": "number", "$value": 50 }
+  }
+}

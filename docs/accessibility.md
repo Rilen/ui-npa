@@ -4,7 +4,7 @@ Meta do UI-NPA: WCAG 2.2 nível AA nos componentes implementados. A meta não es
 
 ## O que a fundação faz
 
-- Contraste de texto 4.5:1 e de borda ou foco 3:1 nos pares de `tests/contrast-pairs.json`, nos temas claro e escuro e nas três candidatas.
+- Contraste de texto 4.5:1 e de borda ou foco 3:1 nos pares de `tests/contrast-pairs.json`, no tema claro oficial e no tema escuro experimental.
 - Reflow com texto a 200% em 390px e 320px, sem rolagem horizontal, coberto por teste de navegador.
 - Nome visível ou nome acessível em botão, link, campo e situação.
 - Foco `:focus-visible` com anel de 2px. O anel some no foco de ponteiro dentro de `.iui-root`.
@@ -17,9 +17,9 @@ Meta do UI-NPA: WCAG 2.2 nível AA nos componentes implementados. A meta não es
 
 ## O que foi executado
 
-O cálculo de contraste roda em `npm test`. A demonstração é analisada com axe-core no desktop, no menu móvel aberto e na página de comparação de paletas. O teste falha diante de violação `serious` ou `critical`. O reflow a 200% é automatizado em 390px e 320px.
+O cálculo de contraste roda em `npm test`. A demonstração é analisada com axe-core no desktop e no menu móvel aberto. O teste falha diante de violação `serious` ou `critical`. O reflow a 200% é automatizado em 390px e 320px.
 
-Isso não cobre, entre outros, todos os critérios de WCAG 2.2: reflow a 400%, conteúdo em movimento além da demonstração, linguagem de partes, erros de formulário em outros idiomas, alternativas para conteúdo não textual complexo e uso real com tecnologias assistivas fora do axe. A comparação de paletas não é uma homologação de contraste em dispositivo físico.
+Isso não cobre, entre outros, todos os critérios de WCAG 2.2: reflow a 400%, conteúdo em movimento além da demonstração, linguagem de partes, erros de formulário em outros idiomas, alternativas para conteúdo não textual complexo e uso real com tecnologias assistivas fora do axe. A paleta homologada não é uma certificação de contraste em dispositivo físico.
 
 Texto desabilitado não entra na meta de 4.5:1. O critério de contraste não se aplica a componente inativo.
 

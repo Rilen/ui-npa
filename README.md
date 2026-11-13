@@ -4,7 +4,7 @@ Design System institucional do Núcleo de Pesquisas Avançadas.
 
 Uma identidade. Um padrão. Múltiplos sistemas.
 
-Esta é a versão `0.2.0`. A paleta é **provisória** e não está homologada. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
+Esta é a versão `0.3.0`. A paleta clara oficial é **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026. O tema escuro é experimental. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
 
 ## Começar
 
@@ -17,38 +17,39 @@ npm test
 npm run test:e2e
 npm run capture:screenshots
 npm run capture:screenshots:005
-npm run capture:screenshots:006
+npm run capture:screenshots:007
 npm run dev
 ```
 
-A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`. A comparação das paletas candidatas fica em `http://127.0.0.1:4173/examples/paletas/`.
+A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`.
 
-`npm run capture:screenshots` grava as evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`. `npm run capture:screenshots:005` grava as evidências da UI-NPA-005 em `docs/evidence/ui-npa-005`. `npm run capture:screenshots:006` grava as paletas candidatas em `docs/evidence/ui-npa-006`. Todos requerem o Chromium do Playwright, instalado com `npx playwright install chromium`.
+`npm run capture:screenshots` grava as evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`. `npm run capture:screenshots:005` grava as evidências da UI-NPA-005 em `docs/evidence/ui-npa-005`. `npm run capture:screenshots:007` grava o tema oficial em `docs/evidence/ui-npa-007`. As evidências da UI-NPA-006 permanecem como registro histórico da avaliação. Todos requerem o Chromium do Playwright, instalado com `npx playwright install chromium`.
 
-`npm run build` regrava `packages/styles/tokens.css` e `packages/styles/candidates.css` a partir de `packages/tokens`. O teste falha se o CSS commitado divergir da fonte. Não edite o CSS gerado.
+`npm run build` regrava `packages/styles/tokens.css` a partir de `packages/tokens`. O teste falha se o CSS commitado divergir da fonte. Não edite o CSS gerado.
 
 ## Estado desta versão
 
 | Área | Estado |
 | --- | --- |
-| Tokens DTCG, tema claro e CSS universal | Implementado |
+| Tokens DTCG, tema claro oficial e CSS universal | Implementado |
 | Button, Card, Text, Badge, Field, Alert, Table, Sidebar, Shell | Implementado |
 | Demonstração fictícia de requerimentos | Implementado |
 | Identidade institucional e rodapé técnico | Implementado |
-| Paletas candidatas A/B/C | Candidatas, não homologadas |
+| Paleta clara oficial — Azul Institucional Equilibrado (A) | Homologada em 12/11/2026 |
 | Governança IUI-001 a IUI-014 | Implementado |
 | Protocolo `ui-npa-migration` | Especificado, não executado |
 | Tema escuro | Experimental |
 | React, Angular, PHP e Web Components | Planejado |
-| Paleta oficial e publicação 1.0.0 | Não suportado nesta fase |
+| Publicação 1.0.0 | Não suportada nesta fase |
 
 ## Mapa
 
 - Arquitetura: [docs/architecture.md](docs/architecture.md)
 - Decisão: [docs/decisions/001-foundation.md](docs/decisions/001-foundation.md)
-- Decisão de paletas candidatas: [docs/decisions/003-palette-candidates.md](docs/decisions/003-palette-candidates.md)
+- Homologação da paleta: [docs/decisions/004-palette-homologation.md](docs/decisions/004-palette-homologation.md)
+- Candidatos arquivados: [docs/decisions/003-palette-candidates.md](docs/decisions/003-palette-candidates.md) e [docs/archive/ui-npa-006](docs/archive/ui-npa-006)
 - Tokens: [docs/tokens.md](docs/tokens.md)
-- Paleta proposta: [docs/palette.md](docs/palette.md)
+- Histórico da paleta: [docs/palette.md](docs/palette.md)
 - Temas: [docs/themes.md](docs/themes.md)
 - Identidade: [docs/identity.md](docs/identity.md)
 - Componentes: [docs/components.md](docs/components.md)
@@ -57,7 +58,7 @@ A demonstração fica em `http://127.0.0.1:4173/examples/requerimentos/`. A comp
 - Integração: [docs/integration.md](docs/integration.md)
 - Migração: [docs/agents/ui-npa-migration.md](docs/agents/ui-npa-migration.md)
 - Testes: [docs/testing.md](docs/testing.md)
-- Evidências visuais: [docs/evidence/ui-npa-003](docs/evidence/ui-npa-003), [docs/evidence/ui-npa-005](docs/evidence/ui-npa-005) e [docs/evidence/ui-npa-006](docs/evidence/ui-npa-006)
+- Evidências visuais: [docs/evidence/ui-npa-007](docs/evidence/ui-npa-007), com histórico em [UI-NPA-003](docs/evidence/ui-npa-003), [UI-NPA-005](docs/evidence/ui-npa-005) e [UI-NPA-006](docs/evidence/ui-npa-006)
 - Versionamento: [docs/versioning.md](docs/versioning.md)
 - Limitações: [docs/limitations.md](docs/limitations.md)
 - Agentes: [AGENTS.md](AGENTS.md)

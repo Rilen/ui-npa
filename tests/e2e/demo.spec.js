@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 
 test("a demonstração aplica o token primário", async ({ page }) => {
   const button = page.getByRole("link", { name: "Ver requerimentos" });
-  await expect(button).toHaveCSS("background-color", "rgb(36, 70, 104)");
+  await expect(button).toHaveCSS("background-color", "rgb(42, 75, 109)");
 });
 
 test("a sidebar recolhe, persiste e continua nomeada", async ({ page }) => {

@@ -1,8 +1,8 @@
 {
   "name": "ui-npa",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
-  "description": "Design System institucional UI-NPA. Fundação 0.1.0 com paleta provisória.",
+  "description": "Design System institucional UI-NPA. Paleta clara oficial: Azul Institucional Equilibrado.",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -14,7 +14,7 @@
     "test:e2e": "playwright test",
     "capture:screenshots": "node scripts/capture-screenshots.mjs",
     "capture:screenshots:005": "node scripts/capture-screenshots.mjs 005",
-    "capture:screenshots:006": "node scripts/capture-screenshots.mjs 006",
+    "capture:screenshots:007": "node scripts/capture-screenshots.mjs 007",
     "check": "npm test && npm run test:e2e"
   },
   "devDependencies": {

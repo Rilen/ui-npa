@@ -14,4 +14,4 @@ A largura máxima do conteúdo passa de `70rem` para `96rem`. O título usa `fon
 
 ## Consequência
 
-Aplicações aderentes precisam fornecer o objeto de identidade documentado em [docs/identity.md](../identity.md). A paleta continua provisória.
+Aplicações aderentes precisam fornecer o objeto de identidade documentado em [docs/identity.md](../identity.md). A paleta permanecia provisória naquele momento. Nota da UI-NPA-007: a paleta clara foi homologada em 12/11/2026; ver [ADR 004](004-palette-homologation.md).

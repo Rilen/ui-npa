@@ -1,6 +1,6 @@
 {
   "color": {
-    "$description": "Paleta provisória, não homologada. Referência de linguagem visual: Fluent 2, Institucional Equilibrado. Não é a identidade oficial do NPA.",
+    "$description": "Paleta oficial do tema claro: Azul Institucional Equilibrado (alternativa A), homologada em 2026-11-12. O tema escuro permanece experimental. Referência de linguagem visual: Fluent 2, Institucional Equilibrado. Não é a identidade oficial do NPA.",
     "neutral": {
       "0": { "$type": "color", "$value": "#ffffff" },
       "25": { "$type": "color", "$value": "#f7f8fa" },
@@ -35,7 +35,7 @@
       "900": { "$type": "color", "$value": "#14283c" }
     },
     "atlantic": {
-      "$description": "Candidato A, UI-NPA-006. Azul institucional sóbrio. Não homologado.",
+      "$description": "Azul institucional oficial do tema claro. Alternativa A homologada em 2026-11-12.",
       "50": { "$type": "color", "$value": "#f3f6fa" },
       "100": { "$type": "color", "$value": "#e5edf5" },
       "200": { "$type": "color", "$value": "#c9d9e9" },
@@ -46,60 +46,6 @@
       "700": { "$type": "color", "$value": "#2a4b6d" },
       "800": { "$type": "color", "$value": "#203a55" },
       "900": { "$type": "color", "$value": "#172a3f" }
-    },
-    "azure": {
-      "$description": "Candidato B, UI-NPA-006. Azul contemporâneo expressivo. Não homologado.",
-      "50": { "$type": "color", "$value": "#edf6ff" },
-      "100": { "$type": "color", "$value": "#d8eafe" },
-      "200": { "$type": "color", "$value": "#b6d7fb" },
-      "300": { "$type": "color", "$value": "#88bef5" },
-      "400": { "$type": "color", "$value": "#569fe6" },
-      "500": { "$type": "color", "$value": "#2e7fcf" },
-      "600": { "$type": "color", "$value": "#1c65ad" },
-      "700": { "$type": "color", "$value": "#154f8b" },
-      "800": { "$type": "color", "$value": "#103e6e" },
-      "900": { "$type": "color", "$value": "#0c2f54" }
-    },
-    "steel": {
-      "$description": "Candidato C, UI-NPA-006. Azul restrito para ações e estados. Não homologado.",
-      "50": { "$type": "color", "$value": "#f0f4f7" },
-      "100": { "$type": "color", "$value": "#dfe8ee" },
-      "200": { "$type": "color", "$value": "#c3d2dc" },
-      "300": { "$type": "color", "$value": "#9db3c3" },
-      "400": { "$type": "color", "$value": "#6f8da3" },
-      "500": { "$type": "color", "$value": "#4f728b" },
-      "600": { "$type": "color", "$value": "#3d5c72" },
-      "700": { "$type": "color", "$value": "#304a5e" },
-      "800": { "$type": "color", "$value": "#243a4a" },
-      "900": { "$type": "color", "$value": "#192a36" }
-    },
-    "cool": {
-      "$description": "Neutros frios do candidato B, UI-NPA-006. Não homologados.",
-      "25": { "$type": "color", "$value": "#f4f8fc" },
-      "50": { "$type": "color", "$value": "#edf2f8" },
-      "100": { "$type": "color", "$value": "#e1e9f2" },
-      "200": { "$type": "color", "$value": "#ccd8e5" },
-      "300": { "$type": "color", "$value": "#acbccd" },
-      "400": { "$type": "color", "$value": "#77889b" },
-      "500": { "$type": "color", "$value": "#637689" },
-      "600": { "$type": "color", "$value": "#4c5f72" },
-      "700": { "$type": "color", "$value": "#394a5b" },
-      "800": { "$type": "color", "$value": "#283643" },
-      "900": { "$type": "color", "$value": "#19242e" }
-    },
-    "stone": {
-      "$description": "Neutros quentes do candidato C, UI-NPA-006. Não homologados.",
-      "25": { "$type": "color", "$value": "#f8f7f4" },
-      "50": { "$type": "color", "$value": "#f1f0ec" },
-      "100": { "$type": "color", "$value": "#e5e3dd" },
-      "200": { "$type": "color", "$value": "#d2cfc7" },
-      "300": { "$type": "color", "$value": "#b5b1a7" },
-      "400": { "$type": "color", "$value": "#89857b" },
-      "500": { "$type": "color", "$value": "#6f6b62" },
-      "600": { "$type": "color", "$value": "#57544d" },
-      "700": { "$type": "color", "$value": "#403e39" },
-      "800": { "$type": "color", "$value": "#2b2926" },
-      "900": { "$type": "color", "$value": "#1b1a18" }
     },
     "green": {
       "50": { "$type": "color", "$value": "#e8f6ef" },

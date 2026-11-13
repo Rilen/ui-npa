@@ -8,9 +8,6 @@ const model = buildTokens();
 const themes = {
   light: model.light,
   dark: model.dark,
-  "candidate-a": model.candidates.a,
-  "candidate-b": model.candidates.b,
-  "candidate-c": model.candidates.c,
 };
 
 for (const [themeName, theme] of Object.entries(themes)) {

@@ -12,7 +12,7 @@ Regras de execução desta fundação:
 - Não invente cor, espaçamento ou componente paralelo. Use os tokens `--iui-*` e os contratos já implementados.
 - Não edite `packages/styles/tokens.css`. Altere `packages/tokens` e rode `npm run build`.
 - Não publique pacote, não faça push e não migre sistema real sem autorização explícita.
-- A paleta atual é provisória.
+- A paleta clara oficial é Azul Institucional Equilibrado (alternativa A), homologada em 12/11/2026. O tema escuro é experimental.
 - Identidade de Prefeitura, Secretaria e Setor segue [docs/identity.md](docs/identity.md). Não embuta marca municipal no núcleo.
 - Não declare conformidade WCAG integral com base apenas nos testes automáticos.
 

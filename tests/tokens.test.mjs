@@ -11,7 +11,8 @@ test("a geração de CSS é determinística", () => {
   const first = buildTokens();
   const second = buildTokens();
   assert.equal(first.css, second.css);
-  assert.equal(first.candidatesCss, second.candidatesCss);
+  assert.deepEqual(first.light, second.light);
+  assert.deepEqual(first.dark, second.dark);
 });
 
 test("o CSS commitado corresponde à fonte canônica", () => {
@@ -20,54 +21,67 @@ test("o CSS commitado corresponde à fonte canônica", () => {
   assert.equal(committed, generated);
 });
 
-test("o CSS de candidatos commitado corresponde à fonte canônica", () => {
-  const generated = buildTokens().candidatesCss.replaceAll("\r\n", "\n");
-  const committed = fs.readFileSync(path.join(root, "packages/styles/candidates.css"), "utf8").replaceAll("\r\n", "\n");
-  assert.equal(committed, generated);
+test("o tema claro carrega os valores homologados da alternativa A", () => {
+  const { light } = buildTokens();
+  assert.equal(light["color.action.primary.bg"].value, "#2a4b6d");
+  assert.equal(light["color.action.primary.bg-hover"].value, "#203a55");
+  assert.equal(light["color.action.primary.bg-pressed"].value, "#172a3f");
+  assert.equal(light["color.nav.item-active"].value, "#e5edf5");
+  assert.equal(light["color.nav.item-active-fg"].value, "#203a55");
+  assert.equal(light["color.surface.canvas"].value, "#f7f8fa");
+  assert.equal(light["color.text.primary"].value, "#171b26");
+  assert.equal(light["color.text.brand"].value, "#2a4b6d");
+  assert.equal(light["color.border.subtle"].value, "#7d848f");
+  assert.equal(light["color.focus.ring"].value, "#2a4b6d");
+  assert.equal(light["color.feedback.info.bg"].value, "#f3f6fa");
+  assert.equal(light["color.feedback.info.fg"].value, "#2a4b6d");
 });
 
-test("os três candidatos existem e têm a mesma estrutura do tema claro", () => {
+test("o tema escuro experimental preserva o token de ação anterior", () => {
+  const { dark } = buildTokens();
+  assert.equal(dark["color.action.primary.bg"].value, "#2f5884");
+});
+
+test("tema claro e escuro mantêm os mesmos caminhos", () => {
   const model = buildTokens();
-  assert.deepEqual(Object.keys(model.candidates).sort(), ["a", "b", "c"]);
-  const lightKeys = Object.keys(model.light).sort();
-  for (const candidate of Object.values(model.candidates)) {
-    assert.deepEqual(Object.keys(candidate).sort(), lightKeys);
-  }
-  assert.match(model.candidatesCss, /data-iui-candidate="a"/);
-  assert.match(model.candidatesCss, /data-iui-candidate="b"/);
-  assert.match(model.candidatesCss, /data-iui-candidate="c"/);
-  assert.match(model.candidatesCss, /não homologados/i);
+  assert.deepEqual(Object.keys(model.light).sort(), Object.keys(model.dark).sort());
 });
 
 test("tokens semânticos não carregam cor literal", () => {
-  for (const file of [
-    "semantic.light.tokens.json",
-    "semantic.dark.tokens.json",
-    "semantic.candidate-a.tokens.json",
-    "semantic.candidate-b.tokens.json",
-    "semantic.candidate-c.tokens.json",
-  ]) {
+  for (const file of ["semantic.light.tokens.json", "semantic.dark.tokens.json"]) {
     const source = fs.readFileSync(path.join(root, "packages/tokens", file), "utf8");
     assert.equal(source.includes("#"), false, file);
   }
 });
 
-test("a paleta é identificada como provisória", () => {
+test("a paleta clara oficial está identificada", () => {
   const primitive = fs.readFileSync(path.join(root, "packages/tokens/primitive.tokens.json"), "utf8");
   const css = fs.readFileSync(path.join(root, "packages/styles/tokens.css"), "utf8");
-  const candidates = fs.readFileSync(path.join(root, "packages/styles/candidates.css"), "utf8");
-  assert.match(primitive, /provisória/i);
-  assert.match(css, /provisória/i);
-  assert.match(candidates, /não homologados/i);
+  assert.match(primitive, /Paleta oficial do tema claro/i);
+  assert.match(primitive, /Azul Institucional Equilibrado/i);
+  assert.match(primitive, /homologada em 2026-11-12/i);
+  assert.match(css, /Paleta clara oficial/i);
+  assert.match(css, /Azul Institucional Equilibrado/i);
+  assert.match(css, /homologada em 2026-11-12/i);
   assert.match(css, /--iui-color-action-primary-bg:/);
   assert.match(css, /--iui-size-sidebar-collapsed:/);
 });
 
-test("os candidatos ficam restritos à demonstração", () => {
+test("não restam mecanismos de candidatos no fluxo de produção", () => {
   const index = fs.readFileSync(path.join(root, "packages/styles/index.css"), "utf8");
-  const demo = fs.readFileSync(path.join(root, "examples/requerimentos/index.html"), "utf8");
+  const html = fs.readFileSync(path.join(root, "examples/requerimentos/index.html"), "utf8");
+  const app = fs.readFileSync(path.join(root, "examples/requerimentos/app.js"), "utf8");
+  const packageJson = fs.readFileSync(path.join(root, "package.json"), "utf8");
+  const tokenFiles = fs.readdirSync(path.join(root, "packages/tokens"));
+
+  assert.equal(fs.existsSync(path.join(root, "packages/styles/candidates.css")), false);
+  assert.equal(fs.existsSync(path.join(root, "examples/paletas")), false);
+  assert.equal(fs.existsSync(path.join(root, "examples/shared/demo.css")), false);
   assert.equal(index.includes("candidates.css"), false);
-  assert.match(demo, /candidates\.css/);
+  assert.equal(/candidates\.css|data-iui-candidate|Paleta candidata|\?paleta=/.test(html), false);
+  assert.equal(/candidateIds|iuiCandidate|paleta/.test(app), false);
+  assert.equal(packageJson.includes("capture:screenshots:006"), false);
+  assert.equal(tokenFiles.some((file) => file.startsWith("semantic.candidate-")), false);
 });
 
 test("todas as propriedades geradas usam o prefixo iui-", () => {
