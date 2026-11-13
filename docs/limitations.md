@@ -7,6 +7,7 @@
 - O tema escuro é experimental e preserva os valores anteriores à homologação. Sombras não foram reajustadas e a demonstração não oferece seletor de tema.
 - O mecanismo temporário de comparação de paletas foi removido; não há `candidates.css`, seletor de candidata nem página de comparação no fluxo de produção.
 - A distribuição recomendada é o tarball local. Clone Git é suportado com scripts habilitados e `prepare`. O pacote está marcado como privado, usa `UNLICENSED` e não é publicado no npm.
+- Instalações Git com `--ignore-scripts` ou política de allow-scripts que bloqueie `prepare` exigem o tarball ou aprovação explícita do script.
 - `dist` é gerado por `npm run build` e ignorado pelo Git. Não edite `dist`; a fonte é `packages/styles`.
 - CSS legado sem camada ou em camada posterior ao UI-NPA tem precedência e pode sobrepor componentes. O isolamento não é absoluto; a ordem de camadas é contrato e a integração recomendada usa uma camada anterior.
 - As fixtures de consumidor copiam o `dist` instalado para `.vendor`, que é gerado e não versionado.

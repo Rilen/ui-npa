@@ -1,0 +1,19 @@
+UI-NPA 0.3.3 — instalação por referência Git
+Commit testado: df01c5a (pacote 0.3.3, antes apenas do commit de evidências).
+Fluxo: git clone temporário -> npm install --prefix <consumer> git+file:///<clone>
+Status: PASS
+prepare executado: sim
+dist/index.css presente: sim
+dist/tokens.css presente: sim
+dist/sidebar.js presente: sim
+dist/identity.js presente: sim
+
+Resolução dos exports:
+ui-npa/styles.css -> node_modules/ui-npa/dist/index.css
+ui-npa/tokens.css -> node_modules/ui-npa/dist/tokens.css
+ui-npa/sidebar.js -> node_modules/ui-npa/dist/sidebar.js
+ui-npa/identity.js -> node_modules/ui-npa/dist/identity.js
+
+Observação: o npm emitiu aviso de allow-scripts para o prepare. O script foi executado neste ambiente; consumidores que usam --ignore-scripts ou uma política que bloqueia lifecycle scripts devem usar o tarball ou aprovar explicitamente o script.
+Nenhuma dependência de runtime foi adicionada ao repositório.
+Nenhum push, npm publish, release ou deploy.

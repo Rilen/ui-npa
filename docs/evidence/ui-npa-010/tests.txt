@@ -21,6 +21,7 @@ npm run test:e2e: PASS — 40/40
 
 npm run check: PASS — 108 unitários + 40 E2E.
 
+Instalação isolada: PASS — tarball e clone Git com prepare; exports resolvidos.
 axe-core: PASS nos cenários cobertos; nenhuma violação serious, critical ou region.
 Chrome 157.0.8103.78: PASS.
 Microsoft Edge 157.0.4341.46: PASS.

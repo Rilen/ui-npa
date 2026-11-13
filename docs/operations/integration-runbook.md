@@ -36,7 +36,7 @@ O pacote declara `prepare`, que gera `dist` durante a instalação:
 npm install git+https://github.com/Rilen/ui-npa.git
 ```
 
-Não use `--ignore-scripts` nesse canal. Confirmar que `node_modules/ui-npa/dist/index.css` existe antes de importar. A publicação npm não é um canal desta fase.
+Não use `--ignore-scripts` nesse canal. Confirmar que `node_modules/ui-npa/dist/index.css` existe antes de importar. Políticas de `allow-scripts` também precisam aprovar o `prepare`; se isso não for possível, use o tarball. A publicação npm não é um canal desta fase. A verificação de 0.3.3 está em [evidências UI-NPA-010](../evidence/ui-npa-010).
 
 ### Importação
 
