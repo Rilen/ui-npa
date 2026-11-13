@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Comparação de componentes entre o legado e o UI-NPA no piloto.">
+    <title>Comparação de componentes — Piloto legado</title>
+    <link rel="stylesheet" href="./layers.css">
+    <link rel="stylesheet" href="./legacy.css">
+    <link rel="stylesheet" href="./pilot.css">
+    <link rel="stylesheet" href="./.vendor/index.css">
+  </head>
+  <body class="pilot-compare">
+    <section id="comparacao" class="pilot-compare__section" aria-labelledby="titulo-comparacao">
+      <header class="pilot-compare__header">
+        <h1 class="pilot-compare__title" id="titulo-comparacao">Comparação de componentes</h1>
+        <p>Mesmos dados fictícios, mesmos fluxos. A diferença é o contrato visual aplicado.</p>
+      </header>
+      <div class="pilot-compare__grid">
+        <article class="pilot-compare__panel">
+          <h2>Estado A — legado</h2>
+          <div class="legacy-panel">
+            <div class="legacy-field">
+              <label for="cmp-a-name">Nome</label>
+              <input class="legacy-input" id="cmp-a-name" type="text" value="Servidor de Exemplo">
+            </div>
+            <div class="legacy-actions">
+              <button class="legacy-button legacy-button--primary" type="button">Registrar</button>
+              <span class="legacy-status legacy-status--info">Em análise</span>
+            </div>
+            <div class="legacy-message legacy-message--info" role="status">
+              <p>Mensagem legada.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="pilot-compare__panel">
+          <h2>Estado B — região delimitada</h2>
+          <div class="iui-root pilot-compare__ui">
+            <div class="iui-card iui-stack iui-stack--sm">
+              <div class="iui-field">
+                <label class="iui-field__label" for="cmp-b-name">Nome</label>
+                <input class="iui-field__control" id="cmp-b-name" type="text" value="Servidor de Exemplo">
+              </div>
+              <div class="iui-cluster">
+                <button class="iui-button iui-button--primary" type="button">Registrar</button>
+                <span class="iui-badge iui-badge--info">Em análise</span>
+              </div>
+              <div class="iui-alert" role="status">
+                <p class="iui-alert__title">Mensagem UI-NPA</p>
+                <p>Região modernizada dentro do legado.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pilot-compare__panel">
+          <h2>Estado C — migração incremental</h2>
+          <div class="iui-root pilot-compare__ui">
+            <div class="iui-card iui-stack iui-stack--sm">
+              <div class="iui-field">
+                <label class="iui-field__label" for="cmp-c-name">Nome</label>
+                <input class="iui-field__control" id="cmp-c-name" type="text" value="Servidor de Exemplo">
+              </div>
+              <div class="iui-cluster">
+                <button class="iui-button iui-button--primary" type="button">Registrar</button>
+                <span class="iui-badge iui-badge--info">Em análise</span>
+              </div>
+              <div class="iui-table-wrap" role="region" tabindex="0" aria-label="Tabela comparativa">
+                <table class="iui-table">
+                  <caption class="iui-visually-hidden">Tabela comparativa fictícia</caption>
+                  <thead>
+                    <tr><th scope="col">Protocolo</th><th scope="col">Situação</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>PROT-2026-0042</td><td><span class="iui-badge iui-badge--info">Em análise</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>

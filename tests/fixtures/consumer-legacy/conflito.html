@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Conflito controlado entre CSS legado sem camada e UI-NPA.">
+    <title>Conflito CSS — não mitigado</title>
+    <link rel="stylesheet" href="./layers.css">
+    <link rel="stylesheet" href="./pilot.css">
+    <link rel="stylesheet" href="./.vendor/index.css">
+    <link rel="stylesheet" href="./legacy-unlayered.css">
+  </head>
+  <body class="iui-root">
+    <main class="pilot-conflict iui-stack">
+      <div class="iui-alert iui-alert--warning" role="status">
+        <p class="iui-alert__title">Conflito reproduzido</p>
+        <p>O CSS legado sem camada tem precedência sobre as camadas do UI-NPA. Este cenário demonstra o limite, não a integração recomendada.</p>
+      </div>
+      <h1 class="iui-title">Conflito CSS legado</h1>
+      <div class="iui-card iui-stack iui-stack--sm">
+        <p class="iui-text">Botão, campo, título, link e tabela perdem parte do contrato visual do UI-NPA.</p>
+        <button class="iui-button iui-button--primary" type="button">Ação primária</button>
+        <div class="iui-field">
+          <label class="iui-field__label" for="conflito-campo">Campo</label>
+          <input class="iui-field__control" id="conflito-campo" type="text" value="Valor de exemplo">
+        </div>
+        <p><a class="iui-text iui-text--sm iui-text--brand" href="estado-b.html">Voltar ao piloto</a></p>
+      </div>
+      <div class="iui-table-wrap" role="region" tabindex="0" aria-label="Tabela do conflito">
+        <table class="iui-table">
+          <caption class="iui-visually-hidden">Tabela do cenário de conflito</caption>
+          <thead>
+            <tr><th scope="col">Coluna</th><th scope="col">Valor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Exemplo</td><td>Dado fictício</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

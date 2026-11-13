@@ -17,7 +17,7 @@ applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
     developer: "NPA",
     changelog: [{ version: "1.4.0", date: "2026-11-12", notes: ["Texto da aplicação."] }],
   },
-  designSystem: { name: "UI-NPA", version: "0.3.1" },
+  designSystem: { name: "UI-NPA", version: "0.3.2" },
 });
 ```
 

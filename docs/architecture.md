@@ -1,12 +1,13 @@
 # Arquitetura
 
-O UI-NPA `0.3.1` é um único projeto Node, privado, com os seguintes artefatos e fixtures:
+O UI-NPA `0.3.2` é um único projeto Node, privado, com os seguintes artefatos e fixtures:
 
 - `packages/tokens` — fonte DTCG com tema claro oficial e tema escuro experimental;
 - `packages/styles` — CSS universal e o comportamento da sidebar;
 - `examples/requerimentos` — demonstração estática, sem backend;
 - `dist` — cópia pública gerada de `packages/styles` para o tarball local;
-- `tests/fixtures/consumer-vanilla` — consumidor independente validado por teste.
+- `tests/fixtures/consumer-vanilla` — consumidor independente validado por teste;
+- `tests/fixtures/consumer-legacy` — piloto A/B/C de convivência com aplicação legada.
 
 `scripts/build-tokens.mjs` gera `packages/styles/tokens.css`; `scripts/build-package.mjs` gera `dist`; `npm run build` executa os dois. Componentes não repetem o valor do token: usam `var(--iui-...)`.
 
@@ -18,6 +19,7 @@ ui-npa/
 ├── dist/                 # gerado, fora do Git
 ├── examples/requerimentos/
 ├── tests/fixtures/consumer-vanilla/
+├── tests/fixtures/consumer-legacy/
 ├── docs/
 ├── governance/
 ├── scripts/

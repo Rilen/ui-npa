@@ -1,0 +1,125 @@
+@layer pilot {
+  .pilot-bar {
+    align-items: center;
+    background: #102a43;
+    color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    gap: 8px 18px;
+    padding: 8px 16px;
+  }
+
+  .pilot-bar__title {
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .pilot-bar__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pilot-bar__links a {
+    border: 1px solid #8fb4d9;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 4px 8px;
+    text-decoration: none;
+  }
+
+  .pilot-bar__links a:hover {
+    background: #1f4f78;
+  }
+
+  .pilot-bar__links a[aria-current="page"] {
+    background: #ffffff;
+    color: #102a43;
+    font-weight: 700;
+  }
+
+  .pilot-bar__links a:focus-visible {
+    outline: 3px solid #f6d7a2;
+    outline-offset: 2px;
+  }
+
+  .pilot-migrated {
+    border-radius: 6px;
+    overflow: hidden;
+    padding: var(--iui-space-4);
+  }
+
+  .pilot-ui-region {
+    margin-bottom: var(--iui-space-4);
+  }
+
+  .pilot-ui-region__body {
+    padding: var(--iui-space-4);
+  }
+
+  .pilot-sector {
+    align-items: center;
+    color: var(--iui-color-text-secondary);
+    display: flex;
+    font-size: var(--iui-font-size-sm);
+    gap: var(--iui-space-2);
+  }
+
+  .pilot-sector__mark {
+    height: var(--iui-size-logo-sm);
+    width: var(--iui-size-logo-sm);
+  }
+
+  .pilot-compare {
+    background: #e9edf1;
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  .pilot-compare__header {
+    margin: 0 auto 20px;
+    max-width: 72rem;
+  }
+
+  .pilot-compare__title {
+    color: #1f3f5f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    margin: 0 0 6px;
+  }
+
+  .pilot-compare__grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0 auto;
+    max-width: 72rem;
+  }
+
+  .pilot-compare__panel {
+    background: #ffffff;
+    border: 1px solid #9aa8b6;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .pilot-compare__panel h2 {
+    color: #1f3f5f;
+    font-size: 18px;
+    margin: 0 0 12px;
+  }
+
+  .pilot-conflict {
+    margin: 0 auto;
+    max-width: 72rem;
+    padding: 24px;
+  }
+
+  @media (max-width: 63.99rem) {
+    .pilot-compare__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

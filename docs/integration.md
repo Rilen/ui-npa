@@ -6,7 +6,7 @@ A distribuição pública do UI-NPA é o conteúdo de `dist/`, gerado por `npm r
 
 ```bash
 npm pack
-npm install ./ui-npa-0.3.1.tgz
+npm install ./ui-npa-0.3.2.tgz
 ```
 
 O tarball contém somente `dist`, `README.md`, `CHANGELOG.md` e `package.json`. `examples`, `tests`, `docs`, `scripts` e o ZIP de evidências não entram no pacote.
@@ -64,11 +64,11 @@ O CSS canônico entra nas camadas `iui.tokens`, `iui.base`, `iui.components` e `
 
 Sem camada, o CSS legado tem precedência sobre qualquer camada, inclusive sobre os componentes do UI-NPA. O cenário `tests/fixtures/consumer-vanilla/conflito.html` comprova esse limite. Não há isolamento absoluto por Shadow DOM; a integração correta usa a camada anterior ou remove regras globais conflitantes.
 
-A fixture `tests/fixtures/consumer-vanilla/index.html` demonstra o cenário recomendado e é validada com CSS legado em `@layer legacy`.
+A fixture `tests/fixtures/consumer-vanilla/index.html` demonstra o cenário recomendado e é validada com CSS legado em `@layer legacy`. O piloto `tests/fixtures/consumer-legacy` leva o mesmo padrão a uma aplicação administrativa sintética em três estados: legado, convivência e migração incremental. Os resultados estão em [pilots/legacy-integration.md](pilots/legacy-integration.md).
 
 ## Estados de suporte
 
-**Suportado:** tarball local, HTML nativo, ESM, CSS canônico, sidebar, identidade, rodapé, tema claro oficial, fixture isolada, instalação local.
+**Suportado:** tarball local, HTML nativo, ESM, CSS canônico, sidebar, identidade, rodapé, tema claro oficial, fixture isolada, instalação local e piloto legado A/B/C.
 **Experimental:** tema escuro, convivência com CSS legado sem camada (não suportada), navegadores sem CSS Layers/Container Queries.
 **Planejado:** publicação em registro npm, wrappers React/Angular/PHP/Web Components, diálogo, select avançado e tabela complexa.
 

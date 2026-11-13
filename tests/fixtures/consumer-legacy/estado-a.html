@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Piloto de integração incremental do UI-NPA em aplicação legada. Estado A, somente legado.">
+    <title>Piloto legado — Estado A</title>
+    <link rel="stylesheet" href="./layers.css">
+    <link rel="stylesheet" href="./legacy.css">
+    <link rel="stylesheet" href="./pilot.css">
+    <script type="module" src="./pilot.js"></script>
+  </head>
+  <body data-state="a">
+    <nav class="pilot-bar" aria-label="Estados do piloto">
+      <p class="pilot-bar__title">Piloto UI-NPA</p>
+      <div class="pilot-bar__links">
+        <a href="estado-a.html" aria-current="page" data-state-link="a">A — legado</a>
+        <a href="estado-b.html" data-state-link="b">B — convivência</a>
+        <a href="estado-c.html" data-state-link="c">C — incremental</a>
+        <a href="conflito.html">Conflito CSS</a>
+      </div>
+    </nav>
+
+    <header class="legacy-header">
+      <div class="legacy-header__title">
+        <img class="legacy-logo" src="./assets/municipality.svg" alt="">
+        <span>Prefeitura Piloto</span>
+      </div>
+      <div class="legacy-header__user">Secretaria de Administração — Setor de Protocolo</div>
+    </header>
+
+    <div class="legacy-shell">
+      <aside class="legacy-sidebar">
+        <nav class="legacy-nav" aria-label="Navegação legada">
+          <a href="#form" aria-current="page">Atendimento</a>
+          <a href="#table">Protocolos</a>
+          <a href="#messages">Mensagens</a>
+        </nav>
+      </aside>
+
+      <main id="conteudo" class="legacy-main">
+        <h1 class="legacy-title">Atendimento de protocolos</h1>
+        <p class="legacy-subtitle">Aplicação legada sintética com dados fictícios. Nenhum serviço externo é usado.</p>
+
+        <section id="messages" class="legacy-panel">
+          <h2>Mensagens</h2>
+          <div class="legacy-message legacy-message--info" role="status">
+            <p>2 protocolos aguardam análise. Esta mensagem usa apenas o CSS legado.</p>
+          </div>
+        </section>
+
+        <section id="form" class="legacy-panel">
+          <h2>Novo atendimento</h2>
+          <form class="legacy-form" data-pilot-form novalidate>
+            <div class="legacy-field">
+              <label for="pilot-name">Nome</label>
+              <input class="legacy-input" id="pilot-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="legacy-field">
+              <label for="pilot-email">E-mail</label>
+              <input class="legacy-input" id="pilot-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="legacy-field legacy-field--full">
+              <label for="pilot-protocol">Protocolo</label>
+              <input class="legacy-input" id="pilot-protocol" name="protocol" type="text">
+            </div>
+            <p class="legacy-error" data-pilot-error role="alert" hidden></p>
+            <div class="legacy-actions">
+              <button class="legacy-button legacy-button--primary" type="submit">Registrar</button>
+              <button class="legacy-button" type="button" data-pilot-reset>Limpar</button>
+            </div>
+            <div class="legacy-message legacy-message--success" data-pilot-feedback role="status" hidden>
+              <p data-pilot-feedback-text></p>
+            </div>
+          </form>
+        </section>
+
+        <section id="table" class="legacy-panel">
+          <h2>Protocolos</h2>
+          <div class="legacy-field">
+            <label for="pilot-filter">Filtrar protocolos</label>
+            <input class="legacy-input" id="pilot-filter" type="search">
+          </div>
+          <p class="legacy-subtitle"><span data-pilot-count>3 protocolo(s)</span></p>
+          <div class="legacy-table-wrap">
+            <table class="legacy-table">
+              <caption class="legacy-visually-hidden">Protocolos fictícios da aplicação legada</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Protocolo</th>
+                  <th scope="col">Assunto</th>
+                  <th scope="col">Situação</th>
+                </tr>
+              </thead>
+              <tbody data-pilot-rows></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="legacy-footer">
+      <p>Prefeitura Piloto — Sistema Legado</p>
+      <p>Desenvolvido por NPA</p>
+    </footer>
+  </body>
+</html>

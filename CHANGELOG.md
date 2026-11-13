@@ -2,6 +2,30 @@
 
 O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](docs/versioning.md).
 
+## [0.3.2] - 2026-11-13
+
+Piloto de integração legada e correções compatíveis de CSS encontradas na validação.
+
+### Adicionado
+
+- Fixture `tests/fixtures/consumer-legacy` com estados A (legado), B (convivência) e C (migração incremental).
+- Cenários de conflito CSS reproduzido e mitigado por ordem de camadas.
+- Comparação de componentes, persistência de formulário e filtro para demonstrar reversibilidade.
+- Testes E2E dos três estados, fluxos, teclado, responsividade, axe e isolamento.
+- Evidências da UI-NPA-009 e documentação do piloto.
+
+### Corrigido
+
+- `[hidden]` dentro de `.iui-root` permanece oculto mesmo quando o componente define `display`.
+- A tabela do UI-NPA neutraliza a borda externa herdada de regras legadas; a borda continua no wrapper.
+- Versão `0.3.2` alinhada entre manifesto, lock e fixtures.
+
+### Limitações
+
+- CSS legado sem camada continua tendo precedência.
+- A reversibilidade do piloto usa `localStorage`, não um mecanismo de produção.
+- Nenhuma publicação npm, push ou deploy foi executado nesta missão.
+
 ## [0.3.1] - 2026-11-13
 
 Maturação da distribuição pública e validação independente de integração. Nenhuma publicação remota.

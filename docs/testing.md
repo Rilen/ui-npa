@@ -5,12 +5,13 @@
 | Comando | Ferramenta | Cobre |
 | --- | --- | --- |
 | `npm test` | `node:test` | Geração determinística, CSS canônico, valores da paleta oficial, ausência de mecanismos de candidatos, metadados de distribuição, fixture pública, alias cíclico, contraste no tema claro e no escuro, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
-| `npm run test:e2e` | Playwright e axe-core | Demonstração, pacote instalado, fixtures isoladas, CSS legado em camada e sem camada, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
+| `npm run test:e2e` | Playwright e axe-core | Demonstração, pacote instalado, fixtures isoladas, piloto legado A/B/C, CSS legado em camada e sem camada, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
 | `npm run prepare:consumer` | Node e npm | Gera o tarball, instala localmente e copia `dist` para a fixture isolada |
 | `npm run capture:screenshots` | Playwright | Evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`, sem comparação automática |
 | `npm run capture:screenshots:005` | Playwright | Evidências visuais da UI-NPA-005 em `docs/evidence/ui-npa-005`, sem comparação automática |
 | `npm run capture:screenshots:007` | Playwright | Evidências visuais do tema oficial em `docs/evidence/ui-npa-007`, sem comparação automática |
 | `npm run capture:screenshots:008` | Playwright | Evidências da fixture instalada e do cenário de CSS legado em `docs/evidence/ui-npa-008`, sem comparação automática |
+| `npm run capture:screenshots:009` | Playwright | Evidências dos estados A/B/C do piloto legado em `docs/evidence/ui-npa-009`, sem comparação automática |
 
 `npm run check` executa os testes unitários e os de navegador. `npm run build` gera `packages/styles/tokens.css` e `dist`; o teste falha se o CSS canônico divergir da fonte. A fixture de consumidor é preparada com `npm pack` e instalação local antes dos testes de navegador.
 
@@ -65,7 +66,14 @@ npx playwright test --update-snapshots
 - cenário de CSS legado sem camada;
 - relatório da instalação local do pacote.
 
-As imagens são evidência para revisão visual. Não são comparadas automaticamente, não declaram homologação e variam com a fonte e a plataforma. O Chromium do Playwright precisa estar instalado com `npx playwright install chromium`. Os testes de navegador cobrem 1440, 1024, 768, 390 e 320px, incluindo sidebar expandida e recolhida, faixa móvel, paleta oficial, fixture instalada e axe em Sobre o sistema e no consumidor.
+`npm run capture:screenshots:009` grava a UI-NPA-009 em `docs/evidence/ui-npa-009`:
+
+- estados A, B e C em desktop e mobile;
+- comparação de componentes;
+- conflito CSS reproduzido e mitigado;
+- demonstração de reversibilidade.
+
+As imagens são evidência para revisão visual. Não são comparadas automaticamente, não declaram homologação e variam com a fonte e a plataforma. O Chromium do Playwright precisa estar instalado com `npx playwright install chromium`. Os testes de navegador cobrem 1440, 1024, 768, 390 e 320px, incluindo sidebar expandida e recolhida, faixa móvel, paleta oficial, fixture instalada, piloto legado e axe em Sobre o sistema, no consumidor e nos três estados.
 
 ## Fora do automático
 

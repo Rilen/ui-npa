@@ -133,12 +133,51 @@ const sets = {
       },
     ],
   },
+  "009": {
+    output: "docs/evidence/ui-npa-009",
+    captures: [
+      { file: "01-state-a-desktop.png", viewport: { width: 1440, height: 900 }, url: "/tests/fixtures/consumer-legacy/estado-a.html" },
+      { file: "02-state-b-desktop.png", viewport: { width: 1440, height: 900 }, url: "/tests/fixtures/consumer-legacy/estado-b.html" },
+      { file: "03-state-c-desktop.png", viewport: { width: 1440, height: 900 }, url: "/tests/fixtures/consumer-legacy/estado-c.html" },
+      { file: "04-state-a-mobile.png", viewport: { width: 390, height: 844 }, url: "/tests/fixtures/consumer-legacy/estado-a.html" },
+      { file: "05-state-b-mobile.png", viewport: { width: 390, height: 844 }, url: "/tests/fixtures/consumer-legacy/estado-b.html" },
+      { file: "06-state-c-mobile.png", viewport: { width: 390, height: 844 }, url: "/tests/fixtures/consumer-legacy/estado-c.html" },
+      {
+        file: "07-components-comparison.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-legacy/comparacao.html",
+        element: "#comparacao",
+      },
+      {
+        file: "08-css-conflict.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-legacy/conflito.html",
+      },
+      {
+        file: "09-css-conflict-mitigated.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-legacy/conflito-mitigado.html",
+      },
+      {
+        file: "10-reversibility.png",
+        viewport: { width: 1440, height: 900 },
+        url: "/tests/fixtures/consumer-legacy/estado-c.html",
+        prepare: async (page) => {
+          await page.getByLabel("Nome").fill("Servidor Reversível");
+          await page.getByLabel("E-mail").fill("servidor@example.invalid");
+          await page.getByLabel("Filtrar protocolos").fill("Poda");
+          await page.locator("[data-state-link='a']").click();
+          await page.waitForURL("**/estado-a.html");
+        },
+      },
+    ],
+  },
 };
 
 const setId = process.argv[2] || process.env.EVIDENCE_SET || "003";
 const set = sets[setId];
 if (!set) {
-  throw new Error(`Conjunto de evidências desconhecido: ${setId}. Use 003, 005, 007 ou 008.`);
+  throw new Error(`Conjunto de evidências desconhecido: ${setId}. Use 003, 005, 007, 008 ou 009.`);
 }
 const output = path.join(root, set.output);
 

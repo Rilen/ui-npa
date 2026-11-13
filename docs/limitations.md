@@ -9,7 +9,10 @@
 - A distribuição validada é um tarball local. O pacote está marcado como privado, usa `UNLICENSED` e não é publicado no npm.
 - `dist` é gerado por `npm run build` e ignorado pelo Git. Não edite `dist`; a fonte é `packages/styles`.
 - CSS legado sem camada tem precedência sobre o pacote e pode sobrepor componentes. O isolamento não é absoluto; a integração recomendada usa uma camada anterior.
-- A fixture de consumidor copia o `dist` instalado para `.vendor`, que é gerado e não versionado.
+- As fixtures de consumidor copiam o `dist` instalado para `.vendor`, que é gerado e não versionado.
+- O piloto A/B/C é sintético e a reversibilidade usa `localStorage`; não é um mecanismo de migração de produção.
+- A tipografia legada do piloto usa `px`, então zoom apenas de texto do navegador afeta o conteúdo migrado em `rem` e não escala todo o legado.
+- Não há isolamento por Shadow DOM; a convivência depende da ordem de camadas e da ausência de CSS legado sem camada.
 - Reflow foi automatizado com texto a 200% em 390px e 320px. Reflow a 400% é coberto como viewport CSS de 320px; zoom apenas de texto a 400% não é suportado.
 - Não há família tipográfica própria nem ícones como pacote. Os ícones da demonstração são desenhos locais de traço.
 - As marcas da demonstração são desenhos fictícios e não representam órgão real.

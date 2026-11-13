@@ -1,6 +1,6 @@
 # ADR 005 — Distribuição pública local e camadas
 
-Data: 2026-11-13. Estado: aceita para a linha `0.3.1`.
+Data: 2026-11-13. Estado: aceita para a linha `0.3.1` com correção compatível `0.3.2`.
 
 ## Contexto
 
@@ -21,5 +21,5 @@ O UI-NPA tinha CSS e módulos utilizáveis, mas sem uma superfície pública dec
 
 - O tarball não inclui `examples`, `tests`, `docs`, `scripts` nem o ZIP de evidências.
 - `dist` é gerado e ignorado pelo Git; não é uma segunda fonte de verdade.
-- A versão sobe para `0.3.1`, sem `1.0.0`.
+- A versão sobe para `0.3.1`; a correção compatível posterior é `0.3.2`, sem `1.0.0`.
 - Uma futura publicação em registro, licença pública e wrappers de framework exigem decisão própria.

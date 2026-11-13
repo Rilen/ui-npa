@@ -1,6 +1,6 @@
 {
   "name": "ui-npa",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "Design System institucional UI-NPA. Paleta clara oficial: Azul Institucional Equilibrado.",
   "license": "UNLICENSED",
@@ -46,6 +46,7 @@
     "capture:screenshots:005": "node scripts/capture-screenshots.mjs 005",
     "capture:screenshots:007": "node scripts/capture-screenshots.mjs 007",
     "capture:screenshots:008": "node scripts/prepare-consumer-fixture.mjs --report && node scripts/capture-screenshots.mjs 008",
+    "capture:screenshots:009": "node scripts/prepare-consumer-fixture.mjs && node scripts/capture-screenshots.mjs 009",
     "prepare:consumer": "node scripts/prepare-consumer-fixture.mjs",
     "check": "npm test && npm run test:e2e"
   },

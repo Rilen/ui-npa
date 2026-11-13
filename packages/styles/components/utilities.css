@@ -1,3 +1,7 @@
+.iui-root [hidden] {
+  display: none;
+}
+
 .iui-stack {
   display: flex;
   flex-direction: column;

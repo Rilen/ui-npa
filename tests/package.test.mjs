@@ -7,7 +7,7 @@ const root = path.resolve(import.meta.dirname, "..");
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
 
 test("o pacote declara a distribuição pública e exclui arquivos operacionais", () => {
-  assert.equal(packageJson.version, "0.3.1");
+  assert.equal(packageJson.version, "0.3.2");
   assert.equal(packageJson.license, "UNLICENSED");
   assert.deepEqual(packageJson.files, ["dist", "README.md", "CHANGELOG.md"]);
   assert.equal(packageJson.style, "./dist/index.css");

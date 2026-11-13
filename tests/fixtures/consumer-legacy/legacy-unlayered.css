@@ -1,0 +1,30 @@
+button {
+  background: #b00020;
+  border-color: #b00020;
+  border-radius: 2rem;
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+input {
+  background: #fff3cd;
+  border: 4px solid #b00020;
+  color: #5c0010;
+}
+
+h1 {
+  color: #b00020;
+  font-family: Georgia, serif;
+  font-size: 3rem;
+}
+
+a {
+  color: #b00020;
+  text-decoration: underline;
+}
+
+table {
+  border: 4px solid #b00020;
+}

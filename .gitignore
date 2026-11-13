@@ -6,6 +6,8 @@ blob-report/
 playwright/.cache/
 tests/fixtures/consumer-vanilla/.vendor/
 tests/fixtures/consumer-vanilla/.runtime/
+tests/fixtures/consumer-legacy/.vendor/
+tests/fixtures/consumer-legacy/.runtime/
 *.tgz
 *.log
 .DS_Store

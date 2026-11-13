@@ -7,7 +7,11 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const fixtureDir = path.join(root, "tests", "fixtures", "consumer-vanilla");
-const vendorDir = path.join(fixtureDir, ".vendor");
+const legacyFixtureDir = path.join(root, "tests", "fixtures", "consumer-legacy");
+const vendorDirs = [
+  path.join(fixtureDir, ".vendor"),
+  path.join(legacyFixtureDir, ".vendor"),
+];
 const reportFile = path.join(root, "docs", "evidence", "ui-npa-008", "09-package-install.txt");
 
 function quote(value) {
@@ -65,8 +69,10 @@ export async function prepareConsumerFixture({ report = false } = {}) {
     const dist = path.join(installed, "dist");
     if (!fs.existsSync(dist)) throw new Error("O pacote instalado não contém dist.");
 
-    if (fs.existsSync(vendorDir)) fs.rmSync(vendorDir, { recursive: true, force: true });
-    fs.cpSync(dist, vendorDir, { recursive: true });
+    for (const dir of vendorDirs) {
+      if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
+      fs.cpSync(dist, dir, { recursive: true });
+    }
 
     const publicFiles = pack.files.map((entry) => entry.path).filter((file) => file.startsWith("dist/"));
     const tarballFiles = pack.files.map((entry) => entry.path);
@@ -79,7 +85,9 @@ export async function prepareConsumerFixture({ report = false } = {}) {
       publicFiles,
       tarballFiles,
     };
-    fs.writeFileSync(path.join(vendorDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+    for (const dir of vendorDirs) {
+      fs.writeFileSync(path.join(dir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+    }
 
     if (report) {
       const sha256 = crypto.createHash("sha256").update(fs.readFileSync(tarball)).digest("hex");
@@ -99,7 +107,7 @@ export async function prepareConsumerFixture({ report = false } = {}) {
         "Exports públicos:",
         ...Object.entries(installedPackage.exports).map(([key, value]) => `- ${key} -> ${value}`),
         "",
-        "A fixture copiou somente o diretório dist do pacote instalado para tests/fixtures/consumer-vanilla/.vendor.",
+        "As fixtures copiaram somente o diretório dist do pacote instalado para .vendor.",
         "Nenhum push, publicação npm ou deploy foi executado.",
         "",
       ];
@@ -117,5 +125,5 @@ const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURL
 if (isDirectRun) {
   const manifest = await prepareConsumerFixture({ report: process.argv.includes("--report") });
   console.log(`Pacote público instalado: ${manifest.package}@${manifest.version}`);
-  console.log(`Fixture: ${path.relative(root, vendorDir)}`);
+  for (const dir of vendorDirs) console.log(`Fixture: ${path.relative(root, dir)}`);
 }

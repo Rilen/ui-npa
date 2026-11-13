@@ -12,6 +12,7 @@ Mapa mínimo de decisão:
 - [docs/integration.md](docs/integration.md) — pacote local, entradas públicas, CSS legado e limites.
 - [docs/testing.md](docs/testing.md) — comandos, fixture isolada e o que não é automático.
 - [docs/audit/ui-npa-008.md](docs/audit/ui-npa-008.md) — auditoria e achados P0–P3 da maturação.
+- [docs/pilots/legacy-integration.md](docs/pilots/legacy-integration.md) — piloto A/B/C de convivência com legado.
 - [docs/versioning.md](docs/versioning.md) — SemVer e política de mudança.
 - [docs/decisions/](docs/decisions/) — decisões arquiteturais, incluindo a paleta e a distribuição.
 - [docs/limitations.md](docs/limitations.md) — limites conhecidos.
