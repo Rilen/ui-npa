@@ -6,13 +6,16 @@
 - A seleção disponível é o item ativo da navegação; não existe token separado para seleção de linhas ou itens de conteúdo.
 - O tema escuro é experimental e preserva os valores anteriores à homologação. Sombras não foram reajustadas e a demonstração não oferece seletor de tema.
 - O mecanismo temporário de comparação de paletas foi removido; não há `candidates.css`, seletor de candidata nem página de comparação no fluxo de produção.
-- A distribuição validada é um tarball local. O pacote está marcado como privado, usa `UNLICENSED` e não é publicado no npm.
+- A distribuição recomendada é o tarball local. Clone Git é suportado com scripts habilitados e `prepare`. O pacote está marcado como privado, usa `UNLICENSED` e não é publicado no npm.
 - `dist` é gerado por `npm run build` e ignorado pelo Git. Não edite `dist`; a fonte é `packages/styles`.
-- CSS legado sem camada tem precedência sobre o pacote e pode sobrepor componentes. O isolamento não é absoluto; a integração recomendada usa uma camada anterior.
+- CSS legado sem camada ou em camada posterior ao UI-NPA tem precedência e pode sobrepor componentes. O isolamento não é absoluto; a ordem de camadas é contrato e a integração recomendada usa uma camada anterior.
 - As fixtures de consumidor copiam o `dist` instalado para `.vendor`, que é gerado e não versionado.
 - O piloto A/B/C é sintético e a reversibilidade usa `localStorage`; não é um mecanismo de migração de produção.
 - A tipografia legada do piloto usa `px`, então zoom apenas de texto do navegador afeta o conteúdo migrado em `rem` e não escala todo o legado.
 - Não há isolamento por Shadow DOM; a convivência depende da ordem de camadas e da ausência de CSS legado sem camada.
+- A faixa institucional deve receber um landmark nomeado pela aplicação; a classe `iui-institution` não cria landmark sozinha.
+- URLs de identidade são confiáveis da aplicação; `logo` e `changelogUrl` têm validação de esquema, mas não substituem validação de negócio.
+- Chrome e Edge foram verificados; Firefox, WebKit/Safari e dispositivo físico permanecem `NOT_RUN`.
 - Reflow foi automatizado com texto a 200% em 390px e 320px. Reflow a 400% é coberto como viewport CSS de 320px; zoom apenas de texto a 400% não é suportado.
 - Não há família tipográfica própria nem ícones como pacote. Os ícones da demonstração são desenhos locais de traço.
 - As marcas da demonstração são desenhos fictícios e não representam órgão real.
@@ -27,4 +30,4 @@
 - No mobile, a faixa institucional ocupa duas linhas e é mais alta que no desktop; o cabeçalho da aplicação continua compacto.
 - Os testes automáticos não comprovam WCAG 2.2 AA integral.
 - Parte da governança não é verificável por teste, conforme a própria política.
-- Nenhum pacote foi publicado e nenhum remoto foi atualizado por esta fundação.
+- Nenhum pacote foi publicado no npm. O repositório foi sincronizado com o GitHub sob autorização explícita; não há deploy.

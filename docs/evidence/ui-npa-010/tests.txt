@@ -1,0 +1,31 @@
+UI-NPA 0.3.3 — resumo de testes
+
+Data: 2026-11-13
+Ambiente: Windows, Node 24.13.0, npm 11.18.0, Playwright 1.65.0, Chromium 158.0.8127.18.
+
+npm run build: PASS
+- tokens.css e dist gerados.
+- hash de tokens.css estável antes/depois; ver package-hashes.txt.
+
+npm test: PASS — 108/108
+- contrato de tokens e geração determinística;
+- contraste do tema claro e escuro;
+- validação de URLs de identidade;
+- metadados, prepare, fixtures e governança.
+
+npm run test:e2e: PASS — 40/40
+- demonstração, consumidor instalado, piloto legado A/B/C;
+- camadas correta, sem camada e invertida;
+- landmark/axe, sidebar, teclado, foco, mobile, formulário;
+- tema escuro experimental e responsividade.
+
+npm run check: PASS — 108 unitários + 40 E2E.
+
+axe-core: PASS nos cenários cobertos; nenhuma violação serious, critical ou region.
+Chrome 157.0.8103.78: PASS.
+Microsoft Edge 157.0.4341.46: PASS.
+Firefox: NOT_RUN — build patched do Playwright não instalado; Firefox do sistema não é dirigível pelo Playwright.
+WebKit/Safari: NOT_RUN — não disponível neste ambiente.
+Leitor de tela real: NOT_RUN.
+Dispositivo físico: NOT_RUN.
+Zoom apenas de texto a 400%: NOT_RUN; reflow equivalente a 400% é coberto como viewport CSS de 320px.

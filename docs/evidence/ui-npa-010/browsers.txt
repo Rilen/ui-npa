@@ -1,0 +1,8 @@
+UI-NPA 0.3.3 — matriz de navegadores
+Data: 2026-11-13
+
+chrome: PASS — versão 157.0.8103.78 — demo={"primary":"rgb(42, 75, 109)","cols":4,"overflow":false} mobile={"cols":1,"overflow":false} consumer={"primary":"rgb(42, 75, 109)","cards":8} legacy={"ui":true,"legacyHeader":"rgb(31, 63, 95)","uiButton":"rgb(42, 75, 109)"} errors=0
+msedge: PASS — versão 157.0.4341.46 — demo={"primary":"rgb(42, 75, 109)","cols":4,"overflow":false} mobile={"cols":1,"overflow":false} consumer={"primary":"rgb(42, 75, 109)","cards":8} legacy={"ui":true,"legacyHeader":"rgb(31, 63, 95)","uiButton":"rgb(42, 75, 109)"} errors=0
+firefox (Playwright): NOT_RUN — build patched não instalado no cache do projeto; Firefox do sistema não é dirigível pelo Playwright.
+webkit/safari: NOT_RUN — WebKit não instalado e não há dispositivo Safari neste ambiente.
+A matriz verifica CSS Layers, Container Queries, componentes, sidebar, formulário, responsividade, foco e ESM nos canais disponíveis.

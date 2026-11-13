@@ -1,0 +1,8 @@
+UI-NPA 0.3.3 — axe-core após correção de landmark
+
+demo: PASS — nenhuma violação
+consumer: PASS — nenhuma violação
+legacy-a: PASS — nenhuma violação
+legacy-b: PASS — nenhuma violação
+legacy-c: PASS — nenhuma violação
+legacy-c-mobile: PASS — nenhuma violação

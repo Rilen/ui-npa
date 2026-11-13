@@ -17,11 +17,13 @@ Meta do UI-NPA: WCAG 2.2 nível AA nos componentes implementados. A meta não es
 
 ## O que foi executado
 
-O cálculo de contraste roda em `npm test`. A demonstração e a fixture de consumidor são analisadas com axe-core no desktop e no mobile; o teste falha diante de violação `serious` ou `critical`. O piloto legado é analisado nos estados A, B, C e no estado C mobile. O reflow a 200% é automatizado em 390px e 320px. O reflow equivalente a 400% é coberto pela composição em viewport CSS de 320px.
+O cálculo de contraste roda em `npm test`. A demonstração e a fixture de consumidor são analisadas com axe-core no desktop e no mobile; o teste falha diante de violação `serious`, `critical` ou `region`. O piloto legado é analisado nos estados A, B, C e no estado C mobile. O reflow a 200% é automatizado em 390px e 320px. O reflow equivalente a 400% é coberto pela composição em viewport CSS de 320px.
 
 Isso não cobre, entre outros, todos os critérios de WCAG 2.2: zoom apenas de texto a 400%, conteúdo em movimento além da demonstração, linguagem de partes, erros de formulário em outros idiomas, alternativas para conteúdo não textual complexo e uso real com tecnologias assistivas fora do axe. A paleta homologada não é uma certificação de contraste em dispositivo físico.
 
 Alvos interativos principais usam `size.control.md` ou `size.control.sm`, com no mínimo 32px de altura; uma auditoria exaustiva de alvos de links inline não foi executada. Leitor de tela real: **NOT_RUN**.
+
+A faixa institucional deve estar em um landmark nomeado fornecido pela aplicação; a demonstração e as fixtures usam `role="region"` com `aria-label="Identificação institucional"`. Chrome e Edge foram verificados; Firefox, WebKit/Safari e dispositivo físico permanecem **NOT_RUN**.
 
 Texto desabilitado não entra na meta de 4.5:1. O critério de contraste não se aplica a componente inativo.
 

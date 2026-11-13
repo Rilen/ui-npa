@@ -71,8 +71,8 @@ test("o consumidor isolado usa o pacote público e a paleta oficial", async ({ p
   expect(manifest.exports).toEqual(packageJson.exports);
 
   const accessibility = await new AxeBuilder({ page }).analyze();
-  const serious = accessibility.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical");
-  expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
+  const problems = accessibility.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical" || violation.id === "region");
+  expect(problems, JSON.stringify(problems, null, 2)).toEqual([]);
 });
 
 test("a sidebar do consumidor expande, recolhe e persiste", async ({ page }) => {
@@ -113,8 +113,8 @@ test("a sidebar móvel fecha com Escape e não cria rolagem horizontal", async (
   expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
 
   const accessibility = await new AxeBuilder({ page }).analyze();
-  const serious = accessibility.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical");
-  expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
+  const problems = accessibility.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical" || violation.id === "region");
+  expect(problems, JSON.stringify(problems, null, 2)).toEqual([]);
 });
 
 test("o tema escuro experimental não altera o tema claro", async ({ page }) => {

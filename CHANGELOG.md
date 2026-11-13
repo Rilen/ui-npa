@@ -1,6 +1,33 @@
 # Changelog
 
-O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](docs/versioning.md).
+O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](https://github.com/Rilen/ui-npa/blob/main/docs/versioning.md).
+
+## [0.3.3] - 2026-11-13
+
+Maturação corretiva da prontidão institucional. Correções compatíveis e verificações adversariais, sem publicação npm, release, push ou deploy.
+
+### Adicionado
+
+- `prepare` para gerar `dist` em instalação Git, mantendo o tarball como canal recomendado.
+- Validação de `logo` (relativo, HTTP(S), `data:image/*`) e `changelogUrl` (relativo ou HTTP(S)); esquemas perigosos são rejeitados.
+- Landmark nomeado na faixa institucional, com responsabilidade documentada para o consumidor.
+- Cenário de ordem de camadas invertida e teste adversarial correspondente.
+- Runbook operacional em `docs/operations/integration-runbook.md`.
+- Testes unitários de URLs e E2E de região, camadas e ordem invertida.
+- Links do README e CHANGELOG para a documentação no repositório.
+
+### Corrigido
+
+- Instalação por clone Git deixa de produzir pacote sem `dist` quando scripts estão habilitados.
+- Achado axe moderado `region` na faixa institucional da demonstração e do consumidor.
+- URLs configuráveis perigosas em `identity.js`.
+- Declarações históricas desatualizadas sobre push e estado remoto.
+
+### Limitações
+
+- CSS legado sem camada continua prevalecendo; a ordem correta é obrigatória.
+- A publicação npm, o licenciamento público e a validação manual de acessibilidade permanecem pendentes.
+- Firefox/WebKit e dispositivo físico não foram executados nesta missão; Chrome e Edge foram verificados.
 
 ## [0.3.2] - 2026-11-13
 

@@ -5,7 +5,7 @@ Contrato de IUI-013 e IUI-014. A aplicação fornece os dados. O núcleo não co
 ## Configuração
 
 ```js
-import { applyInstitutionalIdentity } from "./packages/styles/identity.js";
+import { applyInstitutionalIdentity } from "ui-npa/identity.js";
 
 applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
   municipality: { name: "Prefeitura Municipal de Exemplo", logo: "/assets/prefeitura.svg", logoAlt: "Prefeitura Municipal de Exemplo" },
@@ -17,11 +17,13 @@ applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
     developer: "NPA",
     changelog: [{ version: "1.4.0", date: "2026-11-12", notes: ["Texto da aplicação."] }],
   },
-  designSystem: { name: "UI-NPA", version: "0.3.2" },
+  designSystem: { name: "UI-NPA", version: "0.3.3" },
 });
 ```
 
 `assertInstitutionalIdentity` valida o mesmo objeto sem depender do DOM. Os três órgãos exigem `name`, `logo` e `logoAlt`. A aplicação exige `name`, `version` e `developer`, além de `changelog` ou `changelogUrl`. `designSystem` é opcional e serve para mostrar a versão do UI-NPA nos detalhes.
+
+`logo` aceita caminho relativo, HTTP(S) ou `data:image/*`. `changelogUrl` aceita caminho relativo ou HTTP(S). Esquemas `javascript:`, `data:` em links, `file:` e valores malformados são rejeitados. A configuração de identidade é confiável da aplicação; não trate dados de usuário como identidade sem validação prévia.
 
 ## Posições
 
@@ -34,6 +36,8 @@ applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
 Cada slot tem `img[data-iui-logo]` e, quando o nome aparece ao lado, `[data-iui-label]`. Com rótulo visível, o `alt` da imagem fica vazio para não repetir o nome. Sem rótulo, o `alt` recebe `logoAlt`.
 
 A faixa usa `iui-institution`. O rodapé usa `iui-footer`, com `[data-iui-app-name]`, `[data-iui-app-version]`, `[data-iui-developer]`, `[data-iui-changelog-link]`, `[data-iui-changelog]` e `[data-iui-about]`.
+
+A faixa deve estar em um landmark da aplicação hospedeira, por exemplo `<div class="iui-institution" role="region" aria-label="Identificação institucional">`. A classe não cria landmark sozinha; a responsabilidade é do consumidor e evita conteúdo fora de regiões nomeadas.
 
 No mobile, a faixa continua sendo uma só: Prefeitura e Secretaria ocupam duas linhas, com os dois nomes visíveis e acessíveis. A altura usa `size.institution-mobile`; o painel móvel começa abaixo da faixa e do cabeçalho. A consulta completa continua em Sobre o sistema. As logomarcas não são reduzidas abaixo de `size.logo.sm`.
 

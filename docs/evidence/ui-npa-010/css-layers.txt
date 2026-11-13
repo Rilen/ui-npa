@@ -1,0 +1,8 @@
+UI-NPA 0.3.3 — teste adversarial de camadas CSS
+
+mitigado: button=rgb(42, 75, 109) h1=rgb(23, 27, 38) input=rgb(106, 115, 136) table=rgb(23, 27, 38) legacyHeader=undefined legacyButton=undefined overflow=false
+sem-camada: button=rgb(176, 0, 32) h1=rgb(176, 0, 32) input=rgb(176, 0, 32) table=rgb(176, 0, 32) legacyHeader=undefined legacyButton=undefined overflow=false
+ordem-invertida: button=rgb(176, 0, 32) h1=rgb(176, 0, 32) input=rgb(176, 0, 32) table=rgb(176, 0, 32) legacyHeader=undefined legacyButton=undefined overflow=false
+estado-b: button=rgb(42, 75, 109) h1=undefined input=undefined table=undefined legacyHeader=rgb(31, 63, 95) legacyButton=rgb(35, 66, 95) overflow=false
+
+Nota: no estado mitigado, .iui-table tem border-width 0; a cor computada é currentColor e não indica borda visível.

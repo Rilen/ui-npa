@@ -4,8 +4,8 @@
 
 | Comando | Ferramenta | Cobre |
 | --- | --- | --- |
-| `npm test` | `node:test` | Geração determinística, CSS canônico, valores da paleta oficial, ausência de mecanismos de candidatos, metadados de distribuição, fixture pública, alias cíclico, contraste no tema claro e no escuro, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
-| `npm run test:e2e` | Playwright e axe-core | Demonstração, pacote instalado, fixtures isoladas, piloto legado A/B/C, CSS legado em camada e sem camada, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
+| `npm test` | `node:test` | Geração determinística, CSS canônico, valores da paleta oficial, ausência de mecanismos de candidatos, metadados de distribuição, `prepare`, fixture pública, alias cíclico, contraste no tema claro e no escuro, validação de URLs de identidade, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
+| `npm run test:e2e` | Playwright e axe-core | Demonstração, pacote instalado, fixtures isoladas, piloto legado A/B/C, CSS legado em camada, sem camada e em ordem invertida, landmarks, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
 | `npm run prepare:consumer` | Node e npm | Gera o tarball, instala localmente e copia `dist` para a fixture isolada |
 | `npm run capture:screenshots` | Playwright | Evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`, sem comparação automática |
 | `npm run capture:screenshots:005` | Playwright | Evidências visuais da UI-NPA-005 em `docs/evidence/ui-npa-005`, sem comparação automática |
@@ -14,6 +14,8 @@
 | `npm run capture:screenshots:009` | Playwright | Evidências dos estados A/B/C do piloto legado em `docs/evidence/ui-npa-009`, sem comparação automática |
 
 `npm run check` executa os testes unitários e os de navegador. `npm run build` gera `packages/styles/tokens.css` e `dist`; o teste falha se o CSS canônico divergir da fonte. A fixture de consumidor é preparada com `npm pack` e instalação local antes dos testes de navegador.
+
+A instalação por clone Git é suportada com `prepare` e scripts habilitados; a verificação é feita em clone temporário e registrada em `docs/evidence/ui-npa-010`. O rito de adoção e rollback está no [runbook](operations/integration-runbook.md).
 
 ## Não instalados
 

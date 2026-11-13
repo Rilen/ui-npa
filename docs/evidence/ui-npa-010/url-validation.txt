@@ -1,0 +1,10 @@
+UI-NPA 0.3.3 — validação de URLs de identidade
+
+logo relativo: ACEITO
+logo HTTPS: ACEITO
+logo data:image: ACEITO
+logo javascript:: REJEITADO (municipality.logo deve ser caminho relativo, HTTP(S) ou data:image.)
+logo data:text/html: REJEITADO (municipality.logo deve ser caminho relativo, HTTP(S) ou data:image.)
+changelog relativo: ACEITO
+changelog javascript:: REJEITADO (application.changelogUrl deve ser caminho relativo ou HTTP(S).)
+changelog data:: REJEITADO (application.changelogUrl deve ser caminho relativo ou HTTP(S).)

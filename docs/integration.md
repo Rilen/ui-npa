@@ -1,15 +1,25 @@
 # Integração
 
-## Pacote local — suportado
+## Distribuição por tarball — suportada
 
-A distribuição pública do UI-NPA é o conteúdo de `dist/`, gerado por `npm run build`. O pacote é privado e não é publicado no npm; a integração comprovada usa um tarball local:
+A distribuição pública do UI-NPA é o conteúdo de `dist/`, gerado por `npm run build`. O pacote é privado e não é publicado no npm; o canal recomendado é um tarball local:
 
 ```bash
 npm pack
-npm install ./ui-npa-0.3.2.tgz
+npm install ./ui-npa-0.3.3.tgz
 ```
 
 O tarball contém somente `dist`, `README.md`, `CHANGELOG.md` e `package.json`. `examples`, `tests`, `docs`, `scripts` e o ZIP de evidências não entram no pacote.
+
+### Clone Git — suportado com scripts habilitados
+
+O `prepare` gera `dist` durante a instalação:
+
+```bash
+npm install git+https://github.com/Rilen/ui-npa.git
+```
+
+Não use `--ignore-scripts` nesse canal. Depois da instalação, confirme que `node_modules/ui-npa/dist/index.css` existe. O tarball continua sendo o canal de menor surpresa para produção. A publicação em registro npm e o licenciamento público ainda não foram realizados.
 
 Entradas públicas declaradas em `package.json`:
 
@@ -68,7 +78,9 @@ A fixture `tests/fixtures/consumer-vanilla/index.html` demonstra o cenário reco
 
 ## Estados de suporte
 
-**Suportado:** tarball local, HTML nativo, ESM, CSS canônico, sidebar, identidade, rodapé, tema claro oficial, fixture isolada, instalação local e piloto legado A/B/C.
+**Suportado:** tarball local, clone Git com scripts habilitados e `prepare`, HTML nativo, ESM, CSS canônico, sidebar, identidade, rodapé, tema claro oficial, fixture isolada, instalação local e piloto legado A/B/C.
+
+O procedimento completo de adoção, validação e rollback está no [runbook operacional](operations/integration-runbook.md).
 **Experimental:** tema escuro, convivência com CSS legado sem camada (não suportada), navegadores sem CSS Layers/Container Queries.
 **Planejado:** publicação em registro npm, wrappers React/Angular/PHP/Web Components, diálogo, select avançado e tabela complexa.
 

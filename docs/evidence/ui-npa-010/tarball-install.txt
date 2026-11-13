@@ -1,0 +1,37 @@
+UI-NPA 0.3.3 — instalação por tarball
+Tarball: ui-npa-0.3.3.tgz
+Bytes: 14523
+SHA-256: 9F43CB48CF37E1CC515926A89737CBB698FC041D991B7EAD02CA39BFCCD00598
+Entradas: 21
+- CHANGELOG.md
+- dist/base.css
+- dist/components/alert.css
+- dist/components/badge.css
+- dist/components/button.css
+- dist/components/card.css
+- dist/components/field.css
+- dist/components/footer.css
+- dist/components/institution.css
+- dist/components/motion.css
+- dist/components/shell.css
+- dist/components/sidebar.css
+- dist/components/table.css
+- dist/components/text.css
+- dist/components/utilities.css
+- dist/identity.js
+- dist/index.css
+- dist/sidebar.js
+- dist/tokens.css
+- package.json
+- README.md
+
+Instalação: npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund <tarball>
+Status: PASS
+Nenhuma dependência de runtime declarada; npm ls --omit=dev lista apenas o próprio pacote.
+Resolução dos exports:
+ui-npa/styles.css -> node_modules/ui-npa/dist/index.css
+ui-npa/tokens.css -> node_modules/ui-npa/dist/tokens.css
+ui-npa/sidebar.js -> node_modules/ui-npa/dist/sidebar.js
+ui-npa/identity.js -> node_modules/ui-npa/dist/identity.js
+
+Nenhum push, npm publish, release ou deploy executado.

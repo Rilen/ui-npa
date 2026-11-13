@@ -1,0 +1,12 @@
+UI-NPA 0.3.3 — reprodutibilidade e integridade
+
+tokens.css SHA-256 antes do build: 10F02FBBF425590B3D875CD49D41A5F34130826A4171A3F818FD0A1A82AB960E
+tokens.css SHA-256 depois do build: 10F02FBBF425590B3D875CD49D41A5F34130826A4171A3F818FD0A1A82AB960E
+build determinístico: True
+tarball: ui-npa-0.3.3.tgz
+tarball bytes: 14523
+tarball SHA-256 (segunda geração): 9F43CB48CF37E1CC515926A89737CBB698FC041D991B7EAD02CA39BFCCD00598
+tarball SHA-256 (primeira geração): 9F43CB48CF37E1CC515926A89737CBB698FC041D991B7EAD02CA39BFCCD00598
+tarball determinístico no ambiente: True
+entradas: 21
+whitelist: dist, README.md, CHANGELOG.md, package.json; sem ZIP, examples, tests, docs ou scripts

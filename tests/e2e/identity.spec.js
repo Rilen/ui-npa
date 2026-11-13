@@ -22,7 +22,7 @@ test("abre o changelog sintético e as informações do sistema", async ({ page 
   await expect(page.getByRole("heading", { name: "Novidades" })).toBeVisible();
   await expect(page.getByText("Não descreve uma publicação real.")).toBeVisible();
   await page.getByRole("link", { name: "Sobre o sistema" }).click();
-  await expect(page.getByText("UI-NPA 0.3.2")).toBeVisible();
+  await expect(page.getByText("UI-NPA 0.3.3")).toBeVisible();
   await expect(page.getByText("1.4.0").last()).toBeVisible();
   await expect(page.getByText("Secretaria Municipal de Exemplo").last()).toBeVisible();
 });
@@ -82,7 +82,7 @@ test("a identidade institucional é configurável pela aplicação", async ({ pa
         changelog: [{ version: "9.9.9", date: "2026-11-12", notes: ["Configuração alternativa."] }],
         changelogUrl: "https://example.invalid/novidades",
       },
-      designSystem: { name: "UI-NPA", version: "0.3.2" },
+      designSystem: { name: "UI-NPA", version: "0.3.3" },
     });
   });
 
@@ -94,7 +94,7 @@ test("a identidade institucional é configurável pela aplicação", async ({ pa
   await expect(page.locator("[data-iui-developer]")).toHaveText("Desenvolvido por NPA");
   await expect(page.locator("[data-iui-changelog-link]")).toHaveAttribute("href", "https://example.invalid/novidades");
   await expect(page.locator("[data-iui-about]")).toContainText("Sistema Configurado");
-  await expect(page.locator("[data-iui-about]")).toContainText("UI-NPA 0.3.2");
+  await expect(page.locator("[data-iui-about]")).toContainText("UI-NPA 0.3.3");
 });
 
 test("o rodapé permanece completo no desktop, no tablet e no mobile", async ({ page }) => {

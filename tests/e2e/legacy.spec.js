@@ -159,6 +159,12 @@ test("CSS legado sem camada quebra o contrato; a camada anterior mitiga", async 
   await expect(page.locator("h1.iui-title")).toHaveCSS("color", "rgb(23, 27, 38)");
   await expect(page.locator("#conflito-campo")).toHaveCSS("border-color", "rgb(106, 115, 136)");
   await expect(page.locator(".iui-table")).toHaveCSS("border-top-width", "0px");
+
+  await page.goto(`${base}ordem-invertida.html`);
+  await expect(page.locator(".iui-button--primary")).toHaveCSS("background-color", "rgb(176, 0, 32)");
+  await expect(page.locator("h1.iui-title")).toHaveCSS("color", "rgb(176, 0, 32)");
+  await expect(page.locator("#ordem-campo")).toHaveCSS("border-color", "rgb(176, 0, 32)");
+  await expect(page.locator(".iui-table")).toHaveCSS("border-top-color", "rgb(176, 0, 32)");
 });
 
 test("os três estados respondem nas larguras do piloto", async ({ page }) => {
@@ -177,12 +183,12 @@ test("os três estados não têm violações graves no axe", async ({ page }) =>
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(stateUrl(state));
     const results = await new AxeBuilder({ page }).analyze();
-    const serious = results.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical");
+    const serious = results.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical" || violation.id === "region");
     expect(serious, `${state}: ${JSON.stringify(serious, null, 2)}`).toEqual([]);
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(stateUrl("c"));
   const mobile = await new AxeBuilder({ page }).analyze();
-  const serious = mobile.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical");
+  const serious = mobile.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical" || violation.id === "region");
   expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
 });

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ordem invertida de camadas: CSS legado declarado depois do UI-NPA.">
+    <title>Ordem de camadas invertida — UI-NPA</title>
+    <link rel="stylesheet" href="./.vendor/index.css">
+    <link rel="stylesheet" href="./ordem-invertida.css">
+  </head>
+  <body class="iui-root">
+    <main class="iui-page iui-stack">
+      <div class="iui-alert iui-alert--warning" role="status">
+        <p class="iui-alert__title">Ordem invertida</p>
+        <p>O CSS legado foi declarado em uma camada posterior ao UI-NPA. A camada posterior tem precedência e quebra o contrato visual.</p>
+      </div>
+      <h1 class="iui-title">Ordem de camadas invertida</h1>
+      <div class="iui-card iui-stack iui-stack--sm">
+        <p class="iui-text">Este é o resultado esperado de uma ordem incorreta, não o padrão recomendado.</p>
+        <button class="iui-button iui-button--primary" type="button">Ação primária</button>
+        <div class="iui-field">
+          <label class="iui-field__label" for="ordem-campo">Campo</label>
+          <input class="iui-field__control" id="ordem-campo" type="text" value="Valor de exemplo">
+        </div>
+        <p><a class="iui-text iui-text--sm iui-text--brand" href="estado-b.html">Voltar ao piloto</a></p>
+      </div>
+      <div class="iui-table-wrap" role="region" tabindex="0" aria-label="Tabela da ordem invertida">
+        <table class="iui-table">
+          <caption class="iui-visually-hidden">Tabela do cenário de ordem invertida</caption>
+          <thead>
+            <tr><th scope="col">Coluna</th><th scope="col">Valor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Exemplo</td><td>Dado fictício</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

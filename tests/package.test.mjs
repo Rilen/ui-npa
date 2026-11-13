@@ -7,7 +7,7 @@ const root = path.resolve(import.meta.dirname, "..");
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
 
 test("o pacote declara a distribuição pública e exclui arquivos operacionais", () => {
-  assert.equal(packageJson.version, "0.3.2");
+  assert.equal(packageJson.version, "0.3.3");
   assert.equal(packageJson.license, "UNLICENSED");
   assert.deepEqual(packageJson.files, ["dist", "README.md", "CHANGELOG.md"]);
   assert.equal(packageJson.style, "./dist/index.css");
@@ -17,6 +17,7 @@ test("o pacote declara a distribuição pública e exclui arquivos operacionais"
   assert.equal(packageJson.exports["./identity.js"], "./dist/identity.js");
   assert.match(packageJson.scripts.build, /build-package/);
   assert.match(packageJson.scripts.prepack, /npm run build/);
+  assert.match(packageJson.scripts.prepare, /npm run build/);
 });
 
 test("a fixture isolada usa apenas os artefatos públicos e a camada legada", () => {

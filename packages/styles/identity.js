@@ -1,4 +1,31 @@
 const groups = ["municipality", "department", "sector"];
+const httpProtocols = new Set(["http:", "https:"]);
+
+function hasScheme(value) {
+  return /^[a-z][a-z0-9+.-]*:/i.test(value);
+}
+
+function isAllowedResourceUrl(value) {
+  const trimmed = value.trim();
+  if (!hasScheme(trimmed)) return true;
+  try {
+    const url = new URL(trimmed);
+    if (httpProtocols.has(url.protocol)) return true;
+    return url.protocol === "data:" && /^data:image\//i.test(trimmed);
+  } catch {
+    return false;
+  }
+}
+
+function isAllowedNavigationUrl(value) {
+  const trimmed = value.trim();
+  if (!hasScheme(trimmed)) return true;
+  try {
+    return httpProtocols.has(new URL(trimmed).protocol);
+  } catch {
+    return false;
+  }
+}
 
 export function assertInstitutionalIdentity(identity) {
   if (!identity || typeof identity !== "object" || Array.isArray(identity)) {
@@ -14,6 +41,9 @@ export function assertInstitutionalIdentity(identity) {
       if (typeof value[field] !== "string" || value[field].trim() === "") {
         throw new TypeError(`Informe ${group}.${field}.`);
       }
+    }
+    if (!isAllowedResourceUrl(value.logo)) {
+      throw new TypeError(`${group}.logo deve ser caminho relativo, HTTP(S) ou data:image.`);
     }
   }
 
@@ -31,6 +61,9 @@ export function assertInstitutionalIdentity(identity) {
   const hasUrl = typeof application.changelogUrl === "string" && application.changelogUrl.trim() !== "";
   if (!hasEntries && !hasUrl) {
     throw new TypeError("Informe application.changelog ou application.changelogUrl.");
+  }
+  if (hasUrl && !isAllowedNavigationUrl(application.changelogUrl)) {
+    throw new TypeError("application.changelogUrl deve ser caminho relativo ou HTTP(S).");
   }
   if (hasEntries) {
     for (const entry of application.changelog) {

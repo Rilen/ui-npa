@@ -9,6 +9,7 @@ Cenário sintético de adoção incremental do UI-NPA em uma aplicação adminis
 - `estado-c.html` — conteúdo principal migrado para UI-NPA; cabeçalho, navegação e rodapé legados.
 - `conflito.html` — CSS legado global sem camada, reproduzindo o conflito.
 - `conflito-mitigado.html` — as mesmas regras em `@layer legacy`, comprovando a mitigação.
+- `ordem-invertida.html` — CSS legado em camada posterior ao UI-NPA, comprovando a falha esperada de ordem.
 - `comparacao.html` — comparação lado a lado de componentes.
 - `pilot.js` — fluxos compartilhados de formulário, validação, mensagem, filtro e persistência.
 - `data.js` — dados fictícios compartilhados.

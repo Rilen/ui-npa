@@ -171,11 +171,11 @@ Responsivo: o wrapper rola quando a tabela atinge `size.table.min`.
 
 Implementado. Contrato obrigatório para navegação lateral aderente (IUI-009).
 
-A identidade institucional e o rodapé seguem [docs/identity.md](identity.md). O shell empilha a faixa, depois o corpo com sidebar e coluna principal.
+A identidade institucional e o rodapé seguem [docs/identity.md](identity.md). O shell empilha a faixa, depois o corpo com sidebar e coluna principal. A faixa deve ter um landmark nomeado (`role="region"` com `aria-label`, como no exemplo); a classe não cria landmark sozinha.
 
 ```html
 <div class="iui-shell">
-  <div class="iui-institution">
+  <div class="iui-institution" role="region" aria-label="Identificação institucional">
     <div data-iui-slot="municipality"><img data-iui-logo alt=""><span data-iui-label></span></div>
     <div data-iui-slot="department"><span data-iui-label></span><img data-iui-logo alt=""></div>
   </div>

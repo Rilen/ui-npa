@@ -11,6 +11,7 @@ Mapa mínimo de decisão:
 - [docs/architecture.md](docs/architecture.md) — artefatos, camadas e fluxo de build.
 - [docs/integration.md](docs/integration.md) — pacote local, entradas públicas, CSS legado e limites.
 - [docs/testing.md](docs/testing.md) — comandos, fixture isolada e o que não é automático.
+- [docs/operations/integration-runbook.md](docs/operations/integration-runbook.md) — adoção, camadas, validação e rollback.
 - [docs/audit/ui-npa-008.md](docs/audit/ui-npa-008.md) — auditoria e achados P0–P3 da maturação.
 - [docs/pilots/legacy-integration.md](docs/pilots/legacy-integration.md) — piloto A/B/C de convivência com legado.
 - [docs/versioning.md](docs/versioning.md) — SemVer e política de mudança.

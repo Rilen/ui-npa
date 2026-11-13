@@ -99,16 +99,16 @@ test("o tema escuro experimental troca o token de ação", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Ver requerimentos" })).toHaveCSS("background-color", "rgb(47, 88, 132)");
 });
 
-test("a demonstração não tem violações críticas ou graves do axe", async ({ page }) => {
+test("a demonstração não tem violações críticas, graves ou de região no axe", async ({ page }) => {
   const desktop = await new AxeBuilder({ page }).analyze();
-  const serious = desktop.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical");
-  expect(serious, JSON.stringify(serious, null, 2)).toEqual([]);
+  const desktopProblems = desktop.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical" || violation.id === "region");
+  expect(desktopProblems, JSON.stringify(desktopProblems, null, 2)).toEqual([]);
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole("button", { name: "Abrir menu" }).click();
   const mobile = await new AxeBuilder({ page }).analyze();
-  const mobileSerious = mobile.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical");
-  expect(mobileSerious, JSON.stringify(mobileSerious, null, 2)).toEqual([]);
+  const mobileProblems = mobile.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical" || violation.id === "region");
+  expect(mobileProblems, JSON.stringify(mobileProblems, null, 2)).toEqual([]);
 });
 
 test("regressão visual básica do painel", async ({ page }) => {

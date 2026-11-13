@@ -1,6 +1,6 @@
 # Arquitetura
 
-O UI-NPA `0.3.2` é um único projeto Node, privado, com os seguintes artefatos e fixtures:
+O UI-NPA `0.3.3` é um único projeto Node, privado, com os seguintes artefatos e fixtures:
 
 - `packages/tokens` — fonte DTCG com tema claro oficial e tema escuro experimental;
 - `packages/styles` — CSS universal e o comportamento da sidebar;
@@ -26,7 +26,7 @@ ui-npa/
 └── tests/
 ```
 
-O `package.json` publica `dist`, `README.md` e `CHANGELOG.md`; os exports `./styles.css`, `./tokens.css`, `./sidebar.js` e `./identity.js` apontam para o artefato instalado. O pacote é privado e a distribuição validada é local, por tarball. Ver [integration.md](integration.md) e [decisions/005-public-distribution.md](decisions/005-public-distribution.md).
+O `package.json` publica `dist`, `README.md` e `CHANGELOG.md`; os exports `./styles.css`, `./tokens.css`, `./sidebar.js` e `./identity.js` apontam para o artefato instalado. O pacote é privado e a distribuição validada é local, por tarball. O script `prepare` também gera `dist` em instalação Git com scripts habilitados; o tarball continua sendo o canal recomendado. Ver [integration.md](integration.md), [runbook](operations/integration-runbook.md) e [decisions/006-hardening-0.3.3.md](decisions/006-hardening-0.3.3.md).
 
 Não há `packages/react`, `packages/angular` nem `packages/php`. A interface futura desses consumidores está em [integration.md](integration.md).
 

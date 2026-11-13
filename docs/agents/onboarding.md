@@ -17,21 +17,22 @@ Esta página registra o percurso de um agente que entra sem contexto. A entrada 
 | Versionamento | [docs/versioning.md](../versioning.md) |
 | Migração de legado | [docs/agents/ui-npa-migration.md](ui-npa-migration.md) |
 | Consumo externo | [docs/integration.md](../integration.md) |
+| Runbook de integração | [docs/operations/integration-runbook.md](../operations/integration-runbook.md) |
 | Piloto legado A/B/C | [docs/pilots/legacy-integration.md](../pilots/legacy-integration.md) |
 | Limites conhecidos | [docs/limitations.md](../limitations.md) |
 
-## Lacunas encontradas e tratadas na UI-NPA-008
+## Lacunas encontradas e tratadas (UI-NPA-008 a 010)
 
-- A documentação de integração apontava para `packages/styles/index.css` e dizia que não havia pacote instalável. Agora descreve o tarball local, `dist` e os exports públicos.
+- A documentação de integração apontava para `packages/styles/index.css` e dizia que não havia pacote instalável. Agora descreve tarball local, clone Git com `prepare`, `dist` e exports públicos.
 - O caminho de importação da sidebar era interno. Agora é `ui-npa/sidebar.js`.
 - O `AGENTS.md` não listava arquitetura, testes, integração, versionamento e decisões. O mapa mínimo foi acrescentado.
 - Não havia fixture independente nem prova de instalação local. A fixture `tests/fixtures/consumer-vanilla` e os testes de consumidor cobrem o fluxo.
 - CSS legado sem camada podia sobrepor o pacote sem estar documentado. A regra de camadas, a fixture de conflito e a limitação foram registradas.
-- A versão `0.3.2` alinha manifesto e lock e adiciona distribuição local, exports e fixture. A divergência histórica `0.1.0` já havia sido corrigida na UI-NPA-007.
+- A versão `0.3.3` corrige a instalação Git, valida URLs de identidade, corrige o landmark da faixa e adiciona o runbook. A distribuição local veio em `0.3.1`; a divergência histórica `0.1.0` já havia sido corrigida na UI-NPA-007.
 
 ## Estado de suporte
 
-**Suportado por teste:** tarball local, `dist`, entradas `styles.css`, `sidebar.js` e `identity.js`, HTML nativo, ESM, sidebar, identidade, rodapé, tema claro, fixture, camada legada anterior e piloto A/B/C.
+**Suportado por teste:** tarball local, clone Git com `prepare`, `dist`, entradas `styles.css`, `sidebar.js` e `identity.js`, HTML nativo, ESM, sidebar, identidade, rodapé, tema claro, fixture, camada legada anterior e piloto A/B/C.
 
 **Experimental:** tema escuro; navegadores sem CSS Layers/Container Queries; CSS legado sem camada.
 
