@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--iui-space-1);
+  overflow-wrap: anywhere;
   padding: var(--iui-space-3) var(--iui-space-4);
 }
 

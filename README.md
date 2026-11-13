@@ -4,7 +4,7 @@ Design System institucional do Núcleo de Pesquisas Avançadas.
 
 Uma identidade. Um padrão. Múltiplos sistemas.
 
-Esta é a versão `0.3.3`. A paleta clara oficial é **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026. O tema escuro é experimental. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
+Esta é a versão `0.3.4`. A paleta clara oficial é **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026. O tema escuro é experimental. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
 
 ## Começar
 
@@ -46,6 +46,7 @@ A distribuição pública é o `dist`, com as entradas `ui-npa/styles.css`, `ui-
 | Pacote local, `dist` e fixture de consumidor | Implementado em 0.3.1 |
 | Piloto de integração legada A/B/C | Implementado em 0.3.2 |
 | Correções de distribuição, landmark, URLs e runbook | Implementado em 0.3.3 |
+| Hardening de zoom de texto a 400% | Implementado em 0.3.4 |
 | Governança IUI-001 a IUI-014 | Implementado |
 | Protocolo `ui-npa-migration` | Especificado, não executado |
 | Tema escuro | Experimental |
@@ -59,6 +60,7 @@ A distribuição pública é o `dist`, com as entradas `ui-npa/styles.css`, `ui-
 - Homologação da paleta: [docs/decisions/004-palette-homologation.md](https://github.com/Rilen/ui-npa/blob/main/docs/decisions/004-palette-homologation.md)
 - Distribuição pública: [docs/decisions/005-public-distribution.md](https://github.com/Rilen/ui-npa/blob/main/docs/decisions/005-public-distribution.md)
 - Hardening 0.3.3: [docs/decisions/006-hardening-0.3.3.md](https://github.com/Rilen/ui-npa/blob/main/docs/decisions/006-hardening-0.3.3.md)
+- Zoom de texto 0.3.4: [docs/decisions/007-text-zoom-hardening.md](https://github.com/Rilen/ui-npa/blob/main/docs/decisions/007-text-zoom-hardening.md)
 - Candidatos arquivados: [docs/decisions/003-palette-candidates.md](https://github.com/Rilen/ui-npa/blob/main/docs/decisions/003-palette-candidates.md) e [docs/archive/ui-npa-006](https://github.com/Rilen/ui-npa/blob/main/docs/archive/ui-npa-006)
 - Tokens: [docs/tokens.md](https://github.com/Rilen/ui-npa/blob/main/docs/tokens.md)
 - Histórico da paleta: [docs/palette.md](https://github.com/Rilen/ui-npa/blob/main/docs/palette.md)
@@ -73,7 +75,7 @@ A distribuição pública é o `dist`, com as entradas `ui-npa/styles.css`, `ui-
 - Runbook de integração: [docs/operations/integration-runbook.md](https://github.com/Rilen/ui-npa/blob/main/docs/operations/integration-runbook.md)
 - Auditoria UI-NPA-008: [docs/audit/ui-npa-008.md](https://github.com/Rilen/ui-npa/blob/main/docs/audit/ui-npa-008.md)
 - Piloto legado: [docs/pilots/legacy-integration.md](https://github.com/Rilen/ui-npa/blob/main/docs/pilots/legacy-integration.md)
-- Evidências visuais: [docs/evidence/ui-npa-009](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-009), com histórico em [UI-NPA-003](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-003), [UI-NPA-005](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-005), [UI-NPA-006](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-006), [UI-NPA-007](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-007) e [UI-NPA-008](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-008)
+- Evidências visuais: [docs/evidence/accessibility-text-zoom](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/accessibility-text-zoom), [UI-NPA-009](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-009), com histórico em [UI-NPA-003](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-003), [UI-NPA-005](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-005), [UI-NPA-006](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-006), [UI-NPA-007](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-007) e [UI-NPA-008](https://github.com/Rilen/ui-npa/blob/main/docs/evidence/ui-npa-008)
 - Versionamento: [docs/versioning.md](https://github.com/Rilen/ui-npa/blob/main/docs/versioning.md)
 - Limitações: [docs/limitations.md](https://github.com/Rilen/ui-npa/blob/main/docs/limitations.md)
 - Onboarding de agentes: [docs/agents/onboarding.md](https://github.com/Rilen/ui-npa/blob/main/docs/agents/onboarding.md)

@@ -14,6 +14,7 @@
   line-height: var(--iui-font-line-tight);
   max-width: 100%;
   min-height: var(--iui-size-control-md);
+  overflow-wrap: anywhere;
   padding: 0 var(--iui-space-4);
   text-decoration: none;
   transition:
@@ -27,9 +28,10 @@
 }
 
 .iui-button--icon {
+  min-height: clamp(40px, var(--iui-size-control-md), 48px);
   padding: 0;
   position: relative;
-  width: var(--iui-size-control-md);
+  width: clamp(40px, var(--iui-size-control-md), 48px);
 }
 
 .iui-button--primary {

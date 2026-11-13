@@ -6,7 +6,7 @@ A distribuição pública do UI-NPA é o conteúdo de `dist/`, gerado por `npm r
 
 ```bash
 npm pack
-npm install ./ui-npa-0.3.3.tgz
+npm install ./ui-npa-0.3.4.tgz
 ```
 
 O tarball contém somente `dist`, `README.md`, `CHANGELOG.md` e `package.json`. `examples`, `tests`, `docs`, `scripts` e o ZIP de evidências não entram no pacote.

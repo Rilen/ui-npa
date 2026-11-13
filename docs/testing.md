@@ -5,7 +5,7 @@
 | Comando | Ferramenta | Cobre |
 | --- | --- | --- |
 | `npm test` | `node:test` | Geração determinística, CSS canônico, valores da paleta oficial, ausência de mecanismos de candidatos, metadados de distribuição, `prepare`, fixture pública, alias cíclico, contraste no tema claro e no escuro, validação de URLs de identidade, prefixo, ausência de cor literal, governança documental, contrato da sidebar |
-| `npm run test:e2e` | Playwright e axe-core | Demonstração, pacote instalado, fixtures isoladas, piloto legado A/B/C, CSS legado em camada, sem camada e em ordem invertida, landmarks, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
+| `npm run test:e2e` | Playwright e axe-core | Demonstração, pacote instalado, fixtures isoladas, piloto legado A/B/C, CSS legado em camada, sem camada e em ordem invertida, landmarks, zoom apenas de texto a 400%, paleta oficial sem candidata, sidebar, teclado, foco, mobile, filtro, formulário, tema escuro, identidade, rodapé, grade de indicadores, faixa móvel, Sobre o sistema, reflow a 200%, violações graves, captura do painel |
 | `npm run prepare:consumer` | Node e npm | Gera o tarball, instala localmente e copia `dist` para a fixture isolada |
 | `npm run capture:screenshots` | Playwright | Evidências visuais da UI-NPA-003 em `docs/evidence/ui-npa-003`, sem comparação automática |
 | `npm run capture:screenshots:005` | Playwright | Evidências visuais da UI-NPA-005 em `docs/evidence/ui-npa-005`, sem comparação automática |
@@ -79,4 +79,4 @@ As imagens são evidência para revisão visual. Não são comparadas automatica
 
 ## Fora do automático
 
-Revisão humana de IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012. Percurso com leitor de tela. Validação em dispositivo físico. Reflow a 400% medido como viewport CSS de 320px; zoom apenas de texto a 400% não é suportado. Conformidade WCAG integral.
+Revisão humana de IUI-002, IUI-003, IUI-005, IUI-007, IUI-008, IUI-010, IUI-011 e IUI-012. Percurso com leitor de tela. Validação em dispositivo físico. Reflow a 400% medido como viewport CSS de 320px; zoom apenas de texto a 400% é coberto em 1440/390 pelo teste `text-zoom`. Conformidade WCAG integral.

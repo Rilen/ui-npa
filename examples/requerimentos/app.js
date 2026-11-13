@@ -43,7 +43,7 @@ applyInstitutionalIdentity(document.querySelector(".iui-shell"), {
   },
   designSystem: {
     name: "UI-NPA",
-    version: "0.3.3",
+    version: "0.3.4",
   },
 });
 

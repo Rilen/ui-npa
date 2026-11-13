@@ -23,7 +23,7 @@ Não iniciar sem um caminho de retorno para CSS, versão e dados.
 
 ```bash
 npm pack
-npm install ./ui-npa-0.3.3.tgz
+npm install ./ui-npa-0.3.4.tgz
 ```
 
 Verificar o SHA-256 do tarball recebido e confirmar que ele contém `dist/index.css`, `dist/tokens.css`, `dist/sidebar.js` e `dist/identity.js`. Não instalar por `file://` no navegador; use servidor HTTP.
@@ -36,7 +36,7 @@ O pacote declara `prepare`, que gera `dist` durante a instalação:
 npm install git+https://github.com/Rilen/ui-npa.git
 ```
 
-Não use `--ignore-scripts` nesse canal. Confirmar que `node_modules/ui-npa/dist/index.css` existe antes de importar. Políticas de `allow-scripts` também precisam aprovar o `prepare`; se isso não for possível, use o tarball. A publicação npm não é um canal desta fase. A verificação de 0.3.3 está em [evidências UI-NPA-010](../evidence/ui-npa-010).
+Não use `--ignore-scripts` nesse canal. Confirmar que `node_modules/ui-npa/dist/index.css` existe antes de importar. Políticas de `allow-scripts` também precisam aprovar o `prepare`; se isso não for possível, use o tarball. A publicação npm não é um canal desta fase. A verificação de 0.3.4 está em [evidências UI-NPA-010](../evidence/ui-npa-010).
 
 ### Importação
 
@@ -92,7 +92,7 @@ Executar no ambiente de piloto com dados fictícios:
 - tema claro oficial; tema escuro apenas como experimental;
 - versão exibida no rodapé e detalhes técnicos.
 
-Registrar `NOT_RUN` para leitor de tela real, dispositivo físico, zoom de texto extremo e navegador não disponível.
+Registrar `NOT_RUN` para leitor de tela real, dispositivo físico e auditoria manual de alvos. O zoom apenas de texto a 400% é coberto pelos fixtures em 1440/390; títulos podem usar elipse e tabelas mantêm rolagem interna.
 
 ## 6. Rollback
 

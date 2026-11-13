@@ -3,6 +3,7 @@
 .iui-text,
 .iui-metric {
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .iui-title {

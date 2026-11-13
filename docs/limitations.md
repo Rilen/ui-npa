@@ -17,7 +17,8 @@
 - A faixa institucional deve receber um landmark nomeado pela aplicação; a classe `iui-institution` não cria landmark sozinha.
 - URLs de identidade são confiáveis da aplicação; `logo` e `changelogUrl` têm validação de esquema, mas não substituem validação de negócio.
 - Chrome e Edge foram verificados; Firefox, WebKit/Safari e dispositivo físico permanecem `NOT_RUN`.
-- Reflow foi automatizado com texto a 200% em 390px e 320px. Reflow a 400% é coberto como viewport CSS de 320px; zoom apenas de texto a 400% não é suportado.
+- Reflow foi automatizado com texto a 200% em 390px e 320px. Zoom apenas de texto a 400% foi coberto em 1440/390 nos fixtures; títulos e identificações podem usar elipse. Reflow a 400% em viewport CSS de 320px permanece coberto.
+- Em zoom de texto a 400%, a tabela mantém rolagem horizontal interna; isso é intencional para preservar as colunas.
 - Não há família tipográfica própria nem ícones como pacote. Os ícones da demonstração são desenhos locais de traço.
 - As marcas da demonstração são desenhos fictícios e não representam órgão real.
 - React, Angular, PHP e Web Components não estão implementados.

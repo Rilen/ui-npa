@@ -28,7 +28,7 @@ Esta página registra o percurso de um agente que entra sem contexto. A entrada 
 - O `AGENTS.md` não listava arquitetura, testes, integração, versionamento e decisões. O mapa mínimo foi acrescentado.
 - Não havia fixture independente nem prova de instalação local. A fixture `tests/fixtures/consumer-vanilla` e os testes de consumidor cobrem o fluxo.
 - CSS legado sem camada podia sobrepor o pacote sem estar documentado. A regra de camadas, a fixture de conflito e a limitação foram registradas.
-- A versão `0.3.3` corrige a instalação Git, valida URLs de identidade, corrige o landmark da faixa e adiciona o runbook. A distribuição local veio em `0.3.1`; a divergência histórica `0.1.0` já havia sido corrigida na UI-NPA-007.
+- A versão `0.3.3` corrige a instalação Git, valida URLs de identidade, corrige o landmark da faixa e adiciona o runbook. A versão `0.3.4` reforça zoom apenas de texto a 400% e quebra de conteúdo. A distribuição local veio em `0.3.1`; a divergência histórica `0.1.0` já havia sido corrigida na UI-NPA-007.
 
 ## Estado de suporte
 

@@ -30,6 +30,7 @@
 .iui-institution__logo {
   flex: 0 0 auto;
   height: var(--iui-size-logo-md);
+  max-height: 48px;
   max-width: var(--iui-size-logo-max);
   object-fit: contain;
   width: auto;
@@ -78,5 +79,6 @@
 
   .iui-institution__logo {
     height: var(--iui-size-logo-sm);
+    max-height: 32px;
   }
 }

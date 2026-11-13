@@ -26,7 +26,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  min-height: 0;
+  min-height: calc(var(--iui-size-header) + var(--iui-size-institution) + var(--iui-space-6));
   overflow: auto;
 }
 
@@ -34,11 +34,13 @@
   align-items: center;
   background: var(--iui-color-surface-raised);
   border-bottom: var(--iui-border-width-hairline) solid var(--iui-color-border-subtle);
+  container-name: iui-header;
+  container-type: inline-size;
   display: flex;
   flex: none;
   gap: var(--iui-space-3);
   min-height: var(--iui-size-header);
-  padding-inline: var(--iui-space-4);
+  padding-inline: clamp(16px, var(--iui-space-4), 24px);
   z-index: var(--iui-z-header);
 }
 
@@ -52,6 +54,9 @@
 .iui-header__eyebrow,
 .iui-header__title {
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .iui-header__eyebrow {
@@ -62,6 +67,20 @@
 .iui-header__title {
   font-size: var(--iui-font-size-sm);
   font-weight: var(--iui-font-weight-semibold);
+}
+
+.iui-header .iui-badge {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@container iui-header (max-width: 18rem) {
+  .iui-header .iui-badge {
+    display: none;
+  }
 }
 
 .iui-shell__backdrop[hidden] {
@@ -80,7 +99,7 @@
   }
 
   .iui-header {
-    padding-inline: var(--iui-space-3);
+    padding-inline: clamp(12px, var(--iui-space-3), 16px);
   }
 }
 

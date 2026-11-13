@@ -232,6 +232,8 @@ Comportamento:
 - Com o painel móvel aberto, Tab permanece dentro da sidebar.
 - O conteúdo principal fica `inert` enquanto o painel móvel está aberto. O botão do cabeçalho continua disponível ao ponteiro.
 
+Em zoom apenas de texto elevado, o shell limita o crescimento de sidebar, ícones, logomarcas e padding, mantém um piso rolável para o conteúdo e permite quebra de textos longos; a tabela conserva rolagem horizontal interna. Ver [text zoom hardening](decisions/007-text-zoom-hardening.md).
+
 Tokens: `size.sidebar.*`, `color.nav.*`, `color.surface.overlay`, `z.sidebar`, `z.header`, `z.overlay`.
 
 Acessibilidade: o elemento de navegação tem nome. O item atual usa `aria-current="page"`. O botão de alternância tem nome que descreve a próxima ação. Ícones são `aria-hidden`.

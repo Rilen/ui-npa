@@ -8,7 +8,9 @@
   font-size: var(--iui-font-size-xs);
   font-weight: var(--iui-font-weight-semibold);
   line-height: var(--iui-font-line-tight);
+  max-width: 100%;
   min-height: var(--iui-space-6);
+  overflow-wrap: anywhere;
   padding: 0 var(--iui-space-2);
 }
 

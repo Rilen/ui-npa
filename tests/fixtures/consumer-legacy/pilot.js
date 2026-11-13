@@ -153,6 +153,6 @@ if (uiRegion) {
         },
       ],
     },
-    designSystem: { name: "UI-NPA", version: "0.3.3" },
+    designSystem: { name: "UI-NPA", version: "0.3.4" },
   });
 }

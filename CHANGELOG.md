@@ -2,6 +2,33 @@
 
 O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](https://github.com/Rilen/ui-npa/blob/main/docs/versioning.md).
 
+## [0.3.4] - 2026-11-13
+
+Hardening de acessibilidade para zoom apenas de texto a 400%. Correção local, sem alteração da paleta ou de contratos públicos.
+
+### Adicionado
+
+- Testes E2E de texto a 400% em 1440/390px, conteúdo visível, sem overflow horizontal de documento, conteúdo ou página.
+- Testes de navegação móvel e axe em texto a 400%.
+- Evidências antes/depois em `docs/evidence/accessibility-text-zoom`.
+
+### Corrigido
+
+- Textos, títulos, botões, badges, campos, alertas e metadados passam a quebrar palavras longas quando necessário.
+- Itens de stack, cluster, grid e cards podem encolher (`min-width: 0`).
+- Cabeçalho, títulos e badge preservam a faixa em zoom extremo; o badge é ocultado quando não há largura útil.
+- Sidebar, logomarcas e ícones têm limites de tamanho em zoom elevado.
+- Página, cabeçalho e link de salto limitam padding/largura para não criar overflow.
+- Rodapé e metadados quebram conteúdo longo.
+- Área de conteúdo mantém um piso visível e rolável quando o chrome cresce.
+
+### Limitações
+
+- Em zoom de texto a 400%, títulos e identificações institucionais podem ser truncados com elipse; o texto completo permanece no DOM e em Sobre.
+- Tabelas continuam com rolagem horizontal interna; isso é intencional.
+- Leitor de tela real, dispositivo físico, Firefox/WebKit e auditoria manual completa permanecem `NOT_RUN`.
+- Nenhum push, npm publish, release ou deploy nesta missão.
+
 ## [0.3.3] - 2026-11-13
 
 Maturação corretiva da prontidão institucional. Correções compatíveis e verificações adversariais, sem publicação npm, release, push ou deploy.

@@ -95,7 +95,7 @@ test("Sobre o sistema organiza identidade, aplicação e informações técnicas
   await expect(application.getByRole("link", { name: "Ver novidades" })).toHaveAttribute("href", "#changelog");
   await expect(technical.getByText("Desenvolvido por", { exact: true })).toBeVisible();
   await expect(technical.getByText("NPA", { exact: true })).toBeVisible();
-  await expect(technical.getByText("UI-NPA 0.3.3", { exact: true })).toBeVisible();
+  await expect(technical.getByText("UI-NPA 0.3.4", { exact: true })).toBeVisible();
   await expect(about.locator("img")).toHaveCount(0);
 
   const desktopTops = await about.locator("section").evaluateAll((sections) =>

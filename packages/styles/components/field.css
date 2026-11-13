@@ -9,6 +9,7 @@
   color: var(--iui-color-text-primary);
   font-size: var(--iui-font-size-sm);
   font-weight: var(--iui-font-weight-semibold);
+  overflow-wrap: anywhere;
 }
 
 .iui-field__control {
@@ -46,6 +47,7 @@ textarea.iui-field__control {
 .iui-field__error {
   font-size: var(--iui-font-size-xs);
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .iui-field__hint {

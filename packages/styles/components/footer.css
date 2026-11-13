@@ -16,6 +16,8 @@
 .iui-footer__credit {
   font-size: var(--iui-font-size-xs);
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .iui-footer__identity {
@@ -32,6 +34,11 @@
   font-weight: var(--iui-font-weight-regular);
 }
 
+.iui-footer__identity > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .iui-footer__links {
   display: flex;
   flex-wrap: wrap;
@@ -42,6 +49,7 @@
   color: var(--iui-color-text-brand);
   font-size: var(--iui-font-size-xs);
   font-weight: var(--iui-font-weight-semibold);
+  overflow-wrap: anywhere;
   text-decoration: none;
 }
 
@@ -59,16 +67,19 @@
   display: flex;
   flex-direction: column;
   gap: var(--iui-space-1);
+  min-width: 0;
 }
 
 .iui-meta dt {
   color: var(--iui-color-text-secondary);
   font-size: var(--iui-font-size-xs);
   font-weight: var(--iui-font-weight-semibold);
+  overflow-wrap: anywhere;
 }
 
 .iui-meta dd {
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 47.99rem) {
