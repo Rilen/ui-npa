@@ -1,9 +1,9 @@
 UI-NPA — instalação local do pacote
-Gerado em: 2026-11-13T00:33:26.471Z
+Gerado em: 2026-11-13T00:41:27.717Z
 Node: v24.13.0
 Pacote: ui-npa@0.3.1
 Tarball: ui-npa-0.3.1.tgz
-Tarball SHA-256: 6267ad5a6e6c72672a8c06f02db21f0aed465460889bca129637e109805a051d
+Tarball SHA-256: e5cc7843107d4f1b6227c5b6f97fcb7bc96336b58453ca302f272721d3c78276
 Comando de instalação: npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund <tarball>
 Status: PASS
 
