@@ -9,8 +9,8 @@ export default defineConfig({
   reporter: "list",
   webServer: {
     command: "node scripts/serve.mjs",
-    url: "http://127.0.0.1:4173/examples/requerimentos/",
-    reuseExistingServer: false,
+    url: "http://127.0.0.1:4174/examples/requerimentos/",
+    reuseExistingServer: true,
     timeout: 15000,
   },
   projects: [
@@ -18,7 +18,7 @@ export default defineConfig({
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
-        baseURL: "http://127.0.0.1:4173",
+        baseURL: "http://127.0.0.1:4174",
         viewport: { width: 1280, height: 800 },
         colorScheme: "light",
         reducedMotion: "reduce",

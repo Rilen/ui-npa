@@ -4,8 +4,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
-const port = Number(process.env.PORT || 4173);
+const port = Number(process.env.PORT || 4174);
 const host = "127.0.0.1";
+const prefix = process.env.PREFIX || "";
 const types = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -24,6 +25,15 @@ function send(response, status, body, type = "text/plain; charset=utf-8") {
     "X-Content-Type-Options": "nosniff",
   });
   response.end(body);
+}
+
+// Reescreve caminhos de recursos em HTML quando PREFIX está definido
+function rewriteHtmlPaths(body, pref) {
+  if (!pref) return body;
+  // Adiciona <base> tag no head para que URLs relativas sejam resolvidas corretamente
+  // O base href deve terminar com / e não conflitar com camais já existentes
+  const baseTag = `<base href="${pref}" />`;
+  return body.replace("<head>", `<head>${baseTag}`);
 }
 
 const server = http.createServer((request, response) => {
@@ -64,15 +74,28 @@ const server = http.createServer((request, response) => {
     return;
   }
 
-  const type = types[path.extname(filePath).toLowerCase()] || "application/octet-stream";
+  const type = path.extname(filePath).toLowerCase();
+  let contentType = types[type] || "application/octet-stream";
+  let body;
+
+  if (type === ".html") {
+    body = fs.readFileSync(filePath, "utf8");
+    // Aplica rewrite de caminhos se houver prefix
+    body = rewriteHtmlPaths(body, prefix);
+    contentType = "text/html; charset=utf-8";
+  } else {
+    body = fs.readFileSync(filePath);
+  }
+
   response.writeHead(200, {
-    "Content-Type": type,
+    "Content-Type": contentType,
     "Cache-Control": "no-store",
     "X-Content-Type-Options": "nosniff",
   });
-  fs.createReadStream(filePath).pipe(response);
+  fs.createReadStream(typeof body === "string" ? Buffer.from(body) : body).pipe(response);
 });
 
 server.listen(port, host, () => {
-  console.log(`UI-NPA em http://${host}:${port}/examples/requerimentos/`);
+  const displayPort = port !== 4173 ? `${port}` : `4173`;
+  console.log(`UI-NPA em http://${host}:${displayPort}/examples/requerimentos/ (prefix: "${prefix}")`);
 });
