@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const testPort = Number(process.env.E2E_PORT || 4174);
+const baseURL = `http://127.0.0.1:${testPort}`;
+
 export default defineConfig({
   testDir: "tests/e2e",
   fullyParallel: false,
@@ -9,8 +12,9 @@ export default defineConfig({
   reporter: "list",
   webServer: {
     command: "node scripts/serve.mjs",
-    url: "http://127.0.0.1:4174/examples/requerimentos/",
-    reuseExistingServer: true,
+    env: { PORT: String(testPort), PREFIX: "" },
+    url: `${baseURL}/examples/requerimentos/`,
+    reuseExistingServer: false,
     timeout: 15000,
   },
   projects: [
@@ -18,7 +22,7 @@ export default defineConfig({
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
-        baseURL: "http://127.0.0.1:4174",
+        baseURL,
         viewport: { width: 1280, height: 800 },
         colorScheme: "light",
         reducedMotion: "reduce",
