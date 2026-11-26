@@ -75,21 +75,28 @@ test("o consumidor isolado usa o pacote público e a paleta oficial", async ({ p
   expect(problems, JSON.stringify(problems, null, 2)).toEqual([]);
 });
 
-test("a sidebar do consumidor expande, recolhe e persiste", async ({ page }) => {
+test("a sidebar do consumidor percorre os três estados e persiste", async ({ page }) => {
   await page.goto(fixture);
   const sidebar = page.locator("#consumer-sidebar");
-  const toggle = page.getByRole("button", { name: "Recolher menu" });
   const expanded = await sidebar.boundingBox();
   expect(expanded.width).toBeGreaterThan(200);
+  await expect(page.getByRole("button", { name: "Compactar menu" })).toBeVisible();
 
-  await toggle.click();
-  await expect(page.getByRole("button", { name: "Expandir menu" })).toBeVisible();
+  await page.getByRole("button", { name: "Compactar menu" }).click();
+  await expect(page.getByRole("button", { name: "Ocultar menu" })).toBeVisible();
   expect((await sidebar.boundingBox()).width).toBeLessThan(100);
 
   await page.reload();
+  await expect(page.getByRole("button", { name: "Ocultar menu" })).toBeVisible();
   expect((await sidebar.boundingBox()).width).toBeLessThan(100);
+
+  await page.getByRole("button", { name: "Ocultar menu" }).click();
+  await expect(page.getByRole("button", { name: "Expandir menu" })).toBeVisible();
+  const hidden = await sidebar.boundingBox();
+  expect(hidden === null || hidden.width < 1).toBe(true);
+
   await page.getByRole("button", { name: "Expandir menu" }).click();
-  await expect(page.getByRole("button", { name: "Recolher menu" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Compactar menu" })).toBeVisible();
   expect((await sidebar.boundingBox()).width).toBeGreaterThan(200);
 });
 

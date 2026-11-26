@@ -2,7 +2,14 @@
  * Contrato da sidebar canônica.
  * A aplicação fornece o elemento, os controles e, se quiser, a persistência.
  * Não há autenticação, autorização nem rotas de um sistema consumidor.
+ *
+ * Estados de apresentação no desktop, cíclicos:
+ *   expanded → compact → hidden → expanded
+ * No mobile a navegação é um painel temporário (drawer) e não percorre os
+ * três estados; a preferência desktop é preservada e restaurada ao voltar.
  */
+const STATES = ["expanded", "compact", "hidden"];
+
 export function mountSidebar(sidebar, options = {}) {
   if (!sidebar || sidebar.nodeType !== 1) {
     throw new TypeError("mountSidebar espera o elemento da sidebar.");
@@ -19,33 +26,53 @@ export function mountSidebar(sidebar, options = {}) {
   const storage = options.storage ?? null;
   const media = window.matchMedia(options.mobileQuery || "(max-width: 47.99rem)");
   const label = toggle?.querySelector("[data-iui-toggle-label]") ?? null;
-  let collapsed = readCollapsed(storage);
+  let state = readState(storage);
 
   function render() {
     const mobile = media.matches;
     if (!mobile && shell) shell.dataset.open = "false";
     const open = mobile && shell?.dataset.open === "true";
-    sidebar.dataset.collapsed = collapsed ? "true" : "false";
+    sidebar.dataset.state = state;
+    // Mantém data-collapsed para compatibilidade com CSS e consumidores anteriores.
+    sidebar.dataset.collapsed = state === "compact" ? "true" : "false";
     if (shell) shell.dataset.mode = mobile ? "mobile" : "desktop";
-    const concealed = mobile && !open;
+    const concealed = mobile ? !open : state === "hidden";
     sidebar.inert = concealed;
     if (concealed) sidebar.setAttribute("aria-hidden", "true");
     else sidebar.removeAttribute("aria-hidden");
     if (content) content.inert = open;
     if (backdrop) backdrop.hidden = !open;
     if (!toggle) return;
-    const expanded = mobile ? open : !collapsed;
+    const expanded = mobile ? open : state !== "hidden";
     toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    // O ícone do controle acompanha o estado (ou o painel móvel).
+    toggle.dataset.state = mobile ? (open ? "expanded" : "hidden") : state;
     const text = mobile
       ? open ? "Fechar menu" : "Abrir menu"
-      : collapsed ? "Expandir menu" : "Recolher menu";
+      : state === "expanded" ? "Compactar menu"
+      : state === "compact" ? "Ocultar menu"
+      : "Expandir menu";
     if (label) label.textContent = text;
   }
 
-  function setCollapsed(next) {
-    collapsed = Boolean(next);
-    writeCollapsed(storage, collapsed);
+  function setState(next) {
+    state = STATES.includes(next) ? next : "expanded";
+    writeState(storage, state);
     render();
+    // Ao ocultar, se o foco estava dentro da sidebar, devolve ao controle.
+    if (state === "hidden" && !media.matches && sidebar.contains(document.activeElement)) {
+      toggle?.focus();
+    }
+  }
+
+  function cycle() {
+    const index = STATES.indexOf(state);
+    setState(STATES[(index + 1) % STATES.length]);
+  }
+
+  // Compatibilidade: contratos anteriores usavam "recolhido" (compacto).
+  function setCollapsed(next) {
+    setState(next ? "compact" : "expanded");
   }
 
   function setOpen(next) {
@@ -62,7 +89,7 @@ export function mountSidebar(sidebar, options = {}) {
 
   function onToggle() {
     if (media.matches) setOpen(shell?.dataset.open !== "true");
-    else setCollapsed(!collapsed);
+    else cycle();
   }
 
   function onClose() {
@@ -108,8 +135,11 @@ export function mountSidebar(sidebar, options = {}) {
   render();
 
   return {
+    setState,
+    cycle,
     setCollapsed,
-    isCollapsed: () => collapsed,
+    getState: () => state,
+    isCollapsed: () => state === "compact",
     destroy() {
       toggle?.removeEventListener("click", onToggle);
       closeButton?.removeEventListener("click", onClose);
@@ -122,19 +152,26 @@ export function mountSidebar(sidebar, options = {}) {
   };
 }
 
-function readCollapsed(storage) {
-  if (!storage || typeof storage.get !== "function") return false;
+function readState(storage) {
+  if (!storage || typeof storage.get !== "function") return "expanded";
+  let raw;
   try {
-    return storage.get() === "true";
+    raw = storage.get();
   } catch {
-    return false;
+    return "expanded";
   }
+  if (raw === "expanded" || raw === "compact" || raw === "hidden") return raw;
+  // Compatibilidade com preferências gravadas por versões anteriores (booleano).
+  if (raw === "true") return "compact";
+  if (raw === "false" || raw === null || raw === undefined) return "expanded";
+  // Valor inválido: volta ao padrão seguro.
+  return "expanded";
 }
 
-function writeCollapsed(storage, collapsed) {
+function writeState(storage, state) {
   if (!storage || typeof storage.set !== "function") return;
   try {
-    storage.set(collapsed ? "true" : "false");
+    storage.set(state);
   } catch {
     /* A preferência é opcional. A sidebar continua utilizável. */
   }

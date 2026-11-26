@@ -188,11 +188,14 @@ A identidade institucional e o rodapé seguem [docs/identity.md](identity.md). O
       </a>
     </nav>
     <div class="iui-shell__backdrop" hidden></div>
-    <div class="iui-shell__main">
-      <header class="iui-header">
-        <button class="iui-button iui-button--subtle iui-button--icon" type="button" data-iui-sidebar-toggle aria-controls="sidebar" aria-expanded="true">
-          <span class="iui-visually-hidden" data-iui-toggle-label>Recolher menu</span>
-        </button>
+      <div class="iui-shell__main">
+        <header class="iui-header">
+          <button class="iui-button iui-button--subtle iui-button--icon" type="button" data-iui-sidebar-toggle data-state="expanded" aria-controls="sidebar" aria-expanded="true">
+            <svg class="iui-icon iui-toggle-icon iui-toggle-icon--expanded" aria-hidden="true"></svg>
+            <svg class="iui-icon iui-toggle-icon iui-toggle-icon--compact" aria-hidden="true"></svg>
+            <svg class="iui-icon iui-toggle-icon iui-toggle-icon--hidden" aria-hidden="true"></svg>
+            <span class="iui-visually-hidden" data-iui-toggle-label>Compactar menu</span>
+          </button>
         <p class="iui-header__title" data-iui-app-name></p>
       </header>
       <div class="iui-shell__content"><main id="conteudo"></main></div>
@@ -222,15 +225,21 @@ mountSidebar(document.querySelector("#sidebar"), {
 });
 ```
 
-A persistência é opcional e a chave pertence à aplicação. Sem `storage`, a preferência dura apenas a visita.
+A persistência é opcional e a chave pertence à aplicação. Sem `storage`, a preferência dura apenas a visita. A preferência é um de três estados (`expanded`, `compact`, `hidden`); valores gravados por versões anteriores (`"true"`/`"false"`) são lidos como `compact`/`expanded`, e valores inválidos caem no padrão `expanded`.
 
 Comportamento:
 
-- Desktop, a partir de `48rem`: expandida ou recolhida. No estado recolhido o rótulo sai da vista, permanece no nome acessível e reaparece no hover e no foco.
-- Mobile, até `47.99rem`: a navegação fica fora da tela, `inert` e `aria-hidden` enquanto fechada, e abre como painel temporário abaixo da faixa institucional e do cabeçalho. O botão do cabeçalho passa a se chamar “Fechar menu”. Escape e o clique na cortina também fecham. Um botão interno opcional `[data-iui-sidebar-close]` pode existir, com nome que não repita o do cabeçalho. A preferência recolhida não substitui esse painel.
+- Desktop, a partir de `48rem`, a sidebar tem três estados cíclicos acionados por um único botão cujo ícone e rótulo acessível mudam conforme o estado:
+  - **Expandido**: ícones e textos, largura do token `size.sidebar.expanded`, ícone **X**, próxima ação “Compactar menu”.
+  - **Compacto**: somente ícones centralizados, largura do token `size.sidebar.collapsed`, ícone de **painel lateral**, rótulos acessíveis e tooltip no hover/foco, item atual mantido, próxima ação “Ocultar menu”.
+  - **Oculto**: a sidebar sai do fluxo (`display: none`), sem coluna, margem ou espaço residual, removida da navegação por teclado e da árvore acessível; o conteúdo ocupa toda a área útil; ícone **hamburger**, próxima ação “Expandir menu”.
+  - O ciclo é Expandido → Compacto → Oculto → Expandido.
+- Mobile, até `47.99rem`: a navegação fica fora da tela, `inert` e `aria-hidden` enquanto fechada, e abre como painel temporário abaixo da faixa institucional e do cabeçalho. O botão do cabeçalho passa a se chamar “Fechar menu”. Escape e o clique na cortina também fecham. Um botão interno opcional `[data-iui-sidebar-close]` pode existir, com nome que não repita o do cabeçalho. O mobile não percorre os três estados; a preferência desktop é preservada e restaurada ao voltar de uma resolução mobile.
 - Setas, Home e End movem o foco entre os links.
 - Com o painel móvel aberto, Tab permanece dentro da sidebar.
 - O conteúdo principal fica `inert` enquanto o painel móvel está aberto. O botão do cabeçalho continua disponível ao ponteiro.
+- Ao ocultar no desktop, se o foco estava dentro da sidebar, ele retorna ao botão de reabertura.
+- O ícone do botão é alternado por `data-state` no próprio botão (`expanded`, `compact`, `hidden`); cada ícone usa a classe `iui-toggle-icon--<estado>` e é `aria-hidden`.
 
 Em zoom apenas de texto elevado, o shell limita o crescimento de sidebar, ícones, logomarcas e padding, mantém um piso rolável para o conteúdo e permite quebra de textos longos; a tabela conserva rolagem horizontal interna. Ver [text zoom hardening](decisions/007-text-zoom-hardening.md).
 

@@ -97,6 +97,17 @@
   width: clamp(20px, var(--iui-size-icon), 24px);
 }
 
+/* Ícone do controle: um por estado, alternado por data-state no botão. */
+[data-iui-sidebar-toggle] .iui-toggle-icon {
+  display: none;
+}
+
+[data-iui-sidebar-toggle][data-state="expanded"] .iui-toggle-icon--expanded,
+[data-iui-sidebar-toggle][data-state="compact"] .iui-toggle-icon--compact,
+[data-iui-sidebar-toggle][data-state="hidden"] .iui-toggle-icon--hidden {
+  display: block;
+}
+
 @media (min-width: 48rem) {
   .iui-sidebar {
     height: 100%;
@@ -148,6 +159,11 @@
     transform: translateY(-50%);
     width: auto;
     z-index: var(--iui-z-header);
+  }
+
+  /* Oculto: remove a sidebar do fluxo, sem coluna, margem ou espaço residual. */
+  .iui-sidebar[data-state="hidden"] {
+    display: none;
   }
 }
 

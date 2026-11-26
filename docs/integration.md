@@ -60,6 +60,8 @@ mountSidebar(document.querySelector("#sidebar"), {
 
 Os módulos não acessam rede, sessão, roteador ou backend. A aplicação fornece os links, a identidade e, se quiser, a persistência da sidebar.
 
+A sidebar tem três estados cíclicos no desktop (expandido → compacto → oculto → expandido) acionados por um único botão. O consumidor deve incluir no botão `[data-iui-sidebar-toggle]` os três ícones `iui-toggle-icon--expanded`, `iui-toggle-icon--compact` e `iui-toggle-icon--hidden` (todos `aria-hidden`), além do rótulo acessível `[data-iui-toggle-label]`; o módulo alterna o ícone e o rótulo por `data-state`. A preferência desktop é persistida pela chave fornecida em `storage`, com compatibilidade com os valores anteriores (`"true"`/`"false"`). No mobile a navegação continua sendo um painel temporário e não percorre os três estados. Detalhes em [components.md](components.md#sidebar-e-shell).
+
 ## CSS legado e camadas
 
 O CSS canônico entra nas camadas `iui.tokens`, `iui.base`, `iui.components` e `iui.utilities`. Para preservar os componentes convivendo com CSS antigo, declare a ordem antes de carregar o pacote e coloque o CSS legado em uma camada anterior:

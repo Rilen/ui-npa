@@ -47,8 +47,8 @@ test("no mobile a secretaria permanece identificável e consultável em Sobre o 
   await expect(page.locator("#sobre")).toContainText("Secretaria Municipal de Exemplo");
 });
 
-test("a sidebar recolhida mantém a faixa institucional", async ({ page }) => {
-  await page.getByRole("button", { name: "Recolher menu" }).click();
+test("a sidebar compacta mantém a faixa institucional", async ({ page }) => {
+  await page.getByRole("button", { name: "Compactar menu" }).click();
   await expect(page.locator("[data-iui-slot='municipality'] [data-iui-label]")).toBeVisible();
   const sector = await page.locator("[data-iui-slot='sector']").boundingBox();
   expect(sector.width).toBeLessThan(80);
