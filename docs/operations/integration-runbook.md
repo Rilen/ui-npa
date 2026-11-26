@@ -23,7 +23,7 @@ Não iniciar sem um caminho de retorno para CSS, versão e dados.
 
 ```bash
 npm pack
-npm install ./ui-npa-0.3.4.tgz
+npm install ./ui-npa-0.4.0.tgz
 ```
 
 Verificar o SHA-256 do tarball recebido e confirmar que ele contém `dist/index.css`, `dist/tokens.css`, `dist/sidebar.js` e `dist/identity.js`. Não instalar por `file://` no navegador; use servidor HTTP.

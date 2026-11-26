@@ -4,7 +4,7 @@ Design System institucional do Núcleo de Pesquisas Avançadas.
 
 Uma identidade. Um padrão. Múltiplos sistemas.
 
-Esta é a versão `0.3.4`. A paleta clara oficial é **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026. O tema escuro é experimental. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
+Esta é a versão `0.4.0`. A paleta clara oficial é **Azul Institucional Equilibrado (alternativa A)**, homologada em 12/11/2026. O tema escuro é experimental. O projeto é privado, não publicado e não depende de outro sistema para funcionar.
 
 ## Começar
 

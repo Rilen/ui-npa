@@ -1,6 +1,6 @@
 # Arquitetura
 
-O UI-NPA `0.3.4` é um único projeto Node, privado, com os seguintes artefatos e fixtures:
+O UI-NPA `0.4.0` é um único projeto Node, privado, com os seguintes artefatos e fixtures:
 
 - `packages/tokens` — fonte DTCG com tema claro oficial e tema escuro experimental;
 - `packages/styles` — CSS universal e o comportamento da sidebar;
