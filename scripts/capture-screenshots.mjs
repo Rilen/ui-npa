@@ -18,7 +18,7 @@ const sets = {
         file: "02-desktop-collapsed.png",
         viewport: { width: 1440, height: 900 },
         prepare: async (page) => {
-          await page.getByRole("button", { name: "Recolher menu" }).click();
+          await page.getByRole("button", { name: "Compactar menu" }).click();
           await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.collapsed === "true");
         },
       },
@@ -46,7 +46,7 @@ const sets = {
         file: "02-desktop-collapsed.png",
         viewport: { width: 1440, height: 900 },
         prepare: async (page) => {
-          await page.getByRole("button", { name: "Recolher menu" }).click();
+          await page.getByRole("button", { name: "Compactar menu" }).click();
           await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.collapsed === "true");
         },
       },
@@ -66,7 +66,7 @@ const sets = {
         file: "02-desktop-collapsed.png",
         viewport: { width: 1440, height: 900 },
         prepare: async (page) => {
-          await page.getByRole("button", { name: "Recolher menu" }).click();
+          await page.getByRole("button", { name: "Compactar menu" }).click();
           await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.collapsed === "true");
         },
       },
@@ -103,7 +103,7 @@ const sets = {
         viewport: { width: 1440, height: 900 },
         url: "/tests/fixtures/consumer-vanilla/",
         prepare: async (page) => {
-          await page.getByRole("button", { name: "Recolher menu" }).click();
+          await page.getByRole("button", { name: "Compactar menu" }).click();
           await page.waitForFunction(() => document.querySelector("#consumer-sidebar")?.dataset.collapsed === "true");
         },
         element: ".iui-sidebar",
@@ -168,6 +168,53 @@ const sets = {
           await page.getByLabel("Filtrar protocolos").fill("Poda");
           await page.locator("[data-state-link='a']").click();
           await page.waitForURL("**/estado-a.html");
+        },
+      },
+    ],
+  },
+  "sidebar-states": {
+    output: "docs/evidence/ui-npa-sidebar-states",
+    captures: [
+      {
+        file: "01-desktop-expanded.png",
+        viewport: { width: 1440, height: 900 },
+        prepare: async (page) => {
+          await page.evaluate(() => localStorage.removeItem("ui-npa-demo-sidebar"));
+          await page.reload({ waitUntil: "networkidle" });
+          await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.state === "expanded");
+        },
+      },
+      {
+        file: "02-desktop-compact.png",
+        viewport: { width: 1440, height: 900 },
+        prepare: async (page) => {
+          await page.getByRole("button", { name: "Compactar menu" }).click();
+          await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.state === "compact");
+        },
+      },
+      {
+        file: "03-desktop-hidden.png",
+        viewport: { width: 1440, height: 900 },
+        prepare: async (page) => {
+          await page.getByRole("button", { name: "Compactar menu" }).click();
+          await page.getByRole("button", { name: "Ocultar menu" }).click();
+          await page.waitForFunction(() => document.querySelector("#sidebar")?.dataset.state === "hidden");
+        },
+      },
+      {
+        file: "04-mobile-closed.png",
+        viewport: { width: 390, height: 844 },
+        prepare: async (page) => {
+          await page.evaluate(() => localStorage.removeItem("ui-npa-demo-sidebar"));
+          await page.reload({ waitUntil: "networkidle" });
+        },
+      },
+      {
+        file: "05-mobile-open.png",
+        viewport: { width: 390, height: 844 },
+        prepare: async (page) => {
+          await page.getByRole("button", { name: "Abrir menu" }).click();
+          await page.waitForFunction(() => document.querySelector(".iui-shell")?.dataset.open === "true");
         },
       },
     ],

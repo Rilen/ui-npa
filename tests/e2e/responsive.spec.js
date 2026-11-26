@@ -21,7 +21,7 @@ test("a grade de indicadores usa quatro, duas e uma coluna conforme a área prin
   expect(await metricColumns(page)).toBe(4);
   expect(await hasHorizontalOverflow(page)).toBe(false);
 
-  await page.getByRole("button", { name: "Recolher menu" }).click();
+  await page.getByRole("button", { name: "Compactar menu" }).click();
   expect(await metricColumns(page)).toBe(4);
   expect(await hasHorizontalOverflow(page)).toBe(false);
 
@@ -29,6 +29,10 @@ test("a grade de indicadores usa quatro, duas e uma coluna conforme a área prin
   expect(await metricColumns(page)).toBe(2);
   expect(await hasHorizontalOverflow(page)).toBe(false);
 
+  // Compacto → Oculto expande a área útil (4 colunas) → Expandido volta a 2.
+  await page.getByRole("button", { name: "Ocultar menu" }).click();
+  expect(await metricColumns(page)).toBe(4);
+  expect(await hasHorizontalOverflow(page)).toBe(false);
   await page.getByRole("button", { name: "Expandir menu" }).click();
   expect(await metricColumns(page)).toBe(2);
   expect(await hasHorizontalOverflow(page)).toBe(false);

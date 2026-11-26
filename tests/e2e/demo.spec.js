@@ -10,29 +10,40 @@ test("a demonstração aplica o token primário", async ({ page }) => {
   await expect(button).toHaveCSS("background-color", "rgb(42, 75, 109)");
 });
 
-test("a sidebar recolhe, persiste e continua nomeada", async ({ page }) => {
+test("a sidebar percorre os três estados, persiste e continua nomeada", async ({ page }) => {
   const sidebar = page.locator("#sidebar");
-  const toggle = page.getByRole("button", { name: "Recolher menu" });
+  const painel = page.getByRole("link", { name: "Painel" });
   await expect(page.getByRole("button", { name: "Fechar menu" })).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Painel" })).toHaveAttribute("aria-current", "page");
+  await expect(painel).toHaveAttribute("aria-current", "page");
 
   const expanded = await sidebar.boundingBox();
   expect(expanded.width).toBeGreaterThan(200);
+  await expect(page.getByRole("button", { name: "Compactar menu" })).toHaveAttribute("aria-expanded", "true");
 
-  await toggle.click();
-  await expect(page.getByRole("button", { name: "Expandir menu" })).toHaveAttribute("aria-expanded", "false");
-  await expect(page.getByRole("link", { name: "Painel" })).toBeVisible();
-  const collapsed = await sidebar.boundingBox();
-  expect(collapsed.width).toBeLessThan(80);
+  // Expandido → Compacto: somente ícones, largura reduzida, item atual mantido.
+  await page.getByRole("button", { name: "Compactar menu" }).click();
+  await expect(page.getByRole("button", { name: "Ocultar menu" })).toHaveAttribute("aria-expanded", "true");
+  await expect(painel).toBeVisible();
+  const compact = await sidebar.boundingBox();
+  expect(compact.width).toBeLessThan(80);
 
+  // Persistência do estado compacto após recarregar.
   await page.reload();
-  await expect(page.getByRole("button", { name: "Expandir menu" })).toBeVisible();
-  const persisted = await page.locator("#sidebar").boundingBox();
-  expect(persisted.width).toBeLessThan(80);
+  await expect(page.getByRole("button", { name: "Ocultar menu" })).toBeVisible();
+  expect((await page.locator("#sidebar").boundingBox()).width).toBeLessThan(80);
 
+  // Compacto → Oculto: sai do fluxo, sem coluna residual, fora da árvore acessível.
+  await page.getByRole("button", { name: "Ocultar menu" }).click();
+  await expect(page.getByRole("button", { name: "Expandir menu" })).toHaveAttribute("aria-expanded", "false");
+  await expect(painel).toHaveCount(0);
+  const hidden = await sidebar.boundingBox();
+  expect(hidden === null || hidden.width < 1).toBe(true);
+
+  // Oculto → Expandido: restaura a largura e a navegação.
   await page.getByRole("button", { name: "Expandir menu" }).click();
   await page.reload();
-  await expect(page.getByRole("button", { name: "Recolher menu" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Compactar menu" })).toBeVisible();
+  expect((await page.locator("#sidebar").boundingBox()).width).toBeGreaterThan(200);
 });
 
 test("o teclado percorre a navegação e mantém foco visível", async ({ page }) => {

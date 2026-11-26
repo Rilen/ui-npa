@@ -48,11 +48,17 @@
 
         <div class="iui-shell__main">
           <header class="iui-header">
-            <button class="iui-button iui-button--subtle iui-button--icon" type="button" data-iui-sidebar-toggle aria-controls="consumer-sidebar" aria-expanded="true">
-              <svg class="iui-icon" viewBox="0 0 20 20" aria-hidden="true">
+            <button class="iui-button iui-button--subtle iui-button--icon" type="button" data-iui-sidebar-toggle data-state="expanded" aria-controls="consumer-sidebar" aria-expanded="true">
+              <svg class="iui-icon iui-toggle-icon iui-toggle-icon--expanded" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              </svg>
+              <svg class="iui-icon iui-toggle-icon iui-toggle-icon--compact" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M3 3h14v14H3zM8 3v14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+              </svg>
+              <svg class="iui-icon iui-toggle-icon iui-toggle-icon--hidden" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M3 5h14M3 10h14M3 15h14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
               </svg>
-              <span class="iui-visually-hidden" data-iui-toggle-label>Recolher menu</span>
+              <span class="iui-visually-hidden" data-iui-toggle-label>Compactar menu</span>
             </button>
             <div class="iui-header__titles">
               <span class="iui-header__title" data-iui-app-name></span>
