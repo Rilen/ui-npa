@@ -2,6 +2,30 @@
 
 O formato segue Keep a Changelog. As versões seguem SemVer, com a ressalva documentada em [docs/versioning.md](https://github.com/Rilen/ui-npa/blob/main/docs/versioning.md).
 
+## [0.4.0] - 2026-11-26
+
+Sidebar nativa com três estados de apresentação. Mudança compatível: o contrato anterior de dois estados (expandido/recolhido) continua válido; o estado recolhido passa a ser o estado compacto de um ciclo de três.
+
+### Adicionado
+
+- Terceiro estado da sidebar: **oculto**. Ciclo cíclico no desktop: expandido → compacto → oculto → expandido, acionado por um único botão cujo ícone (X, painel lateral, hamburger) e rótulo acessível mudam por `data-state`.
+- Estado compacto com somente ícones centralizados, tooltip acessível no hover/foco e item atual mantido.
+- Estado oculto remove a sidebar do fluxo (`display:none`), sem coluna, margem ou espaço residual, e a retira da navegação por teclado e da árvore acessível; o conteúdo ocupa a área útil.
+- Persistência da preferência desktop com compatibilidade com valores anteriores (`"true"`/`"false"`) e tolerância a valores inválidos.
+- Gerenciamento de foco ao ocultar (retorno ao botão de reabertura) e ícone/rótulo acessíveis coerentes por estado.
+- Cobertura E2E dos três estados, persistência, restauração, compatibilidade, teclado, foco, responsividade, texto a 400%, consumidor independente e regressão visual.
+- Evidências em `docs/evidence/ui-npa-sidebar-states`.
+
+### Compatibilidade
+
+- Consumidores com o markup original de ícone único continuam operáveis; apenas o rótulo acessível muda por estado.
+- No mobile a navegação permanece um painel temporário e não percorre os três estados; a preferência desktop é restaurada ao voltar de resolução mobile.
+
+### Limitações
+
+- Conformidade WCAG integral não declarada; revisão com leitor de tela e dispositivo físico permanece manual.
+- Tema escuro experimental inalterado.
+
 ## [0.3.4] - 2026-11-13
 
 Hardening de acessibilidade para zoom apenas de texto a 400%. Correção local, sem alteração da paleta ou de contratos públicos.
