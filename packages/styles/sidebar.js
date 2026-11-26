@@ -58,9 +58,12 @@ export function mountSidebar(sidebar, options = {}) {
   function setState(next) {
     state = STATES.includes(next) ? next : "expanded";
     writeState(storage, state);
+    // Captura o foco antes de render() aplicar inert/display:none, pois ao ocultar
+    // o elemento focado deixa de existir na árvore e o foco cairia no <body>.
+    const focusWasInside = !media.matches && sidebar.contains(document.activeElement);
     render();
-    // Ao ocultar, se o foco estava dentro da sidebar, devolve ao controle.
-    if (state === "hidden" && !media.matches && sidebar.contains(document.activeElement)) {
+    // Ao ocultar, devolve o foco ao botão de reabertura.
+    if (state === "hidden" && focusWasInside) {
       toggle?.focus();
     }
   }

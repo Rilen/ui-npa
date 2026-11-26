@@ -224,3 +224,76 @@ test("os três estados não introduzem violações axe graves no desktop", async
     await page.getByRole("button", { name: button }).click();
   }
 });
+
+test("13. foco dentro da sidebar retorna ao controle ao ocultar (antes de inert/display:none)", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(demo);
+  const painel = page.getByRole("link", { name: "Painel" });
+  await painel.focus();
+  await expect(painel).toBeFocused();
+
+  // Cliques programáticos não movem o foco; garantem que o foco estava dentro
+  // da sidebar no momento em que setState("hidden") é avaliado.
+  await page.evaluate(() => {
+    const button = document.querySelector("[data-iui-sidebar-toggle]");
+    button.click();
+    button.click();
+  });
+
+  await expect(page.locator("#sidebar")).toHaveAttribute("data-state", "hidden");
+  await expect(page.getByRole("button", { name: "Expandir menu" })).toBeFocused();
+});
+
+test("14. ícones e rótulos acessíveis permanecem coerentes em todos os estados", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(demo);
+  const toggle = page.locator("[data-iui-sidebar-toggle]");
+
+  const visibleIcon = () =>
+    page.evaluate(() => {
+      const button = document.querySelector("[data-iui-sidebar-toggle]");
+      const shown = [...button.querySelectorAll(".iui-toggle-icon")].filter(
+        (element) => getComputedStyle(element).display !== "none",
+      );
+      return shown.map((element) => element.getAttribute("class"));
+    });
+
+  await expect(toggle).toHaveAttribute("data-state", "expanded");
+  await expect(page.getByRole("button", { name: "Compactar menu" })).toHaveAttribute("aria-expanded", "true");
+  expect((await visibleIcon()).join(" ")).toContain("iui-toggle-icon--expanded");
+
+  await page.getByRole("button", { name: "Compactar menu" }).click();
+  await expect(toggle).toHaveAttribute("data-state", "compact");
+  await expect(page.getByRole("button", { name: "Ocultar menu" })).toHaveAttribute("aria-expanded", "true");
+  expect((await visibleIcon()).join(" ")).toContain("iui-toggle-icon--compact");
+
+  await page.getByRole("button", { name: "Ocultar menu" }).click();
+  await expect(toggle).toHaveAttribute("data-state", "hidden");
+  await expect(page.getByRole("button", { name: "Expandir menu" })).toHaveAttribute("aria-expanded", "false");
+  expect((await visibleIcon()).join(" ")).toContain("iui-toggle-icon--hidden");
+});
+
+test("15. consumidor legado com ícone único continua operável nos três estados", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(`${consumer}legacy-toggle.html`);
+  const sidebar = page.locator("#legacy-sidebar");
+  const icon = page.locator("[data-iui-sidebar-toggle] svg.iui-icon");
+
+  // O ícone único (sem classes iui-toggle-icon) permanece visível em todos os estados.
+  await expect(icon).toBeVisible();
+  await expect(page.getByRole("button", { name: "Compactar menu" })).toBeVisible();
+  await page.getByRole("button", { name: "Compactar menu" }).click();
+  await expect(sidebar).toHaveAttribute("data-state", "compact");
+  await expect(icon).toBeVisible();
+  await expect(page.getByRole("button", { name: "Ocultar menu" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Ocultar menu" }).click();
+  await expect(sidebar).toHaveAttribute("data-state", "hidden");
+  await expect(icon).toBeVisible();
+  await expect(page.getByRole("button", { name: "Expandir menu" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Expandir menu" }).click();
+  await expect(sidebar).toHaveAttribute("data-state", "expanded");
+  await expect(icon).toBeVisible();
+  await expect(page.getByRole("button", { name: "Compactar menu" })).toBeVisible();
+});
